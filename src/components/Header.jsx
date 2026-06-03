@@ -1,22 +1,35 @@
 import { useState, useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
+import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
 import SearchModal from './SearchModal'
+import Tooltip from './Tooltip'
 
 function Header() {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const [showSearch, setShowSearch] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const searchBtnRef = useMouseGlow()
   const hamburgerRef = useMouseGlow()
 
+  useKeyboardShortcuts({
+    goHome: () => navigate('/'),
+    goProjects: () => navigate('/projetos'),
+    goExperiences: () => navigate('/experiencias'),
+    goContact: () => navigate('/contato'),
+    openSearch: () => setShowSearch(true),
+    toggleTheme: () => document.querySelector('.theme-toggle')?.click(),
+  })
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false)
   }, [location.pathname])
 
@@ -62,22 +75,30 @@ function Header() {
       </nav>
 
       <div className="header-actions">
-        <button ref={searchBtnRef} className="header-search-btn btn-glow" onClick={() => setShowSearch(true)} aria-label="Search">
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
+        <Tooltip text={`${t('search.placeholder')} (Ctrl+K)`}>
+          <button ref={searchBtnRef} className="header-search-btn btn-glow" onClick={() => setShowSearch(true)} aria-label="Search">
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
+        </Tooltip>
         <div className="header-actions-desktop">
-          <LanguageToggle />
-          <ThemeToggle />
+          <Tooltip text="Idioma / Language">
+            <span><LanguageToggle /></span>
+          </Tooltip>
+          <Tooltip text="Alternar tema (Ctrl+B)">
+            <span><ThemeToggle /></span>
+          </Tooltip>
         </div>
-        <button
-          ref={hamburgerRef}
-          className="hamburger btn-glow"
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label="Menu"
-          aria-expanded={menuOpen}
-        >
-          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
-        </button>
+        <Tooltip text={menuOpen ? 'Fechar menu' : 'Menu'}>
+          <button
+            ref={hamburgerRef}
+            className="hamburger btn-glow"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+          >
+            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+          </button>
+        </Tooltip>
       </div>
 
       {menuOpen && <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />}
