@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
@@ -7,6 +7,10 @@ import { faEye, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import CVModal from '../components/CVModal'
+import Typewriter from '../components/Typewriter'
+import Skills from '../components/Skills'
+
+const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/`~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
 const stagger = {
   animate: {
@@ -27,6 +31,41 @@ function Home() {
   const contactRef = useMouseGlow()
   const projectsRef = useMouseGlow()
   const experiencesRef = useMouseGlow()
+
+  const targetName = t('home.name')
+  const [displayName, setDisplayName] = useState(targetName)
+  const decryptTimer = useRef(null)
+
+  const handleDecrypt = useCallback(() => {
+    if (decryptTimer.current) clearInterval(decryptTimer.current)
+    let iteration = 0
+    const maxIterations = targetName.length + 6
+
+    decryptTimer.current = setInterval(() => {
+      setDisplayName(
+        targetName
+          .split('')
+          .map((char, i) =>
+            i < iteration ? targetName[i] : chars[Math.floor(Math.random() * chars.length)]
+          )
+          .join('')
+      )
+      iteration++
+      if (iteration >= maxIterations) {
+        clearInterval(decryptTimer.current)
+        decryptTimer.current = null
+        setDisplayName(targetName)
+      }
+    }, 45)
+  }, [targetName])
+
+  const handleReset = useCallback(() => {
+    if (decryptTimer.current) {
+      clearInterval(decryptTimer.current)
+      decryptTimer.current = null
+    }
+    setDisplayName(targetName)
+  }, [targetName])
 
   return (
     <>
@@ -79,8 +118,17 @@ function Home() {
             initial="initial"
             animate="animate"
           >
-            <motion.h1 className="home-name" variants={fadeUp}>{t('home.name')}</motion.h1>
-            <motion.p className="home-title text-muted" variants={fadeUp}>{t('home.title')}</motion.p>
+            <motion.h1
+              className="home-name"
+              variants={fadeUp}
+              onMouseEnter={handleDecrypt}
+              onMouseLeave={handleReset}
+            >
+              {displayName}
+            </motion.h1>
+            <motion.p className="home-title text-muted" variants={fadeUp}>
+              <Typewriter words={['Backend Developer', 'Fullstack Developer']} />
+            </motion.p>
             <motion.p className="home-bio text-muted" variants={fadeUp}>{t('home.bio')}</motion.p>
             <motion.div className="home-ctas" variants={fadeUp}>
               <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
@@ -89,6 +137,8 @@ function Home() {
             </motion.div>
           </motion.div>
         </div>
+
+        <Skills />
       </section>
     </>
   )
