@@ -13,6 +13,15 @@
   "home.experiences_cta": "Experiências",
   "home.contact_cta": "Entre em contato",
 
+  "about.title": "Sobre Mim",
+  "about.text": "Desenvolvedor backend focado em Java e Spring Boot, com experiência em construção de sistemas robustos, integração REST/SOAP e automação de processos. Atualmente estagiário de Sustentação na Edi-Labs, atuando com soluções MFT (Axway SecureTransport). Cursando Análise e Desenvolvimento de Sistemas na FATEC Ipiranga, busco oportunidades onde possa aplicar e expandir meus conhecimentos em arquitetura de software, APIs e boas práticas de desenvolvimento.",
+  "about.text_secondary": "No tempo livre, gosto de explorar novas tecnologias, jogar games, maratonar animes e séries, e contribuir com projetos open source.",
+  "about.fact_education": "FATEC Ipiranga — ADS (2023-2026)",
+  "about.fact_job": "Estagiário de Sustentação @ Edi-Labs",
+  "about.fact_location": "São Paulo, SP",
+  "about.fact_cert": "Scrum (SFC)",
+  "about.fact_langs": "PT (Nativo) · EN (Avançado) · ES (Básico)",
+
   "skills.title": "Skills",
   "projects.title": "Projetos",
   "projects.all": "Todos",

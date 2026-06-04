@@ -8,6 +8,7 @@ import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import CVModal from '../components/CVModal'
 import Typewriter from '../components/Typewriter'
+import AboutMe from '../components/AboutMe'
 
 const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/`~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
@@ -132,7 +133,6 @@ function Home() {
             <motion.p className="home-title text-muted" variants={fadeUp}>
               <Typewriter words={['Backend Developer', 'Fullstack Developer']} />
             </motion.p>
-            <motion.p className="home-bio text-muted" variants={fadeUp}>{t('home.bio')}</motion.p>
             <motion.div className="home-ctas" variants={fadeUp}>
               <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
               <Link ref={projectsRef} to="/projetos" className="btn btn-secondary btn-glow">{t('home.projects_cta')} &rarr;</Link>
@@ -141,6 +141,8 @@ function Home() {
           </motion.div>
         </div>
       </section>
+
+      <AboutMe />
     </>
   )
 }

@@ -13,6 +13,15 @@
   "home.experiences_cta": "Experiencia",
   "home.contact_cta": "Contáctame",
 
+  "about.title": "Sobre Mí",
+  "about.text": "Desarrollador backend enfocado en Java y Spring Boot, con experiencia en construcción de sistemas robustos, integración REST/SOAP y automatización de procesos. Actualmente pasante de Soporte en Edi-Labs, trabajando con soluciones MFT (Axway SecureTransport). Cursando Análisis y Desarrollo de Sistemas en FATEC Ipiranga, busco oportunidades para aplicar y expandir mis conocimientos en arquitectura de software, APIs y buenas prácticas de desarrollo.",
+  "about.text_secondary": "En mi tiempo libre, me gusta explorar nuevas tecnologías, jugar videojuegos, ver animes y series, y contribuir a proyectos open source.",
+  "about.fact_education": "FATEC Ipiranga — ADS (2023-2026)",
+  "about.fact_job": "Pasante de Soporte @ Edi-Labs",
+  "about.fact_location": "São Paulo, SP",
+  "about.fact_cert": "Scrum (SFC)",
+  "about.fact_langs": "PT (Nativo) · EN (Avanzado) · ES (Básico)",
+
   "skills.title": "Skills",
   "projects.title": "Proyectos",
   "projects.all": "Todos",
