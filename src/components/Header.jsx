@@ -8,7 +8,7 @@ import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
 import SearchModal from './SearchModal'
-import Tooltip from './Tooltip'
+
 
 function Header() {
   const { t } = useLanguage()
@@ -84,30 +84,22 @@ function Header() {
       </nav>
 
       <div className="header-actions">
-        <Tooltip text={`${t('search.placeholder')} (Ctrl+K)`}>
-          <button ref={searchBtnRef} className="header-search-btn btn-glow" onClick={() => setShowSearch(true)} aria-label="Search">
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </Tooltip>
+        <button ref={searchBtnRef} className="header-search-btn btn-glow" onClick={() => setShowSearch(true)} aria-label="Search">
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
         <div className="header-actions-desktop">
-          <Tooltip text="Idioma / Language">
-            <span><LanguageToggle /></span>
-          </Tooltip>
-          <Tooltip text="Alternar tema (Ctrl+B)">
-            <span><ThemeToggle /></span>
-          </Tooltip>
+          <span><LanguageToggle /></span>
+          <span><ThemeToggle /></span>
         </div>
-        <Tooltip text={menuOpen ? 'Fechar menu' : 'Menu'}>
-          <button
-            ref={hamburgerRef}
-            className="hamburger btn-glow"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Menu"
-            aria-expanded={menuOpen}
-          >
-            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
-          </button>
-        </Tooltip>
+        <button
+          ref={hamburgerRef}
+          className="hamburger btn-glow"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label="Menu"
+          aria-expanded={menuOpen}
+        >
+          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+        </button>
       </div>
 
       {menuOpen && <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />}
