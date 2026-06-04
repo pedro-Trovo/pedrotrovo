@@ -22,6 +22,7 @@ export const skillsCategories = [
       { name: 'Flask', icon: 'flask.svg', url: 'https://flask.palletsprojects.com/' },
       { name: 'Node.js', icon: 'nodejs.svg', url: 'https://nodejs.org/' },
       { name: 'Express', icon: 'express.svg', url: 'https://expressjs.com/' },
+      { name: 'Axios', url: 'https://axios-http.com/' },
     ],
   },
   {
@@ -54,6 +55,7 @@ export const skillsCategories = [
       { name: 'Vite.js', icon: 'vite.svg', url: 'https://vitejs.dev/' },
       { name: 'Electron', icon: 'electron.svg', url: 'https://www.electronjs.org/' },
       { name: 'CMake', icon: 'cmake.svg', url: 'https://cmake.org/' },
+      { name: 'Jira', icon: 'jira.svg', url: 'https://www.atlassian.com/software/jira' },
     ],
   },
   {
@@ -78,7 +80,7 @@ export const skillsCategories = [
     title: 'Software Engineering',
     emoji: '📐',
     items: [
-      { name: 'UML', url: 'https://en.wikipedia.org/wiki/Unified_Modeling_Language' },
+      { name: 'UML', icon: 'uml.svg', url: 'https://en.wikipedia.org/wiki/Unified_Modeling_Language' },
       { name: 'Scrum (SFC)', url: 'https://www.scrumstudy.com/' },
     ],
   },
