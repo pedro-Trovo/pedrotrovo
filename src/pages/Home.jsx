@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
@@ -36,7 +36,7 @@ function Home() {
   const [displayName, setDisplayName] = useState(targetName)
   const decryptTimer = useRef(null)
 
-  const handleDecrypt = useCallback(() => {
+  const runDecrypt = useCallback(() => {
     if (decryptTimer.current) clearInterval(decryptTimer.current)
     let iteration = 0
     const maxIterations = targetName.length + 6
@@ -59,13 +59,17 @@ function Home() {
     }, 45)
   }, [targetName])
 
-  const handleReset = useCallback(() => {
+  const resetName = useCallback(() => {
     if (decryptTimer.current) {
       clearInterval(decryptTimer.current)
       decryptTimer.current = null
     }
     setDisplayName(targetName)
   }, [targetName])
+
+  useEffect(() => {
+    runDecrypt()
+  }, [runDecrypt])
 
   return (
     <>
@@ -121,8 +125,8 @@ function Home() {
             <motion.h1
               className="home-name"
               variants={fadeUp}
-              onMouseEnter={handleDecrypt}
-              onMouseLeave={handleReset}
+              onMouseEnter={runDecrypt}
+              onMouseLeave={resetName}
             >
               {displayName}
             </motion.h1>
@@ -137,9 +141,9 @@ function Home() {
             </motion.div>
           </motion.div>
         </div>
-
-        <Skills />
       </section>
+
+      <Skills />
     </>
   )
 }
