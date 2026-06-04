@@ -50,8 +50,6 @@ export const skillsCategories = [
       { name: 'Docker', icon: 'docker.svg', url: 'https://www.docker.com/' },
       { name: 'Git', icon: 'git.svg', url: 'https://git-scm.com/' },
       { name: 'GitHub', icon: 'github.svg', url: 'https://github.com/' },
-      { name: 'npm', icon: 'npm.svg', url: 'https://www.npmjs.com/' },
-      { name: 'pip', url: 'https://pypi.org/project/pip/' },
       { name: 'Vite.js', icon: 'vite.svg', url: 'https://vitejs.dev/' },
       { name: 'Electron', icon: 'electron.svg', url: 'https://www.electronjs.org/' },
       { name: 'CMake', icon: 'cmake.svg', url: 'https://cmake.org/' },
