@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 790.28308 1000"
+   width="790.28308"
+   height="1000"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="ProtonMail_1.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title616">Proton Mail</title>
+  <sodipodi:namedview
+     id="namedview20"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.46"
+     inkscape:cx="395.65217"
+     inkscape:cy="500"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg18" />
+  <g
+     id="g328"
+     transform="matrix(1.5890899,0,0,1.5890899,-0.30664861,-1.5445954)">
+    <path
+       fill="url(#a)"
+       d="M 0.193,466.389 V 630.263 H 115.08 V 473.48 a 57.55,57.55 0 0 1 16.824,-40.668 57.41,57.41 0 0 1 40.619,-16.846 h 117.798 c 54.953,-0.016 107.65,-21.884 146.504,-60.793 38.853,-38.91 60.681,-91.676 60.686,-146.696 0,-55.028 -21.832,-107.803 -60.692,-146.717 C 397.958,22.846 345.251,0.98 290.29,0.972 H 0.193 V 205.814 H 115.08 v -96.575 h 167.467 a 98,98 0 0 1 69.329,28.746 98.24,98.24 0 0 1 28.733,69.405 98.242,98.242 0 0 1 -28.721,69.425 98.004,98.004 0 0 1 -69.341,28.757 H 160.798 a 160.372,160.372 0 0 0 -61.477,12.221 160.515,160.515 0 0 0 -52.116,34.859 160.737,160.737 0 0 0 -34.812,52.184 160.892,160.892 0 0 0 -12.2,61.553 z"
+       id="path2"
+       style="fill:url(#a)" />
+    <path
+       fill="url(#b)"
+       d="M 172.491,415.966 A 172.21,172.21 0 0 0 50.663,466.498 C 18.35,498.848 0.197,542.724 0.193,588.475 v 41.788 H 115.08 V 473.48 a 57.548,57.548 0 0 1 16.813,-40.657 57.411,57.411 0 0 1 40.598,-16.857 z"
+       id="path4"
+       style="fill:url(#b)" />
+  </g>
+  <defs
+     id="defs16">
+    <radialGradient
+       id="a"
+       cx="0"
+       cy="0"
+       r="1"
+       gradientTransform="matrix(632.616,0,0,633.388,499.32,-86.401)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#2DD4BF"
+         id="stop6" />
+      <stop
+         offset="1"
+         stop-color="#0F172A"
+         id="stop8" />
+    </radialGradient>
+    <linearGradient
+       id="b"
+       x1="86.342003"
+       x2="86.342003"
+       y1="599.26898"
+       y2="358.46899"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#0D9488"
+         id="stop11" />
+      <stop
+         offset="1"
+         stop-color="#0F172A"
+         id="stop13" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata614">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Proton Mail</rdf:li>
+            <rdf:li>Logo</rdf:li>
+            <rdf:li>Logotipo</rdf:li>
+            <rdf:li>Icon</rdf:li>
+            <rdf:li>Ícono</rdf:li>
+            <rdf:li>Isotype</rdf:li>
+            <rdf:li>Isotipo</rdf:li>
+            <rdf:li>SVG</rdf:li>
+            <rdf:li>Vector</rdf:li>
+            <rdf:li>Scalable</rdf:li>
+            <rdf:li>Escalable</rdf:li>
+            <rdf:li>Proton AG</rdf:li>
+            <rdf:li>Open source</rdf:li>
+            <rdf:li>Código abierto</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:title>Proton Mail</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

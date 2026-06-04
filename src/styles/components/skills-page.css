@@ -71,12 +71,8 @@
 }
 
 .skills-page-tech img {
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s;
-}
-
-.light .skills-page-tech img {
-  filter: brightness(0);
+  color: var(--color-text-primary);
+  transition: color 0.3s;
 }
 
 .skills-page-tech-name:hover {
