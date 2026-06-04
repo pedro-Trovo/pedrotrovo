@@ -70,9 +70,13 @@
   transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 
-.dark .skills-page-tech img {
-  filter: brightness(1.15) saturate(0.75);
+.skills-page-tech img {
+  filter: brightness(0) invert(1);
   transition: filter 0.3s;
+}
+
+.light .skills-page-tech img {
+  filter: brightness(0);
 }
 
 .skills-page-tech-name:hover {
