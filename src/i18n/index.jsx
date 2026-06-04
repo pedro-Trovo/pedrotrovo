@@ -2,8 +2,9 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import pt from './pt.json'
 import en from './en.json'
 import es from './es.json'
+import it from './it.json'
 
-const translations = { pt, en, es }
+const translations = { pt, en, es, it }
 
 const LanguageContext = createContext()
 
