@@ -22,7 +22,7 @@ export const skillsCategories = [
       { name: 'Flask', icon: 'flask.svg', url: 'https://flask.palletsprojects.com/' },
       { name: 'Node.js', icon: 'nodejs.svg', url: 'https://nodejs.org/' },
       { name: 'Express', icon: 'express.svg', url: 'https://expressjs.com/' },
-      { name: 'Axios', url: 'https://axios-http.com/' },
+      { name: 'Axios', icon: 'axios.svg', url: 'https://axios-http.com/' },
     ],
   },
   {
