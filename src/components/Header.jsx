@@ -18,6 +18,13 @@ function Header() {
   const location = useLocation()
   const searchBtnRef = useMouseGlow()
   const hamburgerRef = useMouseGlow()
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useKeyboardShortcuts({
     goHome: () => navigate('/'),
@@ -44,7 +51,7 @@ function Header() {
   }, [menuOpen])
 
   return (
-    <header className="header">
+    <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <NavLink to="/" className="logo-link" aria-label="Pedro Trovo — Home">
         <svg width="24" height="28" viewBox="0 0 790 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
