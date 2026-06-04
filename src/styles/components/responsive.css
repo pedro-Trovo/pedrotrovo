@@ -21,8 +21,12 @@
   }
 
   .home-hero {
-    grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .home-middle {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     text-align: center;
   }
 
@@ -33,16 +37,18 @@
 
   .home-name {
     font-size: 2rem;
-    text-align: center;
   }
 
-  .home-bio {
-    max-width: 100%;
-    text-align: center;
+  .home-bio-text {
+    text-align: left;
   }
 
   .home-ctas {
     justify-content: center;
+  }
+
+  .home-social {
+    margin-top: 0;
   }
 
   .projects-grid {
@@ -119,6 +125,10 @@
   }
 
   .home-hero {
+    gap: 2.5rem;
+  }
+
+  .home-middle {
     gap: 2.5rem;
   }
 

@@ -9,7 +9,6 @@ import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import CVModal from '../components/CVModal'
 import Typewriter from '../components/Typewriter'
-import AboutMe from '../components/AboutMe'
 
 const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/`~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
@@ -98,27 +97,7 @@ function Home() {
       <section className="page home">
         <div className="home-hero">
           <motion.div
-            className="home-photo-col"
-            variants={stagger}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.div className="home-photo" variants={fadeUp}>
-              <img src="/profile/161767490.png" alt="Pedro Trovo" className="home-photo-img" />
-            </motion.div>
-            <motion.div className="home-cv-buttons" variants={fadeUp}>
-              <button ref={cvRef} onClick={() => setShowCV(true)} className="btn btn-primary btn-glow btn-glow-white">
-                <FontAwesomeIcon icon={faEye} /> {t('home.cv_download')}
-              </button>
-              <a ref={downloadRef} href="/cv.pdf" download className="btn btn-secondary btn-glow" title="Download PDF">
-                <FontAwesomeIcon icon={faDownload} />
-              </a>
-            </motion.div>
-            <CVModal open={showCV} onClose={() => setShowCV(false)} />
-          </motion.div>
-
-          <motion.div
-            className="home-info"
+            className="home-top"
             variants={stagger}
             initial="initial"
             animate="animate"
@@ -134,27 +113,88 @@ function Home() {
             <motion.p className="home-title text-muted" variants={fadeUp}>
               <Typewriter words={['Backend Developer', 'Fullstack Developer']} />
             </motion.p>
-            <motion.div className="home-ctas" variants={fadeUp}>
+          </motion.div>
+
+          <motion.div
+            className="home-middle"
+            variants={stagger}
+            initial="initial"
+            animate="animate"
+          >
+            <motion.div className="home-photo-col" variants={fadeUp}>
+              <div className="home-photo">
+                <img src="/profile/161767490.png" alt="Pedro Trovo" className="home-photo-img" />
+              </div>
+              <div className="home-cv-buttons">
+                <button ref={cvRef} onClick={() => setShowCV(true)} className="btn btn-primary btn-glow btn-glow-white">
+                  <FontAwesomeIcon icon={faEye} /> {t('home.cv_download')}
+                </button>
+                <a ref={downloadRef} href="/cv.pdf" download className="btn btn-secondary btn-glow" title="Download PDF">
+                  <FontAwesomeIcon icon={faDownload} />
+                </a>
+              </div>
+              <CVModal open={showCV} onClose={() => setShowCV(false)} />
+            </motion.div>
+
+            <motion.div className="home-bio-text" variants={fadeUp}>
+              <p>{t('about.text')}</p>
+              <p className="home-bio-secondary">{t('about.text_secondary')}</p>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="home-social"
+            variants={stagger}
+            initial="initial"
+            animate="animate"
+          >
+            <motion.a
+              href="https://github.com/pedro-Trovo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-circle"
+              aria-label="GitHub"
+              variants={fadeUp}
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/pedro-trovo-link/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-circle"
+              aria-label="LinkedIn"
+              variants={fadeUp}
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </motion.a>
+            <motion.a
+              href="mailto:pedroramostrovo@gmail.com"
+              className="social-circle"
+              aria-label="Email"
+              variants={fadeUp}
+            >
+              <FontAwesomeIcon icon={faEnvelope} />
+            </motion.a>
+          </motion.div>
+
+          <motion.div
+            className="home-ctas"
+            variants={stagger}
+            initial="initial"
+            animate="animate"
+          >
+            <motion.div variants={fadeUp}>
               <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
+            </motion.div>
+            <motion.div variants={fadeUp}>
               <Link ref={projectsRef} to="/projetos" className="btn btn-secondary btn-glow">{t('home.projects_cta')} &rarr;</Link>
+            </motion.div>
+            <motion.div variants={fadeUp}>
               <Link ref={experiencesRef} to="/experiencias" className="btn btn-secondary btn-glow">{t('home.experiences_cta')} &rarr;</Link>
             </motion.div>
           </motion.div>
         </div>
-
-        <div className="home-social">
-          <a href="https://github.com/pedro-Trovo" target="_blank" rel="noopener noreferrer" className="social-circle" aria-label="GitHub">
-            <FontAwesomeIcon icon={faGithub} />
-          </a>
-          <a href="https://www.linkedin.com/in/pedro-trovo-link/" target="_blank" rel="noopener noreferrer" className="social-circle" aria-label="LinkedIn">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-          <a href="mailto:pedroramostrovo@gmail.com" className="social-circle" aria-label="Email">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </a>
-        </div>
-
-        <AboutMe />
       </section>
     </>
   )

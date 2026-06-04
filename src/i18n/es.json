@@ -1,5 +1,5 @@
 {
-  "nav.home": "Inicio",
+  "nav.home": "Sobre Mí",
   "nav.projects": "Proyectos",
   "nav.experiences": "Experiencia",
   "nav.skills": "Skills",
@@ -74,7 +74,7 @@
 
   "404.title": "Página no encontrada",
   "404.message": "La página que buscas no existe o ha sido movida.",
-  "404.back": "Volver al Inicio",
+  "404.back": "Volver a Sobre Mí",
 
   "tech.frontend": "Frontend",
   "tech.backend": "Backend",

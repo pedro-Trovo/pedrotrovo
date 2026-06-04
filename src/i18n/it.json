@@ -1,5 +1,5 @@
 {
-  "nav.home": "Home",
+  "nav.home": "Su di Me",
   "nav.projects": "Progetti",
   "nav.experiences": "Esperienze",
   "nav.skills": "Skills",
@@ -74,7 +74,7 @@
 
   "404.title": "Pagina non trovata",
   "404.message": "La pagina che cerchi non esiste o è stata spostata.",
-  "404.back": "Torna alla Home",
+  "404.back": "Torna a Su di Me",
 
   "tech.frontend": "Frontend",
   "tech.backend": "Backend",
