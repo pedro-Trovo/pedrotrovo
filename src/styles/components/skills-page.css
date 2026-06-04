@@ -70,6 +70,11 @@
   transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 
+.dark .skills-page-tech img {
+  filter: brightness(1.15) saturate(0.75);
+  transition: filter 0.3s;
+}
+
 .skills-page-tech-name:hover {
   border-color: var(--color-accent);
   background-color: var(--color-accent-dim);

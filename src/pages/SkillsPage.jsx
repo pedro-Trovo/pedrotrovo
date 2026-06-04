@@ -3,8 +3,6 @@ import { motion } from 'framer-motion'
 import { skillsCategories } from '../data/skills'
 import { useLanguage } from '../i18n'
 
-const SKILL_ICONS_URL = 'https://skillicons.dev/icons?i='
-
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i) => ({
@@ -59,7 +57,7 @@ function SkillsPage() {
                 >
                   {item.icon ? (
                     <img
-                      src={`${SKILL_ICONS_URL}${item.icon}`}
+                      src={`/icons/${item.icon}`}
                       alt={item.name}
                       width="48"
                       height="48"
