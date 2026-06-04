@@ -70,11 +70,6 @@
   transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 
-.skills-page-tech img {
-  color: var(--color-text-primary);
-  transition: color 0.3s;
-}
-
 .skills-page-tech-name:hover {
   border-color: var(--color-accent);
   background-color: var(--color-accent-dim);
