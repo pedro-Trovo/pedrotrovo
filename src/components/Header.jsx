@@ -22,6 +22,7 @@ function Header() {
   useKeyboardShortcuts({
     goHome: () => navigate('/'),
     goProjects: () => navigate('/projetos'),
+    goSkills: () => navigate('/skills'),
     goExperiences: () => navigate('/experiencias'),
     goContact: () => navigate('/contato'),
     openSearch: () => setShowSearch(true),
@@ -70,6 +71,7 @@ function Header() {
       <nav className="header-nav-desktop">
         <NavLink to="/" end>{t('nav.home')}</NavLink>
         <NavLink to="/projetos">{t('nav.projects')}</NavLink>
+        <NavLink to="/skills">{t('nav.skills')}</NavLink>
         <NavLink to="/experiencias">{t('nav.experiences')}</NavLink>
         <NavLink to="/contato">{t('nav.contact')}</NavLink>
       </nav>
@@ -107,6 +109,7 @@ function Header() {
         <nav className="mobile-nav">
           <NavLink to="/" end>{t('nav.home')}</NavLink>
           <NavLink to="/projetos">{t('nav.projects')}</NavLink>
+          <NavLink to="/skills">{t('nav.skills')}</NavLink>
           <NavLink to="/experiencias">{t('nav.experiences')}</NavLink>
           <NavLink to="/contato">{t('nav.contact')}</NavLink>
         </nav>

@@ -2,6 +2,7 @@
   "nav.home": "Inicio",
   "nav.projects": "Proyectos",
   "nav.experiences": "Experiencia",
+  "nav.skills": "Skills",
   "nav.contact": "Contacto",
 
   "home.name": "Pedro Trovo",
@@ -12,6 +13,7 @@
   "home.experiences_cta": "Experiencia",
   "home.contact_cta": "Contáctame",
 
+  "skills.title": "Skills",
   "projects.title": "Proyectos",
   "projects.all": "Todos",
 

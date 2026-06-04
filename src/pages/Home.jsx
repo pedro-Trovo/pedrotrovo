@@ -8,7 +8,6 @@ import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import CVModal from '../components/CVModal'
 import Typewriter from '../components/Typewriter'
-import Skills from '../components/Skills'
 
 const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/`~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
@@ -142,8 +141,6 @@ function Home() {
           </motion.div>
         </div>
       </section>
-
-      <Skills />
     </>
   )
 }
