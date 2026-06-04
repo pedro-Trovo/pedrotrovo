@@ -1,4 +1,4 @@
-const svgModules = import.meta.glob('../assets/icons/*.svg', { as: 'raw', eager: true })
+const svgModules = import.meta.glob('../assets/icons/*.svg', { query: '?raw', eager: true, import: 'default' })
 
 const svgMap = {}
 for (const [path, content] of Object.entries(svgModules)) {

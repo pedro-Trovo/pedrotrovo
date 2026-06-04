@@ -78,7 +78,7 @@ export const skillsCategories = [
     title: 'Software Engineering',
     emoji: '📐',
     items: [
-      { name: 'UML', icon: 'uml.svg', url: 'https://en.wikipedia.org/wiki/Unified_Modeling_Language' },
+      { name: 'UML', icon: 'uml', url: 'https://en.wikipedia.org/wiki/Unified_Modeling_Language' },
       { name: 'Scrum (SFC)', url: 'https://www.scrumstudy.com/' },
     ],
   },
