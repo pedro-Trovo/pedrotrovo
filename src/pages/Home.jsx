@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faDownload, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import CVModal from '../components/CVModal'
@@ -140,9 +141,21 @@ function Home() {
             </motion.div>
           </motion.div>
         </div>
-      </section>
 
-      <AboutMe />
+        <div className="home-social">
+          <a href="https://github.com/pedro-Trovo" target="_blank" rel="noopener noreferrer" className="social-circle" aria-label="GitHub">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <a href="https://www.linkedin.com/in/pedro-trovo-link/" target="_blank" rel="noopener noreferrer" className="social-circle" aria-label="LinkedIn">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a href="mailto:pedroramostrovo@gmail.com" className="social-circle" aria-label="Email">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
+        </div>
+
+        <AboutMe />
+      </section>
     </>
   )
 }

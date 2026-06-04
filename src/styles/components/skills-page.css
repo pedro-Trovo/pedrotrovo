@@ -76,6 +76,14 @@
   color: var(--color-accent);
 }
 
+.skills-page-tech img {
+  filter: brightness(0) invert(1);
+}
+
+:root.light .skills-page-tech img {
+  filter: none;
+}
+
 @media (max-width: 768px) {
   .skills-page-grid {
     grid-template-columns: 1fr;
