@@ -136,46 +136,42 @@ function Home() {
               <CVModal open={showCV} onClose={() => setShowCV(false)} />
             </motion.div>
 
-            <motion.div className="home-bio-text" variants={fadeUp}>
-              <p>{t('about.text')}</p>
-              <p className="home-bio-secondary">{t('about.text_secondary')}</p>
+            <motion.div className="home-bio-col" variants={stagger} initial="initial" animate="animate">
+              <motion.div className="home-bio-text" variants={fadeUp}>
+                <p>{t('about.text')}</p>
+                <p className="home-bio-secondary">{t('about.text_secondary')}</p>
+              </motion.div>
+              <motion.div className="home-social" variants={stagger} initial="initial" animate="animate">
+                <motion.a
+                  href="https://github.com/pedro-Trovo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-circle"
+                  aria-label="GitHub"
+                  variants={fadeUp}
+                >
+                  <FontAwesomeIcon icon={faGithub} />
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/pedro-trovo-link/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-circle"
+                  aria-label="LinkedIn"
+                  variants={fadeUp}
+                >
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </motion.a>
+                <motion.a
+                  href="mailto:pedroramostrovo@gmail.com"
+                  className="social-circle"
+                  aria-label="Email"
+                  variants={fadeUp}
+                >
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </motion.a>
+              </motion.div>
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="home-social"
-            variants={stagger}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.a
-              href="https://github.com/pedro-Trovo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-circle"
-              aria-label="GitHub"
-              variants={fadeUp}
-            >
-              <FontAwesomeIcon icon={faGithub} />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/pedro-trovo-link/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-circle"
-              aria-label="LinkedIn"
-              variants={fadeUp}
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-            </motion.a>
-            <motion.a
-              href="mailto:pedroramostrovo@gmail.com"
-              className="social-circle"
-              aria-label="Email"
-              variants={fadeUp}
-            >
-              <FontAwesomeIcon icon={faEnvelope} />
-            </motion.a>
           </motion.div>
 
           <motion.div

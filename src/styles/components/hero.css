@@ -70,8 +70,14 @@
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 4rem;
-  align-items: start;
+  align-items: center;
   width: 100%;
+}
+
+.home-bio-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .home-photo-col {
@@ -140,7 +146,7 @@
 
 .home-social {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.25rem;
 }
 
