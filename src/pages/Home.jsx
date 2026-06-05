@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faDownload, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
@@ -27,7 +27,6 @@ function Home() {
   const { t, language } = useLanguage()
   const [showCV, setShowCV] = useState(false)
   const cvRef = useMouseGlow()
-  const downloadRef = useMouseGlow()
   const contactRef = useMouseGlow()
   const projectsRef = useMouseGlow()
   const experiencesRef = useMouseGlow()
@@ -127,11 +126,8 @@ function Home() {
               </div>
               <div className="home-cv-buttons">
                 <button ref={cvRef} onClick={() => setShowCV(true)} className="btn btn-primary btn-glow btn-glow-white">
-                  <FontAwesomeIcon icon={faEye} /> {t('home.cv_download')}
+                  {t('home.cv_download')}
                 </button>
-                <a ref={downloadRef} href="/cv.pdf" download className="btn btn-secondary btn-glow" title="Download PDF">
-                  <FontAwesomeIcon icon={faDownload} />
-                </a>
               </div>
               <CVModal open={showCV} onClose={() => setShowCV(false)} />
             </motion.div>
