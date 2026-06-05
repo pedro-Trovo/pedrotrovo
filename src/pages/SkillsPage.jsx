@@ -57,7 +57,10 @@ function SkillsPage() {
                   title={item.name}
                 >
                   {item.icon ? (
-                    <InlineSvg name={item.icon} className="skill-icon" />
+                    <span className="skill-icon-box">
+                      <InlineSvg name={item.icon} className="skill-icon" />
+                      <span className="skill-icon-label">{item.name}</span>
+                    </span>
                   ) : (
                     <span className="skills-page-tech-name">{item.name}</span>
                   )}

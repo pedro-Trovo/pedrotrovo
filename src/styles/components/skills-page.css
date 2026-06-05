@@ -45,26 +45,51 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-md);
-  transition: transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
 }
 
-.skills-page-tech:hover {
+.skill-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 80px;
+  padding: 0.65rem 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.skill-icon-box:hover {
   transform: translateY(-3px);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 16px var(--color-accent-dim);
 }
 
 .skill-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   line-height: 0;
 }
 
 .skill-icon svg {
   width: 100%;
   height: 100%;
+}
+
+.skill-icon-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-align: center;
+  white-space: nowrap;
+  max-width: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .skills-page-tech-name {
