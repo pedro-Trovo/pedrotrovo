@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 
@@ -196,9 +197,17 @@ function Contato() {
         initial="initial"
         animate="animate"
       >
-        <p className="text-muted">
-          <FontAwesomeIcon icon={faEnvelope} /> pedroramostrovo@gmail.com
-        </p>
+        <div className="footer-social">
+          <a href="https://github.com/pedro-Trovo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <a href="https://www.linkedin.com/in/pedro-trovo-link/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a href="mailto:pedroramostrovo@gmail.com" aria-label="Email">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
+        </div>
       </motion.div>
     </section>
   )

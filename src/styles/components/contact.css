@@ -128,13 +128,8 @@
   justify-content: center;
 }
 
-.contact-direct p {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  overflow-wrap: break-word;
-  word-break: break-word;
+.contact-direct .footer-social {
+  gap: 0.85rem;
 }
 
 @media (max-width: 480px) {
