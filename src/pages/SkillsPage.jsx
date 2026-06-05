@@ -101,9 +101,9 @@ function SkillsPage() {
                       <span className="skill-icon-label">{item.name}</span>
                     </span>
                   ) : item.faIcon ? (
-                    <span className="skills-page-tech-name">
-                      <span className="skill-fa-icon">{outlineIcons[item.faIcon]}</span>
-                      {item.name}
+                    <span className="skill-icon-box">
+                      <span className="skill-fa-icon skill-fa-icon--box">{outlineIcons[item.faIcon]}</span>
+                      <span className="skill-icon-label">{item.name}</span>
                     </span>
                   ) : (
                     <span className="skills-page-tech-name">{item.name}</span>
