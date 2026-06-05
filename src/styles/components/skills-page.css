@@ -70,9 +70,10 @@
 .skill-icon-box i {
   font-size: 2.5rem;
   line-height: 1;
+  color: initial;
 }
 
-.dark .skill-icon-box i {
+:root:not(.light) .skill-icon-box i {
   filter: brightness(0) invert(1);
 }
 
