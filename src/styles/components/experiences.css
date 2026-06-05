@@ -155,3 +155,25 @@
   border-radius: 50%;
   background-color: var(--color-accent);
 }
+
+@media (max-width: 480px) {
+  .experiences-tabs {
+    width: 100%;
+  }
+
+  .experiences-tab {
+    flex: 1;
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .experience-description {
+    font-size: 0.88rem;
+  }
+
+  .experience-highlights li {
+    font-size: 0.85rem;
+    padding-left: 1.25rem;
+  }
+}

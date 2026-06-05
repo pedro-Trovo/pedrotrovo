@@ -17,17 +17,17 @@
 
   .home {
     min-height: auto;
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.25rem;
   }
 
   .home-hero {
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .home-middle {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     text-align: center;
   }
 
@@ -52,12 +52,12 @@
   }
 
   .home-photo {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
   }
 
   .home-name {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .home-bio-text {
@@ -76,6 +76,19 @@
     grid-template-columns: 1fr;
   }
 
+  .filter-dropdown-trigger {
+    min-width: 140px;
+  }
+
+  .experiences-tabs {
+    width: 100%;
+  }
+
+  .experiences-tab {
+    flex: 1;
+    text-align: center;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
@@ -86,15 +99,15 @@
   }
 
   .project-detail-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .project-detail-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 
   .lightbox {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .lightbox-image {
@@ -110,6 +123,11 @@
     right: 0.25rem;
   }
 
+  .lightbox-nav {
+    padding: 0.75rem 0.5rem;
+    font-size: 1.5rem;
+  }
+
   .project-detail-stack-group {
     flex-direction: column;
     align-items: flex-start;
@@ -123,10 +141,22 @@
   .experience-period {
     align-self: flex-start;
   }
+
+  .skills-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding: 1.25rem 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {
   .page {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .home {
     padding: 2rem 1rem;
   }
 
@@ -138,6 +168,89 @@
   .home-ctas .btn {
     justify-content: center;
   }
+
+  .home-photo-col {
+    margin-top: 0;
+  }
+
+  .home-bio-text {
+    font-size: 0.9rem;
+  }
+
+  .skills-tabs {
+    font-size: 0.8rem;
+  }
+
+  .skills-tab {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .skills-page-card {
+    padding: 1rem;
+  }
+
+  .skills-page-card-title {
+    font-size: 0.9rem;
+  }
+
+  .experience-card {
+    padding: 1rem;
+  }
+
+  .experience-company {
+    font-size: 1rem;
+  }
+
+  .experience-logo {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .experience-icon {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .project-card-body {
+    padding: 0.75rem;
+  }
+
+  .project-card-title {
+    font-size: 1rem;
+  }
+
+  .contact-page {
+    max-width: 100%;
+  }
+
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .project-detail-title {
+    font-size: 1.3rem;
+  }
+
+  .project-detail-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .not-found-code {
+    font-size: 4rem;
+  }
+
+  .not-found-hex {
+    width: 60px;
+    height: 60px;
+  }
+
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {

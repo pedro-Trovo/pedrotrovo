@@ -192,3 +192,30 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .skill-icon-box {
+    width: 68px;
+    padding: 0.5rem 0.3rem;
+  }
+
+  .skill-icon-box i {
+    font-size: 2rem;
+  }
+
+  .skill-icon-svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .skill-icon-label {
+    font-size: 0.62rem;
+    max-width: 60px;
+  }
+
+  .skill-fa-icon--box {
+    width: 32px;
+    height: 32px;
+    font-size: 1.6rem;
+  }
+}

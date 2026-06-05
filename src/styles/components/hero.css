@@ -130,3 +130,18 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+@media (max-width: 480px) {
+  .home-photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .home-name {
+    font-size: 1.6rem;
+  }
+
+  .home-middle {
+    gap: 1.5rem;
+  }
+}

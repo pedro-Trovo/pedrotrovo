@@ -285,3 +285,70 @@
   font-weight: 500;
   opacity: 0.6;
 }
+
+@media (max-width: 480px) {
+  .breadcrumbs {
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .project-detail .back-link {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-detail-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .project-detail-title {
+    font-size: 1.3rem;
+  }
+
+  .project-detail-links .btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .project-detail-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .project-detail-section-title {
+    font-size: 1.1rem;
+  }
+
+  .project-detail-text {
+    font-size: 0.88rem;
+  }
+
+  .project-detail-features li {
+    font-size: 0.88rem;
+    padding-left: 1.25rem;
+  }
+
+  .project-detail-stack-label {
+    font-size: 0.78rem;
+    min-width: 60px;
+  }
+
+  .lightbox-nav {
+    padding: 0.5rem 0.35rem;
+    font-size: 1.2rem;
+  }
+
+  .lightbox-prev {
+    left: 0.15rem;
+  }
+
+  .lightbox-next {
+    right: 0.15rem;
+  }
+
+  .lightbox-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.2rem;
+  }
+}

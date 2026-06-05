@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faBars, faTimes, faUser, faCode, faCog, faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -18,6 +18,7 @@ function Header() {
   const location = useLocation()
   const searchBtnRef = useMouseGlow()
   const hamburgerRef = useMouseGlow()
+  const drawerRef = useRef(null)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -48,6 +49,17 @@ function Header() {
       document.body.style.overflow = ''
     }
     return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleClick = (e) => {
+      if (drawerRef.current && !drawerRef.current.contains(e.target) && !e.target.closest('.hamburger')) {
+        setMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
   }, [menuOpen])
 
   return (
@@ -104,7 +116,7 @@ function Header() {
 
       {menuOpen && <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />}
 
-      <div className={`mobile-drawer${menuOpen ? ' mobile-drawer--open' : ''}`}>
+      <div ref={drawerRef} className={`mobile-drawer${menuOpen ? ' mobile-drawer--open' : ''}`}>
         <div className="mobile-drawer-top">
           <LanguageToggle />
           <ThemeToggle />
