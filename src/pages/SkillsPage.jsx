@@ -57,7 +57,7 @@ function SkillsPage() {
                 >
                   {item.devicon ? (
                     <span className="skill-icon-box">
-                      <i className={`devicon ${item.devicon}`} />
+                      <i className={`devicon ${item.devicon} colored`} />
                       <span className="skill-icon-label">{item.name}</span>
                     </span>
                   ) : (
