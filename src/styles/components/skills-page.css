@@ -78,8 +78,29 @@
   object-fit: contain;
 }
 
-:root:not(.light) .skill-icon-box i,
-:root:not(.light) .skill-icon-svg {
+.light-only {
+  display: inline;
+}
+
+:root:not(.light) .light-only {
+  display: none;
+}
+
+.skill-icon-box i.dark-only {
+  display: none;
+}
+
+:root:not(.light) .skill-icon-box i.dark-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  line-height: 1;
+  filter: brightness(0) invert(1);
+}
+
+:root:not(.light) .skill-icon-box i:not(.dark-only),
+:root:not(.light) .skill-icon-svg:not(.light-only) {
   filter: brightness(0) invert(1);
 }
 

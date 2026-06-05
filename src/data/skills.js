@@ -50,7 +50,7 @@ export const skillsCategories = [
       { name: 'Docker', icon: 'docker', devicon: 'devicon-docker-plain', url: 'https://www.docker.com/' },
       { name: 'Git', icon: 'git', devicon: 'devicon-git-plain', url: 'https://git-scm.com/' },
       { name: 'GitHub', icon: 'github', devicon: 'devicon-github-original', url: 'https://github.com/' },
-      { name: 'Vite.js', icon: 'vite', devicon: 'devicon-vite-original', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg', url: 'https://vitejs.dev/' },
+      { name: 'Vite.js', icon: 'vite', devicon: 'devicon-vite-original', darkDevicon: 'devicon-vitejs-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg', darkPlain: true, url: 'https://vitejs.dev/' },
       { name: 'Electron', icon: 'electron', devicon: 'devicon-electron-original', url: 'https://www.electronjs.org/' },
       { name: 'CMake', icon: 'cmake', devicon: 'devicon-cmake-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cmake/cmake-original.svg', url: 'https://cmake.org/' },
       { name: 'Jira', icon: 'jira', devicon: 'devicon-jira-plain', url: 'https://www.atlassian.com/software/jira' },
@@ -69,9 +69,9 @@ export const skillsCategories = [
     emoji: '💻',
     items: [
       { name: 'VS Code', icon: 'vscode', devicon: 'devicon-vscode-plain', url: 'https://code.visualstudio.com/' },
-      { name: 'PyCharm', icon: 'pycharm', devicon: 'devicon-pycharm-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg', url: 'https://www.jetbrains.com/pycharm/' },
-      { name: 'IntelliJ', icon: 'idea', devicon: 'devicon-intellij-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg', url: 'https://www.jetbrains.com/idea/' },
-      { name: 'CLion', icon: 'clion', devicon: 'devicon-clion-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/clion/clion-original.svg', url: 'https://www.jetbrains.com/clion/' },
+      { name: 'PyCharm', icon: 'pycharm', devicon: 'devicon-pycharm-plain', darkDevicon: 'devicon-pycharm-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg', darkPlain: true, url: 'https://www.jetbrains.com/pycharm/' },
+      { name: 'IntelliJ', icon: 'idea', devicon: 'devicon-intellij-plain', darkDevicon: 'devicon-intellij-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg', darkPlain: true, url: 'https://www.jetbrains.com/idea/' },
+      { name: 'CLion', icon: 'clion', devicon: 'devicon-clion-plain', darkDevicon: 'devicon-clion-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/clion/clion-original.svg', darkPlain: true, url: 'https://www.jetbrains.com/clion/' },
     ],
   },
   {

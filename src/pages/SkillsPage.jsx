@@ -55,7 +55,13 @@ function SkillsPage() {
                   className="skills-page-tech"
                   title={item.name}
                 >
-                  {item.svg ? (
+                  {item.darkPlain ? (
+                    <span className="skill-icon-box">
+                      <img src={item.svg} alt={item.name} className="skill-icon-svg light-only" />
+                      <i className={`devicon ${item.darkDevicon} dark-only`} />
+                      <span className="skill-icon-label">{item.name}</span>
+                    </span>
+                  ) : item.svg ? (
                     <span className="skill-icon-box">
                       <img src={item.svg} alt={item.name} className="skill-icon-svg" />
                       <span className="skill-icon-label">{item.name}</span>
