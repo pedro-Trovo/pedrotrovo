@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { skillsCategories } from '../data/skills'
 import { useLanguage } from '../i18n'
-import InlineSvg from '../components/InlineSvg'
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -56,9 +55,9 @@ function SkillsPage() {
                   className="skills-page-tech"
                   title={item.name}
                 >
-                  {item.icon ? (
+                  {item.devicon ? (
                     <span className="skill-icon-box">
-                      <InlineSvg name={item.icon} className="skill-icon" />
+                      <i className={`devicon ${item.devicon}`} />
                       <span className="skill-icon-label">{item.name}</span>
                     </span>
                   ) : (
