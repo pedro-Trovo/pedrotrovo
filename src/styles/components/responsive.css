@@ -61,7 +61,7 @@
   }
 
   .home-bio-text {
-    text-align: left;
+    text-align: center;
   }
 
   .home-ctas {
@@ -144,6 +144,29 @@
 
   .skills-page-grid {
     grid-template-columns: 1fr;
+  }
+
+  .page .heading-gradient {
+    text-align: center;
+  }
+
+  .filter-dropdown {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skills-tabs {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .experiences-tabs {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-subtitle {
+    text-align: center;
   }
 
   .footer {
