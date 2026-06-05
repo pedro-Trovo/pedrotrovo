@@ -27,8 +27,13 @@
   .home-middle {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     text-align: center;
+  }
+
+  .home-photo-col {
+    margin-top: 0;
   }
 
   .home-bio-col {
