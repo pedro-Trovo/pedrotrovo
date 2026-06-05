@@ -19,8 +19,9 @@
 
 .footer-logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0;
   color: var(--color-text-primary);
   opacity: 0.8;
 }
