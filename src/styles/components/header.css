@@ -168,6 +168,13 @@
   border-top: 1px solid var(--color-border);
 }
 
+@media (min-width: 769px) {
+  .mobile-drawer,
+  .mobile-overlay {
+    display: none;
+  }
+}
+
 .header-search-btn {
   background: none;
   border: none;
