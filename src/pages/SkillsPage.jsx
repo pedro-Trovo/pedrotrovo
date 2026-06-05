@@ -55,9 +55,14 @@ function SkillsPage() {
                   className="skills-page-tech"
                   title={item.name}
                 >
-                  {item.devicon ? (
+                  {item.svg ? (
                     <span className="skill-icon-box">
-                      <i className={`devicon ${item.devicon} colored`} />
+                      <img src={item.svg} alt={item.name} className="skill-icon-svg" />
+                      <span className="skill-icon-label">{item.name}</span>
+                    </span>
+                  ) : item.devicon ? (
+                    <span className="skill-icon-box">
+                      <i className={`devicon ${item.devicon} coloured`} />
                       <span className="skill-icon-label">{item.name}</span>
                     </span>
                   ) : (

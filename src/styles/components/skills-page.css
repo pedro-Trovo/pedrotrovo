@@ -72,7 +72,14 @@
   line-height: 1;
 }
 
-:root:not(.light) .skill-icon-box i {
+.skill-icon-svg {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+:root:not(.light) .skill-icon-box i,
+:root:not(.light) .skill-icon-svg {
   filter: brightness(0) invert(1);
 }
 
