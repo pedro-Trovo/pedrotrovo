@@ -25,10 +25,7 @@ function Home() {
   const { t, language } = useLanguage()
   const [showCV, setShowCV] = useState(false)
   const cvRef = useMouseGlow()
-  const skillsRef = useMouseGlow()
   const contactRef = useMouseGlow()
-  const projectsRef = useMouseGlow()
-  const experiencesRef = useMouseGlow()
 
   const targetName = t('home.name')
   const [displayName, setDisplayName] = useState(targetName)
@@ -130,10 +127,7 @@ function Home() {
                 <p>{t('about.text')}</p>
               </motion.div>
               <div className="home-ctas">
-                <Link ref={skillsRef} to="/skills" className="btn btn-secondary btn-glow">{t('nav.skills')} &rarr;</Link>
                 <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
-                <Link ref={projectsRef} to="/projetos" className="btn btn-secondary btn-glow">{t('home.projects_cta')} &rarr;</Link>
-                <Link ref={experiencesRef} to="/experiencias" className="btn btn-secondary btn-glow">{t('home.experiences_cta')} &rarr;</Link>
               </div>
             </motion.div>
           </motion.div>

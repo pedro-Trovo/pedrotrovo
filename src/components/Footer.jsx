@@ -20,6 +20,7 @@ function Footer() {
               <text x="60" y="25" fontFamily="'Plus Jakarta Sans','Inter','Segoe UI',sans-serif" fontWeight="700" fontSize="18" fill="currentColor" letterSpacing="-0.3">trovo</text>
             </svg>
           </div>
+          <p className="footer-copy">{t('footer.copyright')}</p>
           <div className="footer-social">
             <a href="https://github.com/pedro-Trovo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FontAwesomeIcon icon={faGithub} />
@@ -32,10 +33,6 @@ function Footer() {
             </a>
           </div>
         </div>
-
-        <div className="footer-divider" />
-
-        <p className="footer-copy">{t('footer.copyright')}</p>
       </div>
     </footer>
   )
