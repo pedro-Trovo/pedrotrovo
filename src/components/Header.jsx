@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBars, faTimes, faUser, faCode, faCog, faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
@@ -105,17 +105,33 @@ function Header() {
       {menuOpen && <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />}
 
       <div className={`mobile-drawer${menuOpen ? ' mobile-drawer--open' : ''}`}>
-        <nav className="mobile-nav">
-          <NavLink to="/" end>{t('nav.home')}</NavLink>
-          <NavLink to="/projetos">{t('nav.projects')}</NavLink>
-          <NavLink to="/skills">{t('nav.skills')}</NavLink>
-          <NavLink to="/experiencias">{t('nav.experiences')}</NavLink>
-          <NavLink to="/contato">{t('nav.contact')}</NavLink>
-        </nav>
-        <div className="mobile-actions">
+        <div className="mobile-drawer-top">
           <LanguageToggle />
           <ThemeToggle />
         </div>
+        <div className="mobile-divider" />
+        <nav className="mobile-nav">
+          <NavLink to="/" end>
+            <FontAwesomeIcon icon={faUser} className="mobile-nav-icon" />
+            {t('nav.home')}
+          </NavLink>
+          <NavLink to="/projetos">
+            <FontAwesomeIcon icon={faCode} className="mobile-nav-icon" />
+            {t('nav.projects')}
+          </NavLink>
+          <NavLink to="/skills">
+            <FontAwesomeIcon icon={faCog} className="mobile-nav-icon" />
+            {t('nav.skills')}
+          </NavLink>
+          <NavLink to="/experiencias">
+            <FontAwesomeIcon icon={faBriefcase} className="mobile-nav-icon" />
+            {t('nav.experiences')}
+          </NavLink>
+          <NavLink to="/contato">
+            <FontAwesomeIcon icon={faEnvelope} className="mobile-nav-icon" />
+            {t('nav.contact')}
+          </NavLink>
+        </nav>
       </div>
 
       {showSearch && <SearchModal onClose={() => setShowSearch(false)} />}
