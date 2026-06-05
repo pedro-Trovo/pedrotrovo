@@ -21,10 +21,6 @@
 }
 
 .home-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
   max-width: 960px;
   margin: 0 auto;
   width: 100%;
@@ -86,6 +82,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  margin-top: -8px;
 }
 
 .home-photo {
@@ -125,36 +122,6 @@
 
 .home-bio-text p {
   margin: 0 0 1rem;
-}
-
-.home-bio-secondary {
-  color: var(--color-text-muted);
-  font-style: italic;
-}
-
-.home-social {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-}
-
-.social-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 2px solid var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-accent);
-  font-size: 1.2rem;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-}
-
-.social-circle:hover {
-  background: var(--color-accent);
-  color: var(--color-bg-primary);
-  transform: translateY(-3px);
 }
 
 .home-ctas {

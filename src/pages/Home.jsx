@@ -2,9 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import CVModal from '../components/CVModal'
@@ -27,6 +25,7 @@ function Home() {
   const { t, language } = useLanguage()
   const [showCV, setShowCV] = useState(false)
   const cvRef = useMouseGlow()
+  const skillsRef = useMouseGlow()
   const contactRef = useMouseGlow()
   const projectsRef = useMouseGlow()
   const experiencesRef = useMouseGlow()
@@ -96,25 +95,6 @@ function Home() {
       <section className="page home">
         <div className="home-hero">
           <motion.div
-            className="home-top"
-            variants={stagger}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.h1
-              className="home-name"
-              variants={fadeUp}
-              onMouseEnter={runDecrypt}
-              onMouseLeave={resetName}
-            >
-              {displayName}
-            </motion.h1>
-            <motion.p className="home-title text-muted" variants={fadeUp}>
-              <Typewriter words={['Backend Developer', 'Fullstack Developer']} />
-            </motion.p>
-          </motion.div>
-
-          <motion.div
             className="home-middle"
             variants={stagger}
             initial="initial"
@@ -133,41 +113,24 @@ function Home() {
             </motion.div>
 
             <motion.div className="home-bio-col" variants={stagger} initial="initial" animate="animate">
+              <motion.div className="home-top" variants={stagger} initial="initial" animate="animate">
+                <motion.h1
+                  className="home-name"
+                  variants={fadeUp}
+                  onMouseEnter={runDecrypt}
+                  onMouseLeave={resetName}
+                >
+                  {displayName}
+                </motion.h1>
+                <motion.p className="home-title text-muted" variants={fadeUp}>
+                  <Typewriter words={['Backend Developer', 'Fullstack Developer']} />
+                </motion.p>
+              </motion.div>
               <motion.div className="home-bio-text" variants={fadeUp}>
                 <p>{t('about.text')}</p>
-                <p className="home-bio-secondary">{t('about.text_secondary')}</p>
-              </motion.div>
-              <motion.div className="home-social" variants={stagger} initial="initial" animate="animate">
-                <motion.a
-                  href="https://github.com/pedro-Trovo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-circle"
-                  aria-label="GitHub"
-                  variants={fadeUp}
-                >
-                  <FontAwesomeIcon icon={faGithub} />
-                </motion.a>
-                <motion.a
-                  href="https://www.linkedin.com/in/pedro-trovo-link/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-circle"
-                  aria-label="LinkedIn"
-                  variants={fadeUp}
-                >
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </motion.a>
-                <motion.a
-                  href="mailto:pedroramostrovo@gmail.com"
-                  className="social-circle"
-                  aria-label="Email"
-                  variants={fadeUp}
-                >
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </motion.a>
               </motion.div>
               <div className="home-ctas">
+                <Link ref={skillsRef} to="/skills" className="btn btn-secondary btn-glow">{t('nav.skills')} &rarr;</Link>
                 <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
                 <Link ref={projectsRef} to="/projetos" className="btn btn-secondary btn-glow">{t('home.projects_cta')} &rarr;</Link>
                 <Link ref={experiencesRef} to="/experiencias" className="btn btn-secondary btn-glow">{t('home.experiences_cta')} &rarr;</Link>
