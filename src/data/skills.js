@@ -2,6 +2,7 @@ export const skillsCategories = [
   {
     title: 'Programming Languages',
     emoji: '💻',
+    segment: 'tech',
     items: [
       { name: 'Java', icon: 'java', devicon: 'devicon-java-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg', url: 'https://www.oracle.com/java/' },
       { name: 'Python', icon: 'python', devicon: 'devicon-python-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', url: 'https://www.python.org/' },
@@ -13,6 +14,7 @@ export const skillsCategories = [
   {
     title: 'Frameworks & Libraries',
     emoji: '📚',
+    segment: 'tech',
     items: [
       { name: 'Angular', icon: 'angular', devicon: 'devicon-angularjs-plain', url: 'https://angular.io/' },
       { name: 'React', icon: 'react', devicon: 'devicon-react-original', url: 'https://react.dev/' },
@@ -28,6 +30,7 @@ export const skillsCategories = [
   {
     title: 'Protocols',
     emoji: '🔌',
+    segment: 'tech',
     items: [
       { name: 'SFTP', url: 'https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol' },
       { name: 'SSH', url: 'https://en.wikipedia.org/wiki/Secure_Shell' },
@@ -37,6 +40,7 @@ export const skillsCategories = [
   {
     title: 'Databases',
     emoji: '🗄️',
+    segment: 'tech',
     items: [
       { name: 'MySQL', icon: 'mysql', devicon: 'devicon-mysql-original', url: 'https://www.mysql.com/' },
       { name: 'MongoDB', icon: 'mongodb', devicon: 'devicon-mongodb-plain', url: 'https://www.mongodb.com/' },
@@ -46,6 +50,7 @@ export const skillsCategories = [
   {
     title: 'DevOps & Tools',
     emoji: '🚀',
+    segment: 'tech',
     items: [
       { name: 'Docker', icon: 'docker', devicon: 'devicon-docker-plain', url: 'https://www.docker.com/' },
       { name: 'Git', icon: 'git', devicon: 'devicon-git-plain', url: 'https://git-scm.com/' },
@@ -59,6 +64,7 @@ export const skillsCategories = [
   {
     title: 'Testing & API',
     emoji: '🧪',
+    segment: 'tech',
     items: [
       { name: 'Postman', icon: 'postman', devicon: 'devicon-postman-plain', url: 'https://www.postman.com/' },
       { name: 'Insomnia', icon: 'insomnia', devicon: 'devicon-insomnia-plain', url: 'https://insomnia.rest/' },
@@ -67,6 +73,7 @@ export const skillsCategories = [
   {
     title: 'Editors & IDEs',
     emoji: '💻',
+    segment: 'tech',
     items: [
       { name: 'VS Code', icon: 'vscode', devicon: 'devicon-vscode-plain', url: 'https://code.visualstudio.com/' },
       { name: 'PyCharm', icon: 'pycharm', devicon: 'devicon-pycharm-plain', darkDevicon: 'devicon-pycharm-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg', darkPlain: true, url: 'https://www.jetbrains.com/pycharm/' },
@@ -77,8 +84,29 @@ export const skillsCategories = [
   {
     title: 'Software Engineering',
     emoji: '📐',
+    segment: 'tech',
     items: [
       { name: 'UML', icon: 'uml', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unifiedmodelinglanguage/unifiedmodelinglanguage-original.svg', url: 'https://en.wikipedia.org/wiki/Unified_Modeling_Language' },
+    ],
+  },
+
+  {
+    title: 'Languages',
+    emoji: '🌍',
+    segment: 'langs',
+    items: [
+      { name: 'Portuguese (Native)', url: 'https://en.wikipedia.org/wiki/Portuguese_language' },
+      { name: 'English (Advanced)', url: 'https://en.wikipedia.org/wiki/English_language' },
+      { name: 'Spanish (Basic)', url: 'https://en.wikipedia.org/wiki/Spanish_language' },
+      { name: 'Italian (Basic)', url: 'https://en.wikipedia.org/wiki/Italian_language' },
+    ],
+  },
+
+  {
+    title: 'Certifications',
+    emoji: '🏅',
+    segment: 'certs',
+    items: [
       { name: 'Scrum (SFC)', url: 'https://www.scrumstudy.com/' },
     ],
   },

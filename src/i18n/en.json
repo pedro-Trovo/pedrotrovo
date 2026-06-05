@@ -23,6 +23,9 @@
   "about.fact_langs": "PT (Native) · EN (Advanced) · ES (Basic)",
 
   "skills.title": "Skills",
+  "skills.segment_tech": "Technologies",
+  "skills.segment_langs": "Languages",
+  "skills.segment_certs": "Certificates",
   "projects.title": "Projects",
   "projects.all": "All",
 

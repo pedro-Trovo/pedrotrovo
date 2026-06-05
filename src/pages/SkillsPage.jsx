@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { skillsCategories } from '../data/skills'
 import { useLanguage } from '../i18n'
+
+const SEGMENTS = ['tech', 'langs', 'certs']
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -14,6 +17,9 @@ const cardVariants = {
 
 function SkillsPage() {
   const { t, language } = useLanguage()
+  const [activeSegment, setActiveSegment] = useState('tech')
+
+  const filtered = skillsCategories.filter(c => c.segment === activeSegment)
 
   return (
     <section className="page skills-page">
@@ -32,8 +38,26 @@ function SkillsPage() {
         {t('skills.title')}
       </motion.h1>
 
-      <div className="skills-page-grid">
-        {skillsCategories.map((cat, i) => (
+      <div className="skills-tabs">
+        {SEGMENTS.map((seg) => (
+          <button
+            key={seg}
+            className={`skills-tab${activeSegment === seg ? ' skills-tab--active' : ''}`}
+            onClick={() => setActiveSegment(seg)}
+          >
+            {t(`skills.segment_${seg}`)}
+          </button>
+        ))}
+      </div>
+
+      <motion.div
+        className="skills-page-grid"
+        key={activeSegment}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+      >
+        {filtered.map((cat, i) => (
           <motion.div
             key={cat.title}
             className="skills-page-card"
@@ -79,7 +103,7 @@ function SkillsPage() {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }

@@ -23,6 +23,9 @@
   "about.fact_langs": "PT (Madrelingua) · EN (Avanzato) · ES (Base) · IT (Base)",
 
   "skills.title": "Skills",
+  "skills.segment_tech": "Tecnologie",
+  "skills.segment_langs": "Lingue",
+  "skills.segment_certs": "Certificati",
   "projects.title": "Progetti",
   "projects.all": "Tutti",
 
