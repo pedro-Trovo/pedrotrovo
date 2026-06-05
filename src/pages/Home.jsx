@@ -171,23 +171,11 @@ function Home() {
                   <FontAwesomeIcon icon={faEnvelope} />
                 </motion.a>
               </motion.div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="home-ctas"
-            variants={stagger}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.div variants={fadeUp}>
-              <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
-            </motion.div>
-            <motion.div variants={fadeUp}>
-              <Link ref={projectsRef} to="/projetos" className="btn btn-secondary btn-glow">{t('home.projects_cta')} &rarr;</Link>
-            </motion.div>
-            <motion.div variants={fadeUp}>
-              <Link ref={experiencesRef} to="/experiencias" className="btn btn-secondary btn-glow">{t('home.experiences_cta')} &rarr;</Link>
+              <div className="home-ctas">
+                <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
+                <Link ref={projectsRef} to="/projetos" className="btn btn-secondary btn-glow">{t('home.projects_cta')} &rarr;</Link>
+                <Link ref={experiencesRef} to="/experiencias" className="btn btn-secondary btn-glow">{t('home.experiences_cta')} &rarr;</Link>
+              </div>
             </motion.div>
           </motion.div>
         </div>
