@@ -74,6 +74,8 @@
   "cv.modal_title": "Curriculum Vitae",
 
   "footer.copyright": "© 2026 Pedro Trovo. Todos os direitos reservados.",
+  "footer.cta_text": "Gostou do que viu? Vamos conversar.",
+  "footer.cta_btn": "Entre em contato",
 
   "404.title": "Página não encontrada",
   "404.message": "A página que você procura não existe ou foi movida.",
