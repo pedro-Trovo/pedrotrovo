@@ -151,6 +151,13 @@
   text-overflow: ellipsis;
 }
 
+.skill-fa-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  font-size: 0.9rem;
+}
+
 .skills-page-tech-name {
   display: inline-block;
   padding: 0.4rem 0.9rem;

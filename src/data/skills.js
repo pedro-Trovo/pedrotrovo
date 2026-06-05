@@ -32,9 +32,9 @@ export const skillsCategories = [
     emoji: '🔌',
     segment: 'tech',
     items: [
-      { name: 'SFTP', url: 'https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol' },
-      { name: 'SSH', url: 'https://en.wikipedia.org/wiki/Secure_Shell' },
-      { name: 'PGP', url: 'https://en.wikipedia.org/wiki/Pretty_Good_Privacy' },
+      { name: 'SFTP', faIcon: 'folder', url: 'https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol' },
+      { name: 'SSH', icon: 'ssh', devicon: 'devicon-ssh-original', url: 'https://en.wikipedia.org/wiki/Secure_Shell' },
+      { name: 'PGP', faIcon: 'lock', url: 'https://en.wikipedia.org/wiki/Pretty_Good_Privacy' },
     ],
   },
   {
@@ -59,6 +59,7 @@ export const skillsCategories = [
       { name: 'Electron', icon: 'electron', devicon: 'devicon-electron-original', url: 'https://www.electronjs.org/' },
       { name: 'CMake', icon: 'cmake', devicon: 'devicon-cmake-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cmake/cmake-original.svg', url: 'https://cmake.org/' },
       { name: 'Jira', icon: 'jira', devicon: 'devicon-jira-plain', url: 'https://www.atlassian.com/software/jira' },
+      { name: 'Slack', icon: 'slack', devicon: 'devicon-slack-plain', darkDevicon: 'devicon-slack-plain', svg: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg', darkPlain: true, url: 'https://slack.com/' },
     ],
   },
   {
@@ -68,6 +69,7 @@ export const skillsCategories = [
     items: [
       { name: 'Postman', icon: 'postman', devicon: 'devicon-postman-plain', url: 'https://www.postman.com/' },
       { name: 'Insomnia', icon: 'insomnia', devicon: 'devicon-insomnia-plain', url: 'https://insomnia.rest/' },
+      { name: 'Swagger', icon: 'swagger', devicon: 'devicon-swagger-plain', url: 'https://swagger.io/' },
     ],
   },
   {
