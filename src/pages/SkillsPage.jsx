@@ -67,7 +67,7 @@ function SkillsPage() {
             custom={i}
           >
             <h2 className="skills-page-card-title">
-              {cat.emoji} {cat.title}
+              {cat.title}
             </h2>
             <div className="skills-page-items">
               {cat.items.map((item) => (
