@@ -14,8 +14,8 @@ function CertCard({ cert }) {
         <div className="cert-card-info">
           <h3 className="cert-card-name">{cert.name}</h3>
           <p className="cert-card-issuer">{cert.issuer} &middot; {cert.issueDate}</p>
-          {cert.description && (
-            <p className="cert-card-description">{cert.description}</p>
+          {cert.descriptionKey && (
+            <p className="cert-card-description">{t(cert.descriptionKey)}</p>
           )}
         </div>
       </div>

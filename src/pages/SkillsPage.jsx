@@ -88,7 +88,7 @@ function SkillsPage() {
                 animate="visible"
                 custom={i}
               >
-                <h2 className="skills-page-card-title">{cat.title}</h2>
+                <h2 className="skills-page-card-title">{t(cat.titleKey || cat.title)}</h2>
                 <LangCard items={cat.items} />
               </motion.div>
             )

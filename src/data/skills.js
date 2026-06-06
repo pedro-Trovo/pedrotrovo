@@ -93,6 +93,7 @@ export const skillsCategories = [
   },
 
   {
+    titleKey: 'langs.title',
     title: 'Languages',
     emoji: '🌍',
     segment: 'langs',
@@ -115,7 +116,7 @@ export const skillsCategories = [
         logo: '/images/certificados/scrum/vabro_vmedu_logo.jpg',
         credentialUrl: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=1054001',
         issueDate: '2024',
-        description: 'Fundamentos do framework Scrum: papéis, eventos, artefatos e princípios ágeis.',
+        descriptionKey: 'certs.scrum_desc',
       },
     ],
   },

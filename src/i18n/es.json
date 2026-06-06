@@ -27,6 +27,7 @@
   "skills.segment_langs": "Idiomas",
   "skills.segment_certs": "Certificados",
 
+  "langs.title": "Idiomas",
   "langs.portuguese": "Portugués",
   "langs.english": "Inglés",
   "langs.spanish": "Español",
@@ -34,6 +35,8 @@
   "langs.level_native": "Nativo",
   "langs.level_intermediate": "Intermedio",
   "langs.level_basic": "Básico",
+
+  "certs.scrum_desc": "Fundamentos del framework Scrum: roles, eventos, artefactos y principios ágiles.",
 
   "projects.title": "Proyectos",
   "projects.all": "Todos",
