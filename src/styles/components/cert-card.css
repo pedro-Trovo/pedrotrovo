@@ -1,7 +1,6 @@
 .cert-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
   padding: 1.5rem;
   background-color: var(--color-bg-card);
@@ -13,6 +12,12 @@
 .cert-card:hover {
   border-color: var(--color-accent);
   box-shadow: 0 0 24px var(--color-accent-dim);
+}
+
+.cert-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .cert-card-logo {
@@ -38,10 +43,9 @@
 .cert-card-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.3rem;
   min-width: 0;
-  text-align: center;
 }
 
 .cert-card-name {
@@ -90,6 +94,17 @@
 @media (max-width: 480px) {
   .cert-card {
     padding: 1rem;
+  }
+
+  .cert-card-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cert-card-info {
+    align-items: center;
+    text-align: center;
   }
 
   .cert-card-logo {

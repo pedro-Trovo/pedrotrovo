@@ -7,25 +7,27 @@ function CertCard({ cert }) {
 
   return (
     <div className="cert-card">
-      <div className="cert-card-logo">
-        <img src={cert.logo} alt={cert.issuer} />
+      <div className="cert-card-top">
+        <div className="cert-card-logo">
+          <img src={cert.logo} alt={cert.issuer} />
+        </div>
+        <div className="cert-card-info">
+          <h3 className="cert-card-name">{cert.name}</h3>
+          <p className="cert-card-issuer">{cert.issuer} &middot; {cert.issueDate}</p>
+          {cert.description && (
+            <p className="cert-card-description">{cert.description}</p>
+          )}
+        </div>
       </div>
-      <div className="cert-card-info">
-        <h3 className="cert-card-name">{cert.name}</h3>
-        <p className="cert-card-issuer">{cert.issuer} &middot; {cert.issueDate}</p>
-        {cert.description && (
-          <p className="cert-card-description">{cert.description}</p>
-        )}
-        <a
-          href={cert.credentialUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cert-card-btn"
-        >
-          {t('cert.show_credential')}
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-        </a>
-      </div>
+      <a
+        href={cert.credentialUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cert-card-btn"
+      >
+        {t('cert.show_credential')}
+        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+      </a>
     </div>
   )
 }
