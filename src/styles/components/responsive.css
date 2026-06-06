@@ -165,8 +165,9 @@
   }
 
   .skills-tabs {
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .experiences-tabs {
