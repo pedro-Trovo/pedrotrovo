@@ -97,10 +97,10 @@ export const skillsCategories = [
     emoji: '🌍',
     segment: 'langs',
     items: [
-      { name: 'Portuguese (Native)', url: 'https://en.wikipedia.org/wiki/Portuguese_language' },
-      { name: 'English (Advanced)', url: 'https://en.wikipedia.org/wiki/English_language' },
-      { name: 'Spanish (Basic)', url: 'https://en.wikipedia.org/wiki/Spanish_language' },
-      { name: 'Italian (Basic)', url: 'https://en.wikipedia.org/wiki/Italian_language' },
+      { name: 'Portuguese', level: 'Native', url: 'https://en.wikipedia.org/wiki/Portuguese_language' },
+      { name: 'English',    level: 'Intermediate', url: 'https://en.wikipedia.org/wiki/English_language' },
+      { name: 'Spanish',    level: 'Intermediate', url: 'https://en.wikipedia.org/wiki/Spanish_language' },
+      { name: 'Italian',    level: 'Basic', url: 'https://en.wikipedia.org/wiki/Italian_language' },
     ],
   },
 

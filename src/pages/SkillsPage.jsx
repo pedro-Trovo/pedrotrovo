@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { skillsCategories } from '../data/skills'
 import { useLanguage } from '../i18n'
 import CertCard from '../components/CertCard'
+import LangCard from '../components/LangCard'
 
 const outlineIcons = {
   folder: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '1em', height: '1em' }}><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>,
@@ -76,6 +77,21 @@ function SkillsPage() {
                 <CertCard cert={item} />
               </motion.div>
             ))
+          }
+          if (cat.segment === 'langs') {
+            return (
+              <motion.div
+                key={cat.title}
+                className="skills-page-card"
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                custom={i}
+              >
+                <h2 className="skills-page-card-title">{cat.title}</h2>
+                <LangCard items={cat.items} />
+              </motion.div>
+            )
           }
           return (
             <motion.div
