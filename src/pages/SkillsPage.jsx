@@ -63,25 +63,32 @@ function SkillsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
       >
-        {filtered.map((cat, i) => (
-          <motion.div
-            key={cat.title}
-            className="skills-page-card"
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-            custom={i}
-          >
-            <h2 className="skills-page-card-title">
-              {cat.title}
-            </h2>
-            {cat.segment === 'certs' ? (
-              <div className="skills-page-certs">
-                {cat.items.map((item) => (
-                  <CertCard key={item.name} cert={item} />
-                ))}
-              </div>
-            ) : (
+        {filtered.map((cat, i) => {
+          if (cat.segment === 'certs') {
+            return cat.items.map((item, j) => (
+              <motion.div
+                key={item.name}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                custom={j}
+              >
+                <CertCard cert={item} />
+              </motion.div>
+            ))
+          }
+          return (
+            <motion.div
+              key={cat.title}
+              className="skills-page-card"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              custom={i}
+            >
+              <h2 className="skills-page-card-title">
+                {cat.title}
+              </h2>
               <div className="skills-page-items">
                 {cat.items.map((item) => (
                   <a
@@ -119,9 +126,9 @@ function SkillsPage() {
                   </a>
                 ))}
               </div>
-            )}
-          </motion.div>
-        ))}
+            </motion.div>
+          )
+        })}
       </motion.div>
     </section>
   )

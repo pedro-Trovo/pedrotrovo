@@ -1,9 +1,10 @@
 .cert-card {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  padding: 1rem;
-  background-color: var(--color-bg-section);
+  padding: 1.5rem;
+  background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   transition: border-color 0.25s, box-shadow 0.25s;
@@ -37,8 +38,10 @@
 .cert-card-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.3rem;
   min-width: 0;
+  text-align: center;
 }
 
 .cert-card-name {
@@ -60,6 +63,7 @@
   line-height: 1.5;
   color: var(--color-text-muted);
   margin: 0.25rem 0 0;
+  max-width: 360px;
 }
 
 .cert-card-btn {
@@ -67,31 +71,29 @@
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.4rem;
+  padding: 0.45rem 1.1rem;
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--color-accent);
+  background-color: var(--color-accent-dim);
+  border-radius: var(--radius-full);
   text-decoration: none;
-  transition: opacity 0.2s;
-  width: fit-content;
+  transition: background-color 0.2s, color 0.2s;
+  align-self: center;
 }
 
 .cert-card-btn:hover {
-  opacity: 0.8;
+  background-color: var(--color-accent);
+  color: #fff;
 }
 
 @media (max-width: 480px) {
   .cert-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 1rem;
   }
 
   .cert-card-logo {
     width: 56px;
     height: 56px;
-  }
-
-  .cert-card-btn {
-    align-self: center;
   }
 }
