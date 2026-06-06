@@ -62,6 +62,9 @@
   --z-modal:   300;
   --z-search:  400;
 
+  /* --- Header --- */
+  --header-height: 60px;
+
 }
 
 :root.light {

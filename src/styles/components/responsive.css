@@ -1,4 +1,8 @@
 @media (max-width: 768px) {
+  :root {
+    --header-height: 52px;
+  }
+
   .header {
     padding: 0.6rem 1rem;
   }
