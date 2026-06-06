@@ -1,12 +1,13 @@
 import { useMemo, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faTimes, faCode, faBriefcase, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faXmark, faArrowLeft, faCode, faBriefcase, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import { projects } from '../data/projects'
 import { experiences } from '../data/experiences'
 import { education } from '../data/education'
+import { skillsCategories } from '../data/skills'
 
 const searchIndex = [
   ...projects.map((p) => ({
@@ -30,6 +31,21 @@ const searchIndex = [
     url: '/experiencias/academica',
     text: [e.institution, e.course, e.description].filter(Boolean).join(' '),
   })),
+  ...skillsCategories.flatMap((cat) =>
+    cat.items.map((skill) => ({
+      type: 'skill',
+      title: skill.nameKey ? '' : skill.name,
+      subtitle: cat.title,
+      url: '/skills',
+      text: [
+        skill.nameKey ? '' : skill.name,
+        cat.title,
+        ...(cat.items || []).map((i) => (i.nameKey ? '' : i.name)),
+      ]
+        .filter(Boolean)
+        .join(' '),
+    }))
+  ),
 ]
 
 const sectionOrder = ['project', 'experience', 'education', 'skill']
@@ -98,11 +114,12 @@ function SearchModal({ onClose }) {
           />
           {query && (
             <button ref={clearRef} className="search-clear btn-glow" onClick={() => setQuery('')}>
-              <FontAwesomeIcon icon={faTimes} />
+              <FontAwesomeIcon icon={faArrowLeft} />
+              <FontAwesomeIcon icon={faXmark} />
             </button>
           )}
           <button ref={closeRef} className="search-close-btn btn-glow" onClick={onClose}>
-            ESC
+            <FontAwesomeIcon icon={faXmark} />
           </button>
         </div>
 
