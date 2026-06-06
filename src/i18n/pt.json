@@ -26,6 +26,15 @@
   "skills.segment_tech": "Tecnologias",
   "skills.segment_langs": "Idiomas",
   "skills.segment_certs": "Certificados",
+
+  "langs.portuguese": "Português",
+  "langs.english": "Inglês",
+  "langs.spanish": "Espanhol",
+  "langs.italian": "Italiano",
+  "langs.level_native": "Nativo",
+  "langs.level_intermediate": "Intermediário",
+  "langs.level_basic": "Básico",
+
   "projects.title": "Projetos",
   "projects.all": "Todos",
 
