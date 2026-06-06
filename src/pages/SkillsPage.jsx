@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { skillsCategories } from '../data/skills'
 import { useLanguage } from '../i18n'
+import CertCard from '../components/CertCard'
 
 const outlineIcons = {
   folder: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '1em', height: '1em' }}><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>,
@@ -74,43 +75,51 @@ function SkillsPage() {
             <h2 className="skills-page-card-title">
               {cat.title}
             </h2>
-            <div className="skills-page-items">
-              {cat.items.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="skills-page-tech"
-                  title={item.name}
-                >
-                  {item.darkPlain ? (
-                    <span className="skill-icon-box">
-                      <img src={item.svg} alt={item.name} className="skill-icon-svg light-only" />
-                      <i className={`devicon ${item.darkDevicon} dark-only`} />
-                      <span className="skill-icon-label">{item.name}</span>
-                    </span>
-                  ) : item.svg ? (
-                    <span className="skill-icon-box">
-                      <img src={item.svg} alt={item.name} className="skill-icon-svg" />
-                      <span className="skill-icon-label">{item.name}</span>
-                    </span>
-                  ) : item.devicon ? (
-                    <span className="skill-icon-box">
-                      <i className={`devicon ${item.devicon} colored`} />
-                      <span className="skill-icon-label">{item.name}</span>
-                    </span>
-                  ) : item.faIcon ? (
-                    <span className="skill-icon-box">
-                      <span className="skill-fa-icon skill-fa-icon--box">{outlineIcons[item.faIcon]}</span>
-                      <span className="skill-icon-label">{item.name}</span>
-                    </span>
-                  ) : (
-                    <span className="skills-page-tech-name">{item.name}</span>
-                  )}
-                </a>
-              ))}
-            </div>
+            {cat.segment === 'certs' ? (
+              <div className="skills-page-certs">
+                {cat.items.map((item) => (
+                  <CertCard key={item.name} cert={item} />
+                ))}
+              </div>
+            ) : (
+              <div className="skills-page-items">
+                {cat.items.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="skills-page-tech"
+                    title={item.name}
+                  >
+                    {item.darkPlain ? (
+                      <span className="skill-icon-box">
+                        <img src={item.svg} alt={item.name} className="skill-icon-svg light-only" />
+                        <i className={`devicon ${item.darkDevicon} dark-only`} />
+                        <span className="skill-icon-label">{item.name}</span>
+                      </span>
+                    ) : item.svg ? (
+                      <span className="skill-icon-box">
+                        <img src={item.svg} alt={item.name} className="skill-icon-svg" />
+                        <span className="skill-icon-label">{item.name}</span>
+                      </span>
+                    ) : item.devicon ? (
+                      <span className="skill-icon-box">
+                        <i className={`devicon ${item.devicon} colored`} />
+                        <span className="skill-icon-label">{item.name}</span>
+                      </span>
+                    ) : item.faIcon ? (
+                      <span className="skill-icon-box">
+                        <span className="skill-fa-icon skill-fa-icon--box">{outlineIcons[item.faIcon]}</span>
+                        <span className="skill-icon-label">{item.name}</span>
+                      </span>
+                    ) : (
+                      <span className="skills-page-tech-name">{item.name}</span>
+                    )}
+                  </a>
+                ))}
+              </div>
+            )}
           </motion.div>
         ))}
       </motion.div>

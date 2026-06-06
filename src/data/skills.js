@@ -109,7 +109,14 @@ export const skillsCategories = [
     emoji: '🏅',
     segment: 'certs',
     items: [
-      { name: 'Scrum (SFC)', url: 'https://www.scrumstudy.com/' },
+      {
+        name: 'Scrum (SFC)',
+        issuer: 'SCRUMstudy',
+        logo: '/images/certificados/scrum/vabro_vmedu_logo.jpg',
+        credentialUrl: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=1054001',
+        issueDate: '2024',
+        description: 'Fundamentos do framework Scrum: papéis, eventos, artefatos e princípios ágeis.',
+      },
     ],
   },
 ]

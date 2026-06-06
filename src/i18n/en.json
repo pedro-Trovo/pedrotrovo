@@ -71,6 +71,8 @@
   "contact.error_subject": "Enter a subject",
   "contact.error_message": "Enter a message",
 
+  "cert.show_credential": "Show Credential",
+
   "cv.modal_title": "Curriculum Vitae",
 
   "footer.copyright": "© 2026 Pedro Trovo. All rights reserved.",
