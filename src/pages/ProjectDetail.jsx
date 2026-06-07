@@ -1,7 +1,7 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowLeft,
@@ -38,6 +38,10 @@ function ProjectDetail() {
   const { t, language } = useLanguage()
   const project = projects.find((p) => p.slug === slug)
   const [lightboxIndex, setLightboxIndex] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
   const githubRef = useMouseGlow()
   const siteRef = useMouseGlow()
   const doiRef = useMouseGlow()
@@ -54,6 +58,34 @@ function ProjectDetail() {
   const nextImage = useCallback(() => {
     setLightboxIndex((prev) => (prev < project.images.length - 1 ? prev + 1 : 0))
   }, [project])
+
+  const goToSlide = (index) => {
+    setDirection(index > currentIndex ? 1 : -1)
+    setCurrentIndex(index)
+  }
+
+  const prevSlide = () => {
+    setDirection(-1)
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : project.images.length - 1))
+  }
+
+  const nextSlide = () => {
+    setDirection(1)
+    setCurrentIndex((prev) => (prev < project.images.length - 1 ? prev + 1 : 0))
+  }
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX
+    const diff = touchStartX.current - touchEndX.current
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextSlide()
+      else prevSlide()
+    }
+  }
 
   useEffect(() => {
     if (lightboxIndex === null) return
@@ -187,29 +219,55 @@ function ProjectDetail() {
 
         <motion.section className="project-detail-section" {...fadeUp}>
           <h2 className="project-detail-section-title">{t('project_detail.gallery')}</h2>
-          <motion.div
-            className="project-detail-gallery"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: { transition: { staggerChildren: 0.05 } },
-            }}
-          >
-            {project.images.map((img, i) => (
-              <motion.button
-                key={i}
-                className="project-detail-gallery-item btn-glow"
-                onClick={() => setLightboxIndex(i)}
-                variants={{
-                  hidden: { opacity: 0, y: 12 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-              >
-                <img src={img} alt={`${project.title} ${i + 1}`} loading="lazy" />
-              </motion.button>
-            ))}
-          </motion.div>
+          <div className="carousel">
+            <div
+              className="carousel-viewport"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.img
+                  key={currentIndex}
+                  className="carousel-image"
+                  src={project.images[currentIndex]}
+                  alt={`${project.title} ${currentIndex + 1}`}
+                  onClick={() => setLightboxIndex(currentIndex)}
+                  custom={direction}
+                  variants={{
+                    enter: (dir) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+                    center: { x: 0, opacity: 1 },
+                    exit: (dir) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
+                  }}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                />
+              </AnimatePresence>
+              {project.images.length > 1 && (
+                <>
+                  <button className="carousel-btn carousel-prev" onClick={prevSlide} aria-label="Previous image">
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </button>
+                  <button className="carousel-btn carousel-next" onClick={nextSlide} aria-label="Next image">
+                    <FontAwesomeIcon icon={faChevronRight} />
+                  </button>
+                </>
+              )}
+            </div>
+            {project.images.length > 1 && (
+              <div className="carousel-dots">
+                {project.images.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`carousel-dot${i === currentIndex ? ' carousel-dot--active' : ''}`}
+                    onClick={() => goToSlide(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </motion.section>
 
         {lightboxIndex !== null && (
@@ -229,9 +287,6 @@ function ProjectDetail() {
             <button ref={lightboxNextRef} className="lightbox-nav lightbox-next btn-glow" onClick={(e) => { e.stopPropagation(); nextImage() }}>
               <FontAwesomeIcon icon={faChevronRight} />
             </button>
-            <span className="lightbox-counter">
-              {lightboxIndex + 1} / {project.images.length}
-            </span>
           </div>
         )}
       </section>
