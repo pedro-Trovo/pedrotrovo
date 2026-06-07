@@ -50,7 +50,7 @@
 }
 
 .project-detail-title {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   font-weight: 800;
   margin: 0.25rem 0;
   line-height: 1.1;
@@ -80,13 +80,13 @@
 
 .project-slide-nav {
   position: fixed;
-  right: 1.25rem;
+  right: 2rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 50;
   display: none;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -119,20 +119,20 @@
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 6rem 3rem;
   scroll-margin-top: var(--header-height);
 }
 
 .project-slide-inner {
-  max-width: 720px;
+  max-width: 960px;
   width: 100%;
   margin: 0 auto;
 }
 
 .project-slide-heading {
-  font-size: 1.3rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
   color: var(--color-text-primary);
 }
 
@@ -144,8 +144,8 @@
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
-  transition: border-color 0.2s;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .project-slide-card:hover {
@@ -159,10 +159,18 @@
 }
 
 .project-slide-text {
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.65;
   color: var(--color-text-primary);
   margin: 0;
+}
+
+.project-slide-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-text-primary);
 }
 
 .project-slide-card-label {
@@ -196,7 +204,7 @@
 
 .project-slide-feature-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 @media (min-width: 768px) {
@@ -207,7 +215,7 @@
 
 .project-slide-tech-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 @media (min-width: 768px) {
@@ -218,8 +226,8 @@
 
 .project-slide-card-icon {
   display: block;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
   line-height: 1;
 }
 
@@ -299,51 +307,26 @@
   color: #f59e0b;
 }
 
-.project-slide-tag-tech {
+.project-progress-bar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 40;
+  background: var(--color-border);
+}
+
+.project-progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 0.4s ease;
+}
+
+.project-tech-badge-img {
+  height: 1.6rem;
+  width: auto;
   display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid;
-  line-height: 1.4;
-}
-
-.project-slide-tag-tech--frontend {
-  color: #14b8a6;
-  border-color: rgba(20, 184, 166, 0.35);
-  background: rgba(20, 184, 166, 0.08);
-}
-
-.project-slide-tag-tech--backend {
-  color: #3b82f6;
-  border-color: rgba(59, 130, 246, 0.35);
-  background: rgba(59, 130, 246, 0.08);
-}
-
-.project-slide-tag-tech--devops {
-  color: #22c55e;
-  border-color: rgba(34, 197, 94, 0.35);
-  background: rgba(34, 197, 94, 0.08);
-}
-
-.project-slide-tag-tech--desktop {
-  color: #f59e0b;
-  border-color: rgba(245, 158, 11, 0.35);
-  background: rgba(245, 158, 11, 0.08);
-}
-
-.project-slide-tag-tech--api-rest {
-  color: #a855f7;
-  border-color: rgba(168, 85, 247, 0.35);
-  background: rgba(168, 85, 247, 0.08);
-}
-
-.project-slide-tag-tech--banco,
-.project-slide-tag-tech--database {
-  color: #06b6d4;
-  border-color: rgba(6, 182, 212, 0.35);
-  background: rgba(6, 182, 212, 0.08);
 }
 
 .carousel {
@@ -518,7 +501,7 @@
   }
 
   .project-detail-title {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   .project-detail-context {
@@ -531,15 +514,19 @@
   }
 
   .project-slide-heading {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .project-slide-text {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
+  }
+
+  .project-slide-label {
+    font-size: 0.95rem;
   }
 
   .project-slide-card {
-    padding: 1rem 1.15rem;
+    padding: 1.15rem;
   }
 
   .project-slide-feature-grid,
@@ -561,9 +548,8 @@
     font-size: 0.82rem;
   }
 
-  .project-slide-tag-tech {
-    font-size: 0.72rem;
-    padding: 0.2rem 0.55rem;
+  .project-tech-badge-img {
+    height: 1.3rem;
   }
 
   .lightbox-nav {

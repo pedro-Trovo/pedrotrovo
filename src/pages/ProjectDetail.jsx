@@ -26,6 +26,29 @@ const techCategoryMap = {
   Database: 'tech.database',
 }
 
+const TECH_BADGES = {
+  React: { name: 'React', color: '#61DAFB', logo: 'react', url: 'https://react.dev' },
+  Vite: { name: 'Vite', color: '#646CFF', logo: 'vite', url: 'https://vitejs.dev' },
+  PrimeReact: { name: 'PrimeReact', color: '#4FC3F7', url: 'https://primereact.org' },
+  Python: { name: 'Python', color: '#3776AB', logo: 'python', url: 'https://www.python.org' },
+  Flask: { name: 'Flask', color: '#000000', logo: 'flask', url: 'https://flask.palletsprojects.com' },
+  spaCy: { name: 'spaCy', color: '#09A3D5', logo: 'spacy', url: 'https://spacy.io' },
+  Docker: { name: 'Docker', color: '#2496ED', logo: 'docker', url: 'https://www.docker.com' },
+  'Docker Compose': { name: 'Docker Compose', color: '#2496ED', logo: 'docker', url: 'https://docs.docker.com/compose' },
+  Electron: { name: 'Electron', color: '#47848F', logo: 'electron', url: 'https://www.electronjs.org' },
+  TailwindCSS: { name: 'Tailwind CSS', color: '#06B6D4', logo: 'tailwindcss', url: 'https://tailwindcss.com' },
+  'shadcn/ui': { name: 'shadcn/ui', color: '#000000', url: 'https://ui.shadcn.com' },
+  ECharts: { name: 'ECharts', color: '#AA344D', logo: 'apacheecharts', url: 'https://echarts.apache.org' },
+  Express: { name: 'Express', color: '#000000', logo: 'express', url: 'https://expressjs.com' },
+  'Node.js': { name: 'Node.js', color: '#339933', logo: 'nodedotjs', url: 'https://nodejs.org' },
+  Java: { name: 'Java', color: '#ED8B00', logo: 'openjdk', url: 'https://www.java.com' },
+  'Spring Boot': { name: 'Spring Boot', color: '#6DB33F', logo: 'spring', url: 'https://spring.io/projects/spring-boot' },
+  'SOAP Web Services': { name: 'SOAP', color: '#6A1B9A', url: 'https://www.w3.org/TR/soap' },
+  JPA: { name: 'JPA', color: '#59666C', logo: 'hibernate', url: 'https://jakarta.ee/specifications/persistence' },
+  PostgreSQL: { name: 'PostgreSQL', color: '#4169E1', logo: 'postgresql', url: 'https://www.postgresql.org' },
+  Maven: { name: 'Maven', color: '#C71A36', logo: 'apachemaven', url: 'https://maven.apache.org' },
+}
+
 function ProjectDetail() {
   const { slug } = useParams()
   const { t, language } = useLanguage()
@@ -121,6 +144,20 @@ function ProjectDetail() {
     })
   }, [project])
 
+  const featureLabels = useMemo(() => {
+    const labels = {
+      morslum: {
+        pt: ['Analisador Morfossintático', 'Árvore de Dependências', 'Quiz Educativo', 'Desktop App', 'Estatísticas', 'Infraestrutura Docker'],
+        en: ['Morphosyntactic Analyzer', 'Dependency Tree', 'Educational Quiz', 'Desktop App', 'Statistics', 'Docker Infrastructure'],
+      },
+      translog: {
+        pt: ['Cadastro de Entregas', 'Rastreamento', 'Atualização de Status', 'Cancelamento', 'Filtros', 'Dashboard', 'Código de Rastreio'],
+        en: ['Delivery Registration', 'Tracking', 'Status Update', 'Cancellation', 'Filters', 'Dashboard', 'Tracking Code'],
+      },
+    }
+    return labels[project?.slug]?.[language] || []
+  }, [project, language])
+
   useEffect(() => {
     if (lightboxIndex === null) return
     const handleKey = (e) => {
@@ -164,19 +201,12 @@ function ProjectDetail() {
 
   const p = (key) => t(`project.${project.slug}.${key}`)
 
-  const categoryClass = (cat) => {
-    const slug = cat.toLowerCase().replace(/\s+/g, '-')
-    return `project-slide-tag-tech--${slug}`
-  }
-
-  const categoryColors = {
-    frontend: '#14b8a6',
-    backend: '#3b82f6',
-    'api-rest': '#a855f7',
-    devops: '#22c55e',
-    desktop: '#f59e0b',
-    banco: '#06b6d4',
-    database: '#06b6d4',
+  const badgeUrl = (name) => {
+    const b = TECH_BADGES[name]
+    if (!b) return null
+    const parts = [`https://img.shields.io/badge/${encodeURIComponent(b.name)}-${b.color.slice(1)}?style=for-the-badge`]
+    if (b.logo) parts.push(`&logo=${b.logo}&logoColor=white`)
+    return parts.join('')
   }
 
   return (
@@ -191,6 +221,10 @@ function ProjectDetail() {
       </Helmet>
 
       <section className="page project-slides">
+        <div className="project-progress-bar" role="progressbar" aria-valuenow={activeSlide + 1} aria-valuemin={1} aria-valuemax={slides.length}>
+          <div className="project-progress-fill" style={{ width: `${((activeSlide + 1) / slides.length) * 100}%` }} />
+        </div>
+
         <nav className="project-slide-nav" aria-label="Slide navigation">
           {slides.map((s, i) => (
             <button
@@ -272,6 +306,7 @@ function ProjectDetail() {
               {project.features.map((_, i) => (
                 <div key={i} className="project-slide-card project-slide-card--hover-lift">
                   <span className="project-slide-card-icon">{featureIcon[i]}</span>
+                  {featureLabels[i] && <strong className="project-slide-label">{featureLabels[i]}</strong>}
                   <p className="project-slide-text">{p(`features.${i}`)}</p>
                 </div>
               ))}
@@ -326,13 +361,19 @@ function ProjectDetail() {
             <div className="project-slide-tech-grid">
               {project.techStack.map((group) => (
                 <div key={group.category} className="project-slide-card">
-                  <span className="project-slide-card-label" style={{ color: categoryColors[categoryClass(group.category).replace('project-slide-tag-tech--', '')] || 'var(--color-text-muted)' }}>
+                  <span className="project-slide-card-label">
                     {t(techCategoryMap[group.category] || group.category)}
                   </span>
-                  <div className="project-slide-tags" style={{ gap: '0.35rem' }}>
-                    {group.items.map((item) => (
-                      <span key={item} className={`project-slide-tag-tech ${categoryClass(group.category)}`}>{item}</span>
-                    ))}
+                  <div className="project-slide-tags" style={{ gap: '0.4rem' }}>
+                    {group.items.map((item) => {
+                      const url = badgeUrl(item)
+                      if (!url) return <span key={item} className="project-slide-text" style={{ fontSize: '0.85rem' }}>{item}</span>
+                      return (
+                        <a key={item} href={TECH_BADGES[item]?.url} target="_blank" rel="noopener noreferrer" title={item}>
+                          <img alt={item} src={url} className="project-tech-badge-img" />
+                        </a>
+                      )
+                    })}
                   </div>
                 </div>
               ))}
