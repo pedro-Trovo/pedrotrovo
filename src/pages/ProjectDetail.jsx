@@ -209,6 +209,42 @@ function ProjectDetail() {
     return parts.join('')
   }
 
+  const featureGroups = {
+    morslum: [
+      { icon: '🧠', label: 'Núcleo de Análise', indices: [0, 1, 4] },
+      { icon: '🎯', label: 'Aprendizado', indices: [2] },
+      { icon: '🐳', label: 'Infraestrutura e Distribuição', indices: [3, 5] },
+    ],
+    translog: [
+      { icon: '📦', label: 'Gestão de Entregas', indices: [0, 1, 2, 3] },
+      { icon: '🔎', label: 'Consulta e Monitoria', indices: [4, 5, 6] },
+    ],
+  }
+
+  const archGroups = {
+    morslum: [
+      { icon: '🌐', title: 'Frontend', desc: 'React com PrimeReact — interface que consome a API REST e renderiza árvores SVG.' },
+      { icon: '⚙️', title: 'Backend (Flask)', desc: 'API REST em Flask com spaCy — pipeline de NLP para análise morfossintática.' },
+      { icon: '🗄️', title: 'Cache (Redis)', desc: 'Banco Redis para cache de análises frequentes, agilizando respostas.' },
+      { icon: '🐳', title: 'Infraestrutura', desc: 'Docker Compose orquestra Redis, API Flask e Frontend Nginx.' },
+      { icon: '🖥️', title: 'Desktop (Electron)', desc: 'Electron empacota frontend + Python portátil em instalador único (NSIS).' },
+    ],
+    translog: [
+      { icon: '🌐', title: 'Frontend', desc: 'React com TailwindCSS e shadcn/ui — consome API REST intermediária.' },
+      { icon: '🔗', title: 'API REST (Express)', desc: 'Express traduz chamadas REST do frontend para Web Services SOAP.' },
+      { icon: '⚙️', title: 'Backend (Spring Boot)', desc: 'Expõe operações SOAP de criação, rastreamento e cancelamento de entregas.' },
+      { icon: '🗄️', title: 'Banco (PostgreSQL)', desc: 'Armazena dados de entregas, status e rastreamento.' },
+      { icon: '🐳', title: 'DevOps', desc: 'Docker Compose orquestra todos os serviços da aplicação.' },
+    ],
+  }
+
+  const limitationGroups = {
+    morslum: [
+      { icon: '🧠', label: 'Limitações do Modelo NLP', indices: [0, 1, 2] },
+      { icon: '📝', label: 'Qualidade da Análise', indices: [3] },
+    ],
+  }
+
   return (
     <>
       <Helmet>
@@ -302,12 +338,22 @@ function ProjectDetail() {
         <section className="project-slide" id="slide-funcionalidades">
           <div className="project-slide-inner">
             <h2 className="project-slide-heading">{t('project_detail.features')}</h2>
-            <div className="project-slide-feature-grid">
-              {project.features.map((_, i) => (
-                <div key={i} className="project-slide-card project-slide-card--hover-lift">
-                  <span className="project-slide-card-icon">{featureIcon[i]}</span>
-                  {featureLabels[i] && <strong className="project-slide-label">{featureLabels[i]}</strong>}
-                  <p className="project-slide-text">{p(`features.${i}`)}</p>
+            <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
+              {(featureGroups[project.slug] || []).map((group) => (
+                <div key={group.label} className="project-slide-group">
+                  <div className="project-slide-group-header">
+                    <span>{group.icon}</span>
+                    <span>{group.label}</span>
+                  </div>
+                  <div className="project-slide-group-grid" style={{ gridTemplateColumns: group.indices.length < 3 ? `repeat(${group.indices.length}, 1fr)` : undefined }}>
+                    {group.indices.map((i) => (
+                      <div key={i} className="project-slide-inner-card">
+                        <span className="project-slide-inner-card-icon">{featureIcon[i]}</span>
+                        {featureLabels[i] && <strong className="project-slide-inner-card-label">{featureLabels[i]}</strong>}
+                        <p className="project-slide-inner-card-text">{p(`features.${i}`)}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -317,39 +363,24 @@ function ProjectDetail() {
         <section className="project-slide" id="slide-arquitetura">
           <div className="project-slide-inner">
             <h2 className="project-slide-heading">{t('project_detail.architecture')}</h2>
-            <div className="project-slide-card">
-              <p className="project-slide-text">{p('architecture')}</p>
-            </div>
-            <div className="project-slide-callout">
-              <span className="project-slide-callout-icon">📐</span>
-              <div>
-                <p className="project-slide-callout-title">{t('project_detail.how_it_works')}</p>
-                <ul className="project-slide-callout-bullets">
-                  {project.techStack.filter(g => g.category === 'Frontend').length > 0 && (
-                    <li>
-                      <strong>{t(techCategoryMap[project.techStack.find(g => g.category === 'Frontend')?.category] || 'Frontend')}:</strong>{' '}
-                      {project.techStack.find(g => g.category === 'Frontend')?.items.slice(0, 3).join(', ')}
-                    </li>
-                  )}
-                  {project.techStack.filter(g => g.category === 'Backend' || g.category === 'API REST').length > 0 && (
-                    <li>
-                      <strong>{t(techCategoryMap['Backend'] || 'Backend')}:</strong>{' '}
-                      {[...(project.techStack.find(g => g.category === 'Backend')?.items || []), ...(project.techStack.find(g => g.category === 'API REST')?.items || [])].slice(0, 3).join(', ')}
-                    </li>
-                  )}
-                  {project.techStack.filter(g => g.category === 'Banco' || g.category === 'Database').length > 0 && (
-                    <li>
-                      <strong>{t(techCategoryMap['Banco'] || 'Database')}:</strong>{' '}
-                      {project.techStack.find(g => g.category === 'Banco' || g.category === 'Database')?.items.join(', ')}
-                    </li>
-                  )}
-                  {project.techStack.filter(g => g.category === 'DevOps').length > 0 && (
-                    <li>
-                      <strong>{t(techCategoryMap['DevOps'])}:</strong>{' '}
-                      {project.techStack.find(g => g.category === 'DevOps')?.items.join(', ')}
-                    </li>
-                  )}
-                </ul>
+            <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
+              <div className="project-slide-card">
+                <p className="project-slide-text">{p('architecture')}</p>
+              </div>
+              <div className="project-slide-group">
+                <div className="project-slide-group-header">
+                  <span>📐</span>
+                  <span>{t('project_detail.how_it_works')}</span>
+                </div>
+                <div className="project-slide-group-grid" style={{ gridTemplateColumns: `repeat(${Math.min((archGroups[project.slug] || []).length, 3)}, 1fr)` }}>
+                  {(archGroups[project.slug] || []).map((layer) => (
+                    <div key={layer.title} className="project-slide-inner-card">
+                      <span className="project-slide-inner-card-icon">{layer.icon}</span>
+                      <strong className="project-slide-inner-card-label">{layer.title}</strong>
+                      <p className="project-slide-inner-card-text">{layer.desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -385,11 +416,21 @@ function ProjectDetail() {
           <section className="project-slide" id="slide-limitacoes">
             <div className="project-slide-inner">
               <h2 className="project-slide-heading">{t('project_detail.limitations')}</h2>
-              <div className="project-slide-feature-grid">
-                {project.limitations.map((_, i) => (
-                  <div key={i} className="project-slide-card project-slide-card--hover-lift project-slide-card--warning">
-                    <span className="project-slide-card-icon">⚠️</span>
-                    <p className="project-slide-text">{p(`limitations.${i}`)}</p>
+              <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
+                {(limitationGroups[project.slug] || []).map((group) => (
+                  <div key={group.label} className="project-slide-group">
+                    <div className="project-slide-group-header">
+                      <span>{group.icon}</span>
+                      <span>{group.label}</span>
+                    </div>
+                    <div className="project-slide-group-grid">
+                      {group.indices.map((i) => (
+                        <div key={i} className="project-slide-inner-card project-slide-inner-card--warning">
+                          <span className="project-slide-inner-card-icon">⚠️</span>
+                          <p className="project-slide-inner-card-text" style={{ color: 'var(--color-text-primary)' }}>{p(`limitations.${i}`)}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
