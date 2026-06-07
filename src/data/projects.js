@@ -67,7 +67,7 @@ export const projects = [
     techStack: [
       { category: 'Frontend', items: ['React', 'Vite', 'TailwindCSS', 'shadcn/ui', 'ECharts'] },
       { category: 'API REST', items: ['Express', 'Node.js'] },
-      { category: 'Backend', items: ['Java 17', 'Spring Boot 3.2', 'SOAP Web Services', 'JPA'] },
+      { category: 'Backend', items: ['Java', 'Spring Boot', 'SOAP Web Services', 'JPA'] },
       { category: 'Banco', items: ['PostgreSQL'] },
       { category: 'DevOps', items: ['Docker', 'Maven'] },
     ],

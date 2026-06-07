@@ -97,6 +97,30 @@ function ProjectDetail() {
     document.getElementById(`slide-${id}`)?.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
+  const featureIcon = useMemo(() => {
+    if (!project) return []
+    const keywords = {
+      analisador: '🔍', analyzer: '🔍', classifica: '🔍',
+      árvore: '🌳', tree: '🌳', visualizar: '🌳',
+      quiz: '🎯', questões: '🎯', questions: '🎯',
+      desktop: '🖥️', instalador: '🖥️', installer: '🖥️',
+      estatísticas: '📊', statistics: '📊', métricas: '📊', metrics: '📊',
+      dashboard: '📈', gráfico: '📈', chart: '📈',
+      docker: '🐳', deploy: '🐳',
+      criação: '📦',
+      rastreamento: '📍', tracking: '📍', código: '📍', code: '📍',
+      atualização: '🔄', update: '🔄', transição: '🔄', transition: '🔄',
+      cancelamento: '❌', cancellation: '❌',
+      filtro: '🔎', filters: '🔎', busca: '🔎', search: '🔎',
+      geração: '🔢', generation: '🔢', automática: '🔢', automatic: '🔢',
+    }
+    return project.features.map((feat) => {
+      const lower = feat.toLowerCase()
+      const found = Object.entries(keywords).find(([kw]) => lower.includes(kw))
+      return found ? found[1] : '✨'
+    })
+  }, [project])
+
   useEffect(() => {
     if (lightboxIndex === null) return
     const handleKey = (e) => {
@@ -140,6 +164,21 @@ function ProjectDetail() {
 
   const p = (key) => t(`project.${project.slug}.${key}`)
 
+  const categoryClass = (cat) => {
+    const slug = cat.toLowerCase().replace(/\s+/g, '-')
+    return `project-slide-tag-tech--${slug}`
+  }
+
+  const categoryColors = {
+    frontend: '#14b8a6',
+    backend: '#3b82f6',
+    'api-rest': '#a855f7',
+    devops: '#22c55e',
+    desktop: '#f59e0b',
+    banco: '#06b6d4',
+    database: '#06b6d4',
+  }
+
   return (
     <>
       <Helmet>
@@ -178,12 +217,15 @@ function ProjectDetail() {
               <FontAwesomeIcon icon={faArrowLeft} /> {t('project_detail.back')}
             </Link>
 
+            {project.context && (
+              <span className="project-slide-context-badge">
+                {project.slug === 'morslum' ? '🧪' : '🚀'} {p('context')}
+              </span>
+            )}
+
             <div className="project-slide-header">
               <p className="project-detail-subtitle text-muted">{project.subtitle}</p>
               <h1 className="project-detail-title heading-gradient">{project.title}</h1>
-              {project.context && (
-                <p className="project-detail-context text-muted">{p('context')}</p>
-              )}
               <div className="project-detail-links">
                 <a ref={githubRef} href={project.links.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-glow">
                   <FontAwesomeIcon icon={faGithub} /> GitHub
@@ -205,15 +247,31 @@ function ProjectDetail() {
             <div className="project-slide-card">
               <p className="project-slide-text">{p('about')}</p>
             </div>
+
+            {project.links.doi && (
+              <div className="project-slide-callout">
+                <span className="project-slide-callout-icon">⭐</span>
+                <div>
+                  <p className="project-slide-callout-title">{t('project_detail.highlights')}</p>
+                  <ul className="project-slide-callout-bullets">
+                    {project.slug === 'morslum' && (
+                      <li>{t('project_detail.months_development')}</li>
+                    )}
+                    <li>{t('project_detail.has_doi')}</li>
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
         <section className="project-slide" id="slide-funcionalidades">
           <div className="project-slide-inner">
             <h2 className="project-slide-heading">{t('project_detail.features')}</h2>
-            <div className="project-slide-card-list">
+            <div className="project-slide-feature-grid">
               {project.features.map((_, i) => (
-                <div key={i} className="project-slide-card">
+                <div key={i} className="project-slide-card project-slide-card--hover-lift">
+                  <span className="project-slide-card-icon">{featureIcon[i]}</span>
                   <p className="project-slide-text">{p(`features.${i}`)}</p>
                 </div>
               ))}
@@ -227,21 +285,53 @@ function ProjectDetail() {
             <div className="project-slide-card">
               <p className="project-slide-text">{p('architecture')}</p>
             </div>
+            <div className="project-slide-callout">
+              <span className="project-slide-callout-icon">📐</span>
+              <div>
+                <p className="project-slide-callout-title">{t('project_detail.how_it_works')}</p>
+                <ul className="project-slide-callout-bullets">
+                  {project.techStack.filter(g => g.category === 'Frontend').length > 0 && (
+                    <li>
+                      <strong>{t(techCategoryMap[project.techStack.find(g => g.category === 'Frontend')?.category] || 'Frontend')}:</strong>{' '}
+                      {project.techStack.find(g => g.category === 'Frontend')?.items.slice(0, 3).join(', ')}
+                    </li>
+                  )}
+                  {project.techStack.filter(g => g.category === 'Backend' || g.category === 'API REST').length > 0 && (
+                    <li>
+                      <strong>{t(techCategoryMap['Backend'] || 'Backend')}:</strong>{' '}
+                      {[...(project.techStack.find(g => g.category === 'Backend')?.items || []), ...(project.techStack.find(g => g.category === 'API REST')?.items || [])].slice(0, 3).join(', ')}
+                    </li>
+                  )}
+                  {project.techStack.filter(g => g.category === 'Banco' || g.category === 'Database').length > 0 && (
+                    <li>
+                      <strong>{t(techCategoryMap['Banco'] || 'Database')}:</strong>{' '}
+                      {project.techStack.find(g => g.category === 'Banco' || g.category === 'Database')?.items.join(', ')}
+                    </li>
+                  )}
+                  {project.techStack.filter(g => g.category === 'DevOps').length > 0 && (
+                    <li>
+                      <strong>{t(techCategoryMap['DevOps'])}:</strong>{' '}
+                      {project.techStack.find(g => g.category === 'DevOps')?.items.join(', ')}
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
         <section className="project-slide" id="slide-tecnologias">
           <div className="project-slide-inner">
             <h2 className="project-slide-heading">{t('project_detail.tech')}</h2>
-            <div className="project-slide-card-list">
+            <div className="project-slide-tech-grid">
               {project.techStack.map((group) => (
                 <div key={group.category} className="project-slide-card">
-                  <span className="project-slide-card-label">
+                  <span className="project-slide-card-label" style={{ color: categoryColors[categoryClass(group.category).replace('project-slide-tag-tech--', '')] || 'var(--color-text-muted)' }}>
                     {t(techCategoryMap[group.category] || group.category)}
                   </span>
-                  <div className="project-slide-tags">
+                  <div className="project-slide-tags" style={{ gap: '0.35rem' }}>
                     {group.items.map((item) => (
-                      <span key={item} className="project-tag">{item}</span>
+                      <span key={item} className={`project-slide-tag-tech ${categoryClass(group.category)}`}>{item}</span>
                     ))}
                   </div>
                 </div>
@@ -254,9 +344,10 @@ function ProjectDetail() {
           <section className="project-slide" id="slide-limitacoes">
             <div className="project-slide-inner">
               <h2 className="project-slide-heading">{t('project_detail.limitations')}</h2>
-              <div className="project-slide-card-list">
+              <div className="project-slide-feature-grid">
                 {project.limitations.map((_, i) => (
-                  <div key={i} className="project-slide-card">
+                  <div key={i} className="project-slide-card project-slide-card--hover-lift project-slide-card--warning">
+                    <span className="project-slide-card-icon">⚠️</span>
                     <p className="project-slide-text">{p(`limitations.${i}`)}</p>
                   </div>
                 ))}
