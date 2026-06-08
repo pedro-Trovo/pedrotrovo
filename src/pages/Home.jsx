@@ -99,7 +99,7 @@ function Home() {
           >
             <motion.div className="home-photo-col" variants={fadeUp}>
               <div className="home-photo">
-                <img src="/profile/161767490.png" alt="Pedro Trovo" className="home-photo-img" />
+                <img src="/profile/pedro-Trovoo.jpg" alt="Pedro Trovo" className="home-photo-img" />
               </div>
               <div className="home-cv-buttons">
                 <button ref={cvRef} onClick={() => setShowCV(true)} className="btn btn-primary btn-glow btn-glow-white">
