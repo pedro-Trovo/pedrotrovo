@@ -11,10 +11,7 @@ export function useKeyboardShortcuts(actions) {
       else if (e.key === '3') actions.goSkills?.()
       else if (e.key === '4') actions.goExperiences?.()
       else if (e.key === '5') actions.goContact?.()
-      else if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey)) {
-        e.preventDefault()
-        actions.openSearch?.()
-      } else if ((e.key === 'b' || e.key === 'B') && (e.ctrlKey || e.metaKey)) {
+      else if ((e.key === 'b' || e.key === 'B') && (e.ctrlKey || e.metaKey)) {
         e.preventDefault()
         actions.toggleTheme?.()
       }

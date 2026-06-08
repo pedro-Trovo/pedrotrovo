@@ -193,30 +193,6 @@
   }
 }
 
-.header-search-btn {
-  background: none;
-  border: none;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 0.25rem;
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-search-btn:hover {
-  color: var(--color-accent);
-  background-color: var(--color-accent-dim);
-  border-radius: 6px;
-}
-
-.header-search-btn:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
 .theme-toggle {
   background: none;
   border: none;

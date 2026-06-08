@@ -1,22 +1,19 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faBars, faTimes, faUser, faCode, faCog, faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes, faUser, faCode, faCog, faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { useLanguage } from '../i18n'
 import { useMouseGlow } from '../hooks/useMouseGlow'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
-import SearchModal from './SearchModal'
 
 
 function Header() {
   const { t } = useLanguage()
   const navigate = useNavigate()
-  const [showSearch, setShowSearch] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
-  const searchBtnRef = useMouseGlow()
   const hamburgerRef = useMouseGlow()
   const drawerRef = useRef(null)
   const [scrolled, setScrolled] = useState(false)
@@ -33,7 +30,6 @@ function Header() {
     goSkills: () => navigate('/skills'),
     goExperiences: () => navigate('/experiencias'),
     goContact: () => navigate('/contato'),
-    openSearch: () => setShowSearch(true),
     toggleTheme: () => document.querySelector('.theme-toggle')?.click(),
   })
 
@@ -96,9 +92,6 @@ function Header() {
       </nav>
 
       <div className="header-actions">
-        <button ref={searchBtnRef} className="header-search-btn btn-glow" onClick={() => setShowSearch(true)} aria-label="Search">
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
         <div className="header-actions-desktop">
           <span><LanguageToggle /></span>
           <span><ThemeToggle /></span>
@@ -145,8 +138,6 @@ function Header() {
           </NavLink>
         </nav>
       </div>
-
-      {showSearch && <SearchModal onClose={() => setShowSearch(false)} />}
     </header>
   )
 }
