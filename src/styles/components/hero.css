@@ -88,12 +88,11 @@
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   border: 3px solid var(--color-accent);
-  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
   position: relative;
 }
 
