@@ -156,6 +156,32 @@
   color: var(--color-accent);
 }
 
+.experience-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.experience-link-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.experience-link-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
 @media (max-width: 480px) {
   .experiences-tabs {
     width: 100%;

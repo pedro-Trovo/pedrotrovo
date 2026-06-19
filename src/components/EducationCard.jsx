@@ -39,6 +39,16 @@ function EducationCard({ item }) {
           <li key={index}>{e(`highlights.${index}`)}</li>
         ))}
       </ul>
+
+      {item.links && (
+        <div className="experience-links">
+          {item.links.map((link) => (
+            <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer" className="experience-link-btn">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </motion.div>
   )
 }

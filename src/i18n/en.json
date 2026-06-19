@@ -46,6 +46,12 @@
   "education.fatec-ads.highlights.5": "Management and Processes: Scrum, Project Management, Use Case Analysis",
   "education.fatec-ads.highlights.6": "Fundamentals: Discrete Mathematics, Logic Programming, Information Technology",
 
+  "education.ic-morslum.description": "Scientific Initiation project carried out between August 2025 and May 2026, under the supervision of Prof. Dr. Manoel Francisco Guaranha. The project consisted of developing a digital application for morphosyntactic analysis of the Portuguese language (MORSLUM), using Natural Language Processing (NLP) techniques. Hosted by the research group 'Languages, Technology and Technological Education'. Results published on Zenodo with DOI and open-source on GitHub.",
+  "education.ic-morslum.highlights.0": "Natural Language Processing (NLP) with spaCy for morphosyntactic analysis",
+  "education.ic-morslum.highlights.1": "Educational quiz with 500 sentences and auto-generated questions",
+  "education.ic-morslum.highlights.2": "Desktop app with Electron packaging Python backend + React frontend",
+  "education.ic-morslum.highlights.3": "Published on Zenodo with DOI and open-source on GitHub",
+
   "project_detail.back": "Back",
   "project_detail.about": "About",
   "project_detail.features": "Features",
