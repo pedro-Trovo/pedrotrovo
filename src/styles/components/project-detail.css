@@ -393,22 +393,6 @@
   color: #f59e0b;
 }
 
-.project-progress-bar {
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  height: 3px;
-  z-index: 40;
-  background: var(--color-border);
-}
-
-.project-progress-fill {
-  height: 100%;
-  background: var(--color-accent);
-  transition: width 0.4s ease;
-}
-
 .project-tech-badge-img {
   height: 1.6rem;
   width: auto;

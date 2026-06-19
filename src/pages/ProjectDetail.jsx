@@ -257,10 +257,6 @@ function ProjectDetail() {
       </Helmet>
 
       <section className="page project-slides">
-        <div className="project-progress-bar" role="progressbar" aria-valuenow={activeSlide + 1} aria-valuemin={1} aria-valuemax={slides.length}>
-          <div className="project-progress-fill" style={{ width: `${((activeSlide + 1) / slides.length) * 100}%` }} />
-        </div>
-
         <nav className="project-slide-nav" aria-label="Slide navigation">
           {slides.map((s, i) => (
             <button
