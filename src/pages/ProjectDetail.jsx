@@ -279,10 +279,6 @@ function ProjectDetail() {
               <span className="breadcrumbs-current" aria-current="page">{project.title}</span>
             </nav>
 
-            {project.images?.length > 0 && (
-              <img src={project.images[0]} alt={project.title} className="project-hero" />
-            )}
-
             <Link to="/projetos" className="back-link">
               <FontAwesomeIcon icon={faArrowLeft} /> {t('project_detail.back')}
             </Link>
