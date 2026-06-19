@@ -494,7 +494,6 @@ function ProjectDetail() {
         )}
 
       </section>
-      </section>
 
       {lightboxIndex !== null && (
         <div className="lightbox" onClick={closeLightbox}>
