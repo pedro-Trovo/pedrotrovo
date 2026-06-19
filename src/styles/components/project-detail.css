@@ -1,3 +1,13 @@
+.project-hero {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+}
+
 .breadcrumbs {
   display: flex;
   align-items: center;

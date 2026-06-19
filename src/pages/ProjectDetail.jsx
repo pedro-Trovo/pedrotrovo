@@ -108,11 +108,11 @@ function ProjectDetail() {
     if (!project) return []
     return [
       { id: 'sobre', label: t('project_detail.about') },
+      { id: 'galeria', label: t('project_detail.gallery') },
       { id: 'funcionalidades', label: t('project_detail.features') },
       { id: 'arquitetura', label: t('project_detail.architecture') },
       { id: 'tecnologias', label: t('project_detail.tech') },
       ...(project.limitations.length > 0 ? [{ id: 'limitacoes', label: t('project_detail.limitations') }] : []),
-      { id: 'galeria', label: t('project_detail.gallery') },
     ]
   }, [project, t])
 
@@ -283,6 +283,10 @@ function ProjectDetail() {
               <span className="breadcrumbs-current" aria-current="page">{project.title}</span>
             </nav>
 
+            {project.images?.length > 0 && (
+              <img src={project.images[0]} alt={project.title} className="project-hero" />
+            )}
+
             <Link to="/projetos" className="back-link">
               <FontAwesomeIcon icon={faArrowLeft} /> {t('project_detail.back')}
             </Link>
@@ -332,6 +336,61 @@ function ProjectDetail() {
                 </div>
               </div>
             )}
+          </div>
+        </section>
+
+        <section className="project-slide" id="slide-galeria">
+          <div className="project-slide-inner">
+            <h2 className="project-slide-heading">{t('project_detail.gallery')}</h2>
+            <div className="carousel">
+              <div
+                className="carousel-viewport"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.img
+                    key={currentIndex}
+                    className="carousel-image"
+                    src={project.images[currentIndex]}
+                    alt={`${project.title} ${currentIndex + 1}`}
+                    onClick={() => setLightboxIndex(currentIndex)}
+                    custom={direction}
+                    variants={{
+                      enter: (dir) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+                      center: { x: 0, opacity: 1 },
+                      exit: (dir) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
+                    }}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  />
+                </AnimatePresence>
+                {project.images.length > 1 && (
+                  <>
+                    <button className="carousel-btn carousel-prev" onClick={prevSlide} aria-label="Previous image">
+                      <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
+                    <button className="carousel-btn carousel-next" onClick={nextSlide} aria-label="Next image">
+                      <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+                  </>
+                )}
+              </div>
+              {project.images.length > 1 && (
+                <div className="carousel-dots">
+                  {project.images.map((_, i) => (
+                    <button
+                      key={i}
+                      className={`carousel-dot${i === currentIndex ? ' carousel-dot--active' : ''}`}
+                      onClick={() => goToSlideImg(i)}
+                      aria-label={`Go to slide ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </section>
 
@@ -438,60 +497,7 @@ function ProjectDetail() {
           </section>
         )}
 
-        <section className="project-slide" id="slide-galeria">
-          <div className="project-slide-inner">
-            <h2 className="project-slide-heading">{t('project_detail.gallery')}</h2>
-            <div className="carousel">
-              <div
-                className="carousel-viewport"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-              >
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.img
-                    key={currentIndex}
-                    className="carousel-image"
-                    src={project.images[currentIndex]}
-                    alt={`${project.title} ${currentIndex + 1}`}
-                    onClick={() => setLightboxIndex(currentIndex)}
-                    custom={direction}
-                    variants={{
-                      enter: (dir) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
-                      center: { x: 0, opacity: 1 },
-                      exit: (dir) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
-                    }}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  />
-                </AnimatePresence>
-                {project.images.length > 1 && (
-                  <>
-                    <button className="carousel-btn carousel-prev" onClick={prevSlide} aria-label="Previous image">
-                      <FontAwesomeIcon icon={faChevronLeft} />
-                    </button>
-                    <button className="carousel-btn carousel-next" onClick={nextSlide} aria-label="Next image">
-                      <FontAwesomeIcon icon={faChevronRight} />
-                    </button>
-                  </>
-                )}
-              </div>
-              {project.images.length > 1 && (
-                <div className="carousel-dots">
-                  {project.images.map((_, i) => (
-                    <button
-                      key={i}
-                      className={`carousel-dot${i === currentIndex ? ' carousel-dot--active' : ''}`}
-                      onClick={() => goToSlideImg(i)}
-                      aria-label={`Go to slide ${i + 1}`}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
+      </section>
       </section>
 
       {lightboxIndex !== null && (
