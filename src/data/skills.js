@@ -93,19 +93,6 @@ export const skillsCategories = [
   },
 
   {
-    titleKey: 'langs.title',
-    title: 'Languages',
-    emoji: '🌍',
-    segment: 'langs',
-    items: [
-      { nameKey: 'langs.portuguese', levelKey: 'langs.level_native', url: 'https://en.wikipedia.org/wiki/Portuguese_language' },
-      { nameKey: 'langs.english',    levelKey: 'langs.level_intermediate', url: 'https://en.wikipedia.org/wiki/English_language' },
-      { nameKey: 'langs.spanish',    levelKey: 'langs.level_intermediate', url: 'https://en.wikipedia.org/wiki/Spanish_language' },
-      { nameKey: 'langs.italian',    levelKey: 'langs.level_basic', url: 'https://en.wikipedia.org/wiki/Italian_language' },
-    ],
-  },
-
-  {
     title: 'Certifications',
     emoji: '🏅',
     segment: 'certs',

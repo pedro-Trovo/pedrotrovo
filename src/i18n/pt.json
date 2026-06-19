@@ -24,17 +24,8 @@
 
   "skills.title": "Skills",
   "skills.segment_tech": "Tecnologias",
-  "skills.segment_langs": "Idiomas",
   "skills.segment_certs": "Certificados",
 
-  "langs.title": "Idiomas",
-  "langs.portuguese": "Português",
-  "langs.english": "Inglês",
-  "langs.spanish": "Espanhol",
-  "langs.italian": "Italiano",
-  "langs.level_native": "Nativo",
-  "langs.level_intermediate": "Intermediário",
-  "langs.level_basic": "Básico",
 
   "certs.scrum_desc": "Fundamentos do framework Scrum: papéis, eventos, artefatos e princípios ágeis.",
 

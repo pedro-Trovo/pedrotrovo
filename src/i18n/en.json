@@ -24,17 +24,8 @@
 
   "skills.title": "Skills",
   "skills.segment_tech": "Technologies",
-  "skills.segment_langs": "Languages",
   "skills.segment_certs": "Certificates",
 
-  "langs.title": "Languages",
-  "langs.portuguese": "Portuguese",
-  "langs.english": "English",
-  "langs.spanish": "Spanish",
-  "langs.italian": "Italian",
-  "langs.level_native": "Native",
-  "langs.level_intermediate": "Intermediate",
-  "langs.level_basic": "Basic",
 
   "certs.scrum_desc": "Scrum framework fundamentals: roles, events, artifacts, and agile principles.",
 
