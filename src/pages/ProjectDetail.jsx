@@ -128,26 +128,7 @@ function ProjectDetail() {
 
   const featureIcon = useMemo(() => {
     if (!project) return []
-    const keywords = {
-      analisador: '🔍', analyzer: '🔍', classifica: '🔍',
-      árvore: '🌳', tree: '🌳', visualizar: '🌳',
-      quiz: '🎯', questões: '🎯', questions: '🎯',
-      desktop: '🖥️', instalador: '🖥️', installer: '🖥️',
-      estatísticas: '📊', statistics: '📊', métricas: '📊', metrics: '📊',
-      dashboard: '📈', gráfico: '📈', chart: '📈',
-      docker: '🐳', deploy: '🐳',
-      criação: '📦',
-      rastreamento: '📍', tracking: '📍', código: '📍', code: '📍',
-      atualização: '🔄', update: '🔄', transição: '🔄', transition: '🔄',
-      cancelamento: '❌', cancellation: '❌',
-      filtro: '🔎', filters: '🔎', busca: '🔎', search: '🔎',
-      geração: '🔢', generation: '🔢', automática: '🔢', automatic: '🔢',
-    }
-    return project.features.map((feat) => {
-      const lower = feat.toLowerCase()
-      const found = Object.entries(keywords).find(([kw]) => lower.includes(kw))
-      return found ? found[1] : '✨'
-    })
+    return project.features.map(() => '')
   }, [project])
 
   const featureLabels = useMemo(() => {
@@ -221,47 +202,47 @@ function ProjectDetail() {
 
   const featureGroups = {
     morslum: [
-      { icon: '🧠', label: 'Núcleo de Análise', indices: [0, 1, 4] },
-      { icon: '🎯', label: 'Aprendizado', indices: [2] },
-      { icon: '🐳', label: 'Infraestrutura e Distribuição', indices: [3, 5] },
+      { icon: '', label: 'Núcleo de Análise', indices: [0, 1, 4] },
+      { icon: '', label: 'Aprendizado', indices: [2] },
+      { icon: '', label: 'Infraestrutura e Distribuição', indices: [3, 5] },
     ],
     translog: [
-      { icon: '📦', label: 'Gestão de Entregas', indices: [0, 1, 2, 3] },
-      { icon: '🔎', label: 'Consulta e Monitoria', indices: [4, 5, 6] },
+      { icon: '', label: 'Gestão de Entregas', indices: [0, 1, 2, 3] },
+      { icon: '', label: 'Consulta e Monitoria', indices: [4, 5, 6] },
     ],
     pgpweblab: [
-      { icon: '🔑', label: 'Geração de Chaves', indices: [0] },
-      { icon: '🔒', label: 'Criptografia', indices: [1, 3] },
-      { icon: '🔓', label: 'Descriptografia', indices: [2, 4] },
+      { icon: '', label: 'Geração de Chaves', indices: [0] },
+      { icon: '', label: 'Criptografia', indices: [1, 3] },
+      { icon: '', label: 'Descriptografia', indices: [2, 4] },
     ],
   }
 
   const archGroups = {
     morslum: [
-      { icon: '🌐', title: 'Frontend', desc: 'React com PrimeReact — interface que consome a API REST e renderiza árvores SVG.' },
-      { icon: '⚙️', title: 'Backend (Flask)', desc: 'API REST em Flask com spaCy — pipeline de NLP para análise morfossintática.' },
-      { icon: '🗄️', title: 'Cache (Redis)', desc: 'Banco Redis para cache de análises frequentes, agilizando respostas.' },
-      { icon: '🐳', title: 'Infraestrutura', desc: 'Docker Compose orquestra Redis, API Flask e Frontend Nginx.' },
-      { icon: '🖥️', title: 'Desktop (Electron)', desc: 'Electron empacota frontend + Python portátil em instalador único (NSIS).' },
+      { icon: '', title: 'Frontend', desc: 'React com PrimeReact — interface que consome a API REST e renderiza árvores SVG.' },
+      { icon: '', title: 'Backend (Flask)', desc: 'API REST em Flask com spaCy — pipeline de NLP para análise morfossintática.' },
+      { icon: '', title: 'Cache (Redis)', desc: 'Banco Redis para cache de análises frequentes, agilizando respostas.' },
+      { icon: '', title: 'Infraestrutura', desc: 'Docker Compose orquestra Redis, API Flask e Frontend Nginx.' },
+      { icon: '', title: 'Desktop (Electron)', desc: 'Electron empacota frontend + Python portátil em instalador único (NSIS).' },
     ],
     translog: [
-      { icon: '🌐', title: 'Frontend', desc: 'React com TailwindCSS e shadcn/ui — consome API REST intermediária.' },
-      { icon: '🔗', title: 'API REST (Express)', desc: 'Express traduz chamadas REST do frontend para Web Services SOAP.' },
-      { icon: '⚙️', title: 'Backend (Spring Boot)', desc: 'Expõe operações SOAP de criação, rastreamento e cancelamento de entregas.' },
-      { icon: '🗄️', title: 'Banco (PostgreSQL)', desc: 'Armazena dados de entregas, status e rastreamento.' },
-      { icon: '🐳', title: 'DevOps', desc: 'Docker Compose orquestra todos os serviços da aplicação.' },
+      { icon: '', title: 'Frontend', desc: 'React com TailwindCSS e shadcn/ui — consome API REST intermediária.' },
+      { icon: '', title: 'API REST (Express)', desc: 'Express traduz chamadas REST do frontend para Web Services SOAP.' },
+      { icon: '', title: 'Backend (Spring Boot)', desc: 'Expõe operações SOAP de criação, rastreamento e cancelamento de entregas.' },
+      { icon: '', title: 'Banco (PostgreSQL)', desc: 'Armazena dados de entregas, status e rastreamento.' },
+      { icon: '', title: 'DevOps', desc: 'Docker Compose orquestra todos os serviços da aplicação.' },
     ],
     pgpweblab: [
-      { icon: '🌐', title: 'Frontend (Angular)', desc: 'SPA em Angular com Bootstrap 5 — interface responsiva e componentes reutilizáveis.' },
-      { icon: '🔐', title: 'Criptografia (OpenPGP.js)', desc: 'OpenPGP.js realiza todas as operações criptográficas localmente no navegador.' },
-      { icon: '☁️', title: 'Deploy (Vercel)', desc: 'Aplicação estática implantada na Vercel — 100% client-side, sem backend.' },
+      { icon: '', title: 'Frontend (Angular)', desc: 'SPA em Angular com Bootstrap 5 — interface responsiva e componentes reutilizáveis.' },
+      { icon: '', title: 'Criptografia (OpenPGP.js)', desc: 'OpenPGP.js realiza todas as operações criptográficas localmente no navegador.' },
+      { icon: '', title: 'Deploy (Vercel)', desc: 'Aplicação estática implantada na Vercel — 100% client-side, sem backend.' },
     ],
   }
 
   const limitationGroups = {
     morslum: [
-      { icon: '🧠', label: 'Limitações do Modelo NLP', indices: [0, 1, 2] },
-      { icon: '📝', label: 'Qualidade da Análise', indices: [3] },
+      { icon: '', label: 'Limitações do Modelo NLP', indices: [0, 1, 2] },
+      { icon: '', label: 'Qualidade da Análise', indices: [3] },
     ],
   }
 
@@ -330,7 +311,7 @@ function ProjectDetail() {
 
             {project.links.doi && (
               <div className="project-slide-callout">
-                <span className="project-slide-callout-icon">⭐</span>
+                <span className="project-slide-callout-icon"></span>
                 <div>
                   <p className="project-slide-callout-title">{t('project_detail.highlights')}</p>
                   <ul className="project-slide-callout-bullets">
@@ -434,7 +415,7 @@ function ProjectDetail() {
               </div>
               <div className="project-slide-group">
                 <div className="project-slide-group-header">
-                  <span>📐</span>
+                  <span></span>
                   <span>{t('project_detail.how_it_works')}</span>
                 </div>
                 <div className="project-slide-group-grid" style={{ gridTemplateColumns: `repeat(${Math.min((archGroups[project.slug] || []).length, 3)}, 1fr)` }}>
@@ -491,7 +472,7 @@ function ProjectDetail() {
                     <div className="project-slide-group-grid">
                       {group.indices.map((i) => (
                         <div key={i} className="project-slide-inner-card project-slide-inner-card--warning">
-                          <span className="project-slide-inner-card-icon">⚠️</span>
+                          <span className="project-slide-inner-card-icon"></span>
                           <p className="project-slide-inner-card-text" style={{ color: 'var(--color-text-primary)' }}>{p(`limitations.${i}`)}</p>
                         </div>
                       ))}

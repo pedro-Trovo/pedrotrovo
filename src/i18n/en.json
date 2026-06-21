@@ -62,8 +62,8 @@
   "project_detail.not_found": "Project not found",
   "project_detail.back_to_projects": "Back to projects",
   "project_detail.highlights": "Highlights",
-  "project_detail.months_development": "⏱ 11 months of development",
-  "project_detail.has_doi": "📖 Published on Zenodo with DOI",
+  "project_detail.months_development": "11 months of development",
+  "project_detail.has_doi": "Published on Zenodo with DOI",
   "project_detail.how_it_works": "How it works",
 
   "contact.title": "Contact",
