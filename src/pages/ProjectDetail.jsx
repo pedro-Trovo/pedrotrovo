@@ -47,6 +47,12 @@ const TECH_BADGES = {
   JPA: { name: 'JPA', color: '#59666C', logo: 'hibernate', url: 'https://jakarta.ee/specifications/persistence' },
   PostgreSQL: { name: 'PostgreSQL', color: '#4169E1', logo: 'postgresql', url: 'https://www.postgresql.org' },
   Maven: { name: 'Maven', color: '#C71A36', logo: 'apachemaven', url: 'https://maven.apache.org' },
+  Angular: { name: 'Angular', color: '#DD0031', logo: 'angular', url: 'https://angular.dev' },
+  TypeScript: { name: 'TypeScript', color: '#3178C6', logo: 'typescript', url: 'https://www.typescriptlang.org' },
+  Bootstrap: { name: 'Bootstrap', color: '#7952B3', logo: 'bootstrap', url: 'https://getbootstrap.com' },
+  'Bootstrap Icons': { name: 'Bootstrap Icons', color: '#7952B3', url: 'https://icons.getbootstrap.com' },
+  'OpenPGP.js': { name: 'OpenPGP.js', color: '#79BD3F', url: 'https://openpgpjs.org' },
+  Vercel: { name: 'Vercel', color: '#000000', logo: 'vercel', url: 'https://vercel.com' },
 }
 
 function ProjectDetail() {
@@ -154,6 +160,10 @@ function ProjectDetail() {
         pt: ['Cadastro de Entregas', 'Rastreamento', 'Atualização de Status', 'Cancelamento', 'Filtros', 'Dashboard', 'Código de Rastreio'],
         en: ['Delivery Registration', 'Tracking', 'Status Update', 'Cancellation', 'Filters', 'Dashboard', 'Tracking Code'],
       },
+      pgpweblab: {
+        pt: ['Gerar Par de Chaves', 'Criptografar Mensagem', 'Descriptografar Mensagem', 'Criptografar Arquivo', 'Descriptografar Arquivo'],
+        en: ['Generate Key Pair', 'Encrypt Message', 'Decrypt Message', 'Encrypt File', 'Decrypt File'],
+      },
     }
     return labels[project?.slug]?.[language] || []
   }, [project, language])
@@ -219,6 +229,11 @@ function ProjectDetail() {
       { icon: '📦', label: 'Gestão de Entregas', indices: [0, 1, 2, 3] },
       { icon: '🔎', label: 'Consulta e Monitoria', indices: [4, 5, 6] },
     ],
+    pgpweblab: [
+      { icon: '🔑', label: 'Geração de Chaves', indices: [0] },
+      { icon: '🔒', label: 'Criptografia', indices: [1, 3] },
+      { icon: '🔓', label: 'Descriptografia', indices: [2, 4] },
+    ],
   }
 
   const archGroups = {
@@ -235,6 +250,11 @@ function ProjectDetail() {
       { icon: '⚙️', title: 'Backend (Spring Boot)', desc: 'Expõe operações SOAP de criação, rastreamento e cancelamento de entregas.' },
       { icon: '🗄️', title: 'Banco (PostgreSQL)', desc: 'Armazena dados de entregas, status e rastreamento.' },
       { icon: '🐳', title: 'DevOps', desc: 'Docker Compose orquestra todos os serviços da aplicação.' },
+    ],
+    pgpweblab: [
+      { icon: '🌐', title: 'Frontend (Angular)', desc: 'SPA em Angular com Bootstrap 5 — interface responsiva e componentes reutilizáveis.' },
+      { icon: '🔐', title: 'Criptografia (OpenPGP.js)', desc: 'OpenPGP.js realiza todas as operações criptográficas localmente no navegador.' },
+      { icon: '☁️', title: 'Deploy (Vercel)', desc: 'Aplicação estática implantada na Vercel — 100% client-side, sem backend.' },
     ],
   }
 

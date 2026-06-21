@@ -128,6 +128,18 @@
   "project.translog.features.6": "Automatic tracking code generation in TL-YYYYMMDD-NNNN format",
   "project.translog.context": "Full-Stack Project — Personal Development",
 
+  "project.pgpweblab.description": "PGP key generator, message and file encryption/decryption — 100% client-side.",
+  "project.pgpweblab.about": "PGP Web Lab is a complete OpenPGP cryptography tool that runs entirely in the browser, with no data sent to external servers. Built as a Single Page Application (SPA) in Angular, the project uses the OpenPGP.js library to perform all cryptographic operations locally — key generation, encryption, and decryption of messages and files. All processing is 100% client-side, ensuring private keys never leave the user's computer. The project was developed to provide a user-friendly and accessible interface for anyone wanting to experiment with PGP encryption without installing native software like GnuPG.",
+  "project.pgpweblab.architecture": "PGP Web Lab is a Single Page Application (SPA) built with Angular, running all processing in the client's browser. The interface uses Bootstrap 5 and Bootstrap Icons for a responsive and modern experience. OpenPGP.js handles all cryptographic operations — from RSA key pair generation to message and file encryption/decryption. i18n support (English/Portuguese) is implemented natively with Angular i18n. The application is compiled into static files and deployed on Vercel, with no backend or intermediary server.",
+  "project.pgpweblab.features.0": "PGP key pair generation (RSA 2048/4096 bits) with optional passphrase support",
+  "project.pgpweblab.features.1": "Text message encryption using the recipient's public key",
+  "project.pgpweblab.features.2": "Message decryption using the private key",
+  "project.pgpweblab.features.3": "File encryption using the recipient's public key (.pgp output)",
+  "project.pgpweblab.features.4": "File decryption using the private key with passphrase support",
+  "project.pgpweblab.limitations.0": "RSA 4096-bit key generation may take a few seconds on less powerful devices",
+  "project.pgpweblab.limitations.1": "Very large files may be limited by available browser memory",
+  "project.pgpweblab.context": "Full-Stack Project — Personal Development",
+
   "experience.edi-labs.description": "My experience at Edi-Labs focused on support, monitoring, and file integration in a corporate environment, working directly with MFT (Managed File Transfer) solutions through the Axway SecureTransport platform.",
   "experience.edi-labs.highlights.0": "Creation and maintenance of integration flows for secure file exchange between clients and partners using SFTP and SSH protocols",
   "experience.edi-labs.highlights.1": "Credential creation, access configuration, and authorizations for external partners to connect to the MFT platform",

@@ -124,6 +124,18 @@
   "project.translog.features.6": "Generación automática de código de rastreo en formato TL-YYYYMMDD-NNNN",
   "project.translog.context": "Proyecto Full-Stack — Desarrollo propio",
 
+  "project.pgpweblab.description": "Generador de claves PGP, cifrado y descifrado de mensajes y archivos — 100% client-side.",
+  "project.pgpweblab.about": "PGP Web Lab es una herramienta completa de cifrado OpenPGP que opera íntegramente en el navegador, sin necesidad de enviar datos a servidores externos. Desarrollado como una Single Page Application (SPA) en Angular, el proyecto utiliza la biblioteca OpenPGP.js para realizar todas las operaciones criptográficas localmente — generación de claves, cifrado y descifrado de mensajes y archivos. Todo el procesamiento es 100% client-side, garantizando que las claves privadas nunca salgan del ordenador del usuario. El proyecto fue desarrollado para ofrecer una interfaz amigable y accesible para usuarios que desean experimentar con cifrado PGP sin instalar software nativo como GnuPG.",
+  "project.pgpweblab.architecture": "PGP Web Lab es una aplicación de página única (SPA) construida con Angular, ejecutando todo el procesamiento en el navegador del cliente. La interfaz utiliza Bootstrap 5 y Bootstrap Icons para una experiencia responsiva y moderna. OpenPGP.js realiza todas las operaciones criptográficas — desde la generación de pares de claves RSA hasta el cifrado y descifrado de mensajes y archivos. El soporte i18n (inglés/portugués) se implementa de forma nativa con Angular i18n. La aplicación se compila en archivos estáticos y se despliega en Vercel, sin backend ni servidor intermediario.",
+  "project.pgpweblab.features.0": "Generación de pares de claves PGP (RSA 2048/4096 bits) con soporte opcional de frase secreta",
+  "project.pgpweblab.features.1": "Cifrado de mensajes de texto utilizando la clave pública del destinatario",
+  "project.pgpweblab.features.2": "Descifrado de mensajes utilizando la clave privada del destinatario",
+  "project.pgpweblab.features.3": "Cifrado de archivos utilizando la clave pública del destinatario (salida .pgp)",
+  "project.pgpweblab.features.4": "Descifrado de archivos utilizando la clave privada con soporte de frase secreta",
+  "project.pgpweblab.limitations.0": "La generación de claves RSA de 4096 bits puede llevar algunos segundos en dispositivos menos potentes",
+  "project.pgpweblab.limitations.1": "Archivos muy grandes pueden estar limitados por la memoria disponible en el navegador",
+  "project.pgpweblab.context": "Proyecto Full-Stack — Desarrollo propio",
+
   "experience.edi-labs.description": "Mi experiencia en Edi-Labs se centró en soporte, monitoreo e integración de archivos en un entorno corporativo, trabajando directamente con soluciones MFT (Managed File Transfer) a través de la plataforma Axway SecureTransport.",
   "experience.edi-labs.highlights.0": "Creación y mantenimiento de flujos de integración para el intercambio seguro de archivos entre clientes y socios utilizando protocolos SFTP y SSH",
   "experience.edi-labs.highlights.1": "Creación de credenciales, configuración de accesos y autorizaciones para que socios externos se conecten a la plataforma MFT",

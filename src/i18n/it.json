@@ -124,6 +124,18 @@
   "project.translog.features.6": "Generazione automatica del codice di tracciabilità in formato TL-YYYYMMDD-NNNN",
   "project.translog.context": "Progetto Full-Stack — Sviluppo personale",
 
+  "project.pgpweblab.description": "Generatore di chiavi PGP, crittografia e decrittografia di messaggi e file — 100% client-side.",
+  "project.pgpweblab.about": "PGP Web Lab è uno strumento completo di crittografia OpenPGP che opera interamente nel browser, senza inviare dati a server esterni. Sviluppato come Single Page Application (SPA) in Angular, il progetto utilizza la libreria OpenPGP.js per eseguire tutte le operazioni crittografiche localmente — generazione di chiavi, crittografia e decrittografia di messaggi e file. Tutta l'elaborazione è 100% client-side, garantendo che le chiavi private non lascino mai il computer dell'utente. Il progetto è stato sviluppato per offrire un'interfaccia amichevole e accessibile per utenti che desiderano sperimentare la crittografia PGP senza installare software nativo come GnuPG.",
+  "project.pgpweblab.architecture": "PGP Web Lab è un'applicazione a pagina singola (SPA) costruita con Angular, che esegue tutta l'elaborazione nel browser del cliente. L'interfaccia utilizza Bootstrap 5 e Bootstrap Icons per un'esperienza responsiva e moderna. OpenPGP.js gestisce tutte le operazioni crittografiche — dalla generazione di coppie di chiavi RSA alla crittografia e decrittografia di messaggi e file. Il supporto i18n (inglese/portoghese) è implementato nativamente con Angular i18n. L'applicazione viene compilata in file statici e distribuita su Vercel, senza backend o server intermediario.",
+  "project.pgpweblab.features.0": "Generazione di coppie di chiavi PGP (RSA 2048/4096 bit) con supporto opzionale per frase segreta",
+  "project.pgpweblab.features.1": "Crittografia di messaggi di testo utilizzando la chiave pubblica del destinatario",
+  "project.pgpweblab.features.2": "Decrittografia di messaggi utilizzando la chiave privata del destinatario",
+  "project.pgpweblab.features.3": "Crittografia di file utilizzando la chiave pubblica del destinatario (output .pgp)",
+  "project.pgpweblab.features.4": "Decrittografia di file utilizzando la chiave privata con supporto per frase segreta",
+  "project.pgpweblab.limitations.0": "La generazione di chiavi RSA da 4096 bit potrebbe richiedere alcuni secondi su dispositivi meno potenti",
+  "project.pgpweblab.limitations.1": "File molto grandi possono essere limitati dalla memoria disponibile nel browser",
+  "project.pgpweblab.context": "Progetto Full-Stack — Sviluppo personale",
+
   "experience.edi-labs.description": "La mia esperienza in Edi-Labs si è concentrata sul supporto, monitoraggio e integrazione di file in ambiente aziendale, lavorando direttamente con soluzioni MFT (Managed File Transfer) attraverso la piattaforma Axway SecureTransport.",
   "experience.edi-labs.highlights.0": "Creazione e manutenzione di flussi di integrazione per lo scambio sicuro di file tra clienti e partner utilizzando i protocolli SFTP e SSH",
   "experience.edi-labs.highlights.1": "Creazione di credenziali, configurazione accessi e autorizzazioni per partner esterni per connettersi alla piattaforma MFT",
