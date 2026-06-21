@@ -139,7 +139,7 @@ export const projects = [
     images: ['/images/projects/startdoor/startdoor.svg'],
     tags: ['React', 'TypeScript', 'Java', 'Spring Boot', 'MySQL', 'Docker', 'TailwindCSS'],
     techStack: [
-      { category: 'Frontend', items: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'MobX'] },
+      { category: 'Frontend', items: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'MobX', 'React Hook Form', 'Zod', 'Axios', 'Chart.js'] },
       { category: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'JPA'] },
       { category: 'AI', items: ['Google Gemini'] },
       { category: 'Database', items: ['MySQL'] },
