@@ -101,7 +101,7 @@ export const projects = [
       '/images/projects/pgpweblab/home.png',
       '/images/projects/pgpweblab/gerarchaves.png',
       '/images/projects/pgpweblab/criptografar-mensagem.png',
-      '/images/projects/pgpweblab/decriptografarmensagem.png',
+      '/images/projects/pgpweblab/descriptografarmensagem.png',
       '/images/projects/pgpweblab/criptografar-arquivo.png',
       '/images/projects/pgpweblab/descriptografar-arquivo.png',
     ],
