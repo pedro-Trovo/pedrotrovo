@@ -24,6 +24,7 @@ const techCategoryMap = {
   Desktop: 'tech.desktop',
   Banco: 'tech.database',
   Database: 'tech.database',
+  AI: 'tech.ai',
 }
 
 const TECH_BADGES = {
@@ -53,6 +54,11 @@ const TECH_BADGES = {
   'Bootstrap Icons': { name: 'Bootstrap Icons', color: '#7952B3', url: 'https://icons.getbootstrap.com' },
   'OpenPGP.js': { name: 'OpenPGP.js', color: '#79BD3F', url: 'https://openpgpjs.org' },
   Vercel: { name: 'Vercel', color: '#000000', logo: 'vercel', url: 'https://vercel.com' },
+  MobX: { name: 'MobX', color: '#FF9955', logo: 'mobx', url: 'https://mobx.js.org' },
+  'Spring Security': { name: 'Spring Security', color: '#6DB33F', logo: 'springsecurity', url: 'https://spring.io/projects/spring-security' },
+  MySQL: { name: 'MySQL', color: '#4479A1', logo: 'mysql', url: 'https://www.mysql.com' },
+  'Google Gemini': { name: 'Google Gemini', color: '#8E75B2', logo: 'googlegemini', url: 'https://ai.google.dev' },
+  'GitHub Actions': { name: 'GitHub Actions', color: '#2088FF', logo: 'githubactions', url: 'https://github.com/features/actions' },
 }
 
 function ProjectDetail() {
@@ -145,6 +151,10 @@ function ProjectDetail() {
         pt: ['Gerar Par de Chaves', 'Criptografar Mensagem', 'Descriptografar Mensagem', 'Criptografar Arquivo', 'Descriptografar Arquivo'],
         en: ['Generate Key Pair', 'Encrypt Message', 'Decrypt Message', 'Encrypt File', 'Decrypt File'],
       },
+      startdoor: {
+        pt: ['Pesquisar Empresas', 'Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA'],
+        en: ['Search Companies', 'Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations'],
+      },
     }
     return labels[project?.slug]?.[language] || []
   }, [project, language])
@@ -200,50 +210,22 @@ function ProjectDetail() {
     return parts.join('')
   }
 
-  const featureGroups = {
-    morslum: [
-      { icon: '', label: 'Núcleo de Análise', indices: [0, 1, 4] },
-      { icon: '', label: 'Aprendizado', indices: [2] },
-      { icon: '', label: 'Infraestrutura e Distribuição', indices: [3, 5] },
-    ],
-    translog: [
-      { icon: '', label: 'Gestão de Entregas', indices: [0, 1, 2, 3] },
-      { icon: '', label: 'Consulta e Monitoria', indices: [4, 5, 6] },
-    ],
-    pgpweblab: [
-      { icon: '', label: 'Geração de Chaves', indices: [0] },
-      { icon: '', label: 'Criptografia', indices: [1, 3] },
-      { icon: '', label: 'Descriptografia', indices: [2, 4] },
-    ],
+  const featureGroupIndices = {
+    morslum: [[0, 1, 4], [2], [3, 5]],
+    translog: [[0, 1, 2, 3], [4, 5, 6]],
+    pgpweblab: [[0], [1, 3], [2, 4]],
+    startdoor: [[0, 1], [2, 4], [3]],
   }
 
-  const archGroups = {
-    morslum: [
-      { icon: '', title: 'Frontend', desc: 'React com PrimeReact — interface que consome a API REST e renderiza árvores SVG.' },
-      { icon: '', title: 'Backend (Flask)', desc: 'API REST em Flask com spaCy — pipeline de NLP para análise morfossintática.' },
-      { icon: '', title: 'Cache (Redis)', desc: 'Banco Redis para cache de análises frequentes, agilizando respostas.' },
-      { icon: '', title: 'Infraestrutura', desc: 'Docker Compose orquestra Redis, API Flask e Frontend Nginx.' },
-      { icon: '', title: 'Desktop (Electron)', desc: 'Electron empacota frontend + Python portátil em instalador único (NSIS).' },
-    ],
-    translog: [
-      { icon: '', title: 'Frontend', desc: 'React com TailwindCSS e shadcn/ui — consome API REST intermediária.' },
-      { icon: '', title: 'API REST (Express)', desc: 'Express traduz chamadas REST do frontend para Web Services SOAP.' },
-      { icon: '', title: 'Backend (Spring Boot)', desc: 'Expõe operações SOAP de criação, rastreamento e cancelamento de entregas.' },
-      { icon: '', title: 'Banco (PostgreSQL)', desc: 'Armazena dados de entregas, status e rastreamento.' },
-      { icon: '', title: 'DevOps', desc: 'Docker Compose orquestra todos os serviços da aplicação.' },
-    ],
-    pgpweblab: [
-      { icon: '', title: 'Frontend (Angular)', desc: 'SPA em Angular com Bootstrap 5 — interface responsiva e componentes reutilizáveis.' },
-      { icon: '', title: 'Criptografia (OpenPGP.js)', desc: 'OpenPGP.js realiza todas as operações criptográficas localmente no navegador.' },
-      { icon: '', title: 'Deploy (Vercel)', desc: 'Aplicação estática implantada na Vercel — 100% client-side, sem backend.' },
-    ],
+  const archCount = {
+    morslum: 5,
+    translog: 5,
+    pgpweblab: 3,
+    startdoor: 5,
   }
 
-  const limitationGroups = {
-    morslum: [
-      { icon: '', label: 'Limitações do Modelo NLP', indices: [0, 1, 2] },
-      { icon: '', label: 'Qualidade da Análise', indices: [3] },
-    ],
+  const limitationGroupIndices = {
+    morslum: [[0, 1, 2], [3]],
   }
 
   return (
@@ -385,14 +367,14 @@ function ProjectDetail() {
           <div className="project-slide-inner">
             <h2 className="project-slide-heading">{t('project_detail.features')}</h2>
             <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
-              {(featureGroups[project.slug] || []).map((group) => (
-                <div key={group.label} className="project-slide-group">
+              {(featureGroupIndices[project.slug] || []).map((indices, gi) => (
+                <div key={gi} className="project-slide-group">
                   <div className="project-slide-group-header">
-                    <span>{group.icon}</span>
-                    <span>{group.label}</span>
+                    <span></span>
+                    <span>{p(`features.group.${gi}`)}</span>
                   </div>
-                  <div className="project-slide-group-grid" style={{ gridTemplateColumns: group.indices.length < 3 ? `repeat(${group.indices.length}, 1fr)` : undefined }}>
-                    {group.indices.map((i) => (
+                  <div className="project-slide-group-grid" style={{ gridTemplateColumns: indices.length < 3 ? `repeat(${indices.length}, 1fr)` : undefined }}>
+                    {indices.map((i) => (
                       <div key={i} className="project-slide-inner-card">
                         <span className="project-slide-inner-card-icon">{featureIcon[i]}</span>
                         {featureLabels[i] && <strong className="project-slide-inner-card-label">{featureLabels[i]}</strong>}
@@ -418,12 +400,12 @@ function ProjectDetail() {
                   <span></span>
                   <span>{t('project_detail.how_it_works')}</span>
                 </div>
-                <div className="project-slide-group-grid" style={{ gridTemplateColumns: `repeat(${Math.min((archGroups[project.slug] || []).length, 3)}, 1fr)` }}>
-                  {(archGroups[project.slug] || []).map((layer) => (
-                    <div key={layer.title} className="project-slide-inner-card">
-                      <span className="project-slide-inner-card-icon">{layer.icon}</span>
-                      <strong className="project-slide-inner-card-label">{layer.title}</strong>
-                      <p className="project-slide-inner-card-text">{layer.desc}</p>
+                <div className="project-slide-group-grid" style={{ gridTemplateColumns: `repeat(${Math.min((archCount[project.slug] || 0), 3)}, 1fr)` }}>
+                  {Array.from({ length: archCount[project.slug] || 0 }, (_, i) => (
+                    <div key={i} className="project-slide-inner-card">
+                      <span className="project-slide-inner-card-icon"></span>
+                      <strong className="project-slide-inner-card-label">{p(`arch.${i}.title`)}</strong>
+                      <p className="project-slide-inner-card-text">{p(`arch.${i}.desc`)}</p>
                     </div>
                   ))}
                 </div>
@@ -463,14 +445,14 @@ function ProjectDetail() {
             <div className="project-slide-inner">
               <h2 className="project-slide-heading">{t('project_detail.limitations')}</h2>
               <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
-                {(limitationGroups[project.slug] || []).map((group) => (
-                  <div key={group.label} className="project-slide-group">
+                {(limitationGroupIndices[project.slug] || []).map((indices, gi) => (
+                  <div key={gi} className="project-slide-group">
                     <div className="project-slide-group-header">
-                      <span>{group.icon}</span>
-                      <span>{group.label}</span>
+                      <span></span>
+                      <span>{p(`limitations.group.${gi}`)}</span>
                     </div>
                     <div className="project-slide-group-grid">
-                      {group.indices.map((i) => (
+                      {indices.map((i) => (
                         <div key={i} className="project-slide-inner-card project-slide-inner-card--warning">
                           <span className="project-slide-inner-card-icon"></span>
                           <p className="project-slide-inner-card-text" style={{ color: 'var(--color-text-primary)' }}>{p(`limitations.${i}`)}</p>

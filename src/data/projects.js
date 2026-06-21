@@ -83,7 +83,7 @@ export const projects = [
     about:
       'O TransLog é um painel interno (intranet) moderno conectado a um sistema legado via SOAP. Trata-se de um projeto de integração entre REST e SOAP, onde uma API REST intermediária em Express faz a ponte entre o frontend React e o backend SOAP legado de gestão de entregas. O sistema oferece desde o cadastro de entregas até o rastreamento detalhado com timeline de status, seguindo um fluxo de transições pré-definido que garante a integridade do processo logístico.',
     architecture:
-      'O TransLog segue uma arquitetura de três camadas: o frontend React consome uma API REST intermediária desenvolvida em Express, que por sua vez se comunica com o backend legado via Web Services SOAP. O backend Spring Boot 3.2 expõe operações SOAP (criação, rastreamento, atualização e cancelamento de entregas) seguindo contratos XSD. O banco PostgreSQL armazena os dados. O Express atua como tradutor entre o formato REST do frontend e o protocolo SOAP do sistema legado. Toda a aplicação é dockerizada com Docker Compose.',
+      'O TransLog segue uma arquitetura de três camadas: o frontend React consome uma API REST intermediária desenvolvida em Express, que por sua vez se comunica com o backend legado via Web Services SOAP. O backend Spring Boot expõe operações SOAP (criação, rastreamento, atualização e cancelamento de entregas) seguindo contratos XSD. O banco PostgreSQL armazena os dados. O Express atua como tradutor entre o formato REST do frontend e o protocolo SOAP do sistema legado. Toda a aplicação é dockerizada com Docker Compose.',
     limitations: [],
     links: {
       github: 'https://github.com/pedro-Trovo/translog',
@@ -127,5 +127,39 @@ export const projects = [
       site: 'https://pgpweblab.vercel.app',
     },
     context: 'Projeto Full-Stack — Desenvolvimento próprio',
+  },
+  {
+    slug: 'startdoor',
+    title: 'Startdoor',
+    subtitle:
+      'Plataforma web colaborativa dedicada à avaliação e ao compartilhamento de experiências de estágio.',
+    description:
+      'Repositório centralizado onde estudantes e estagiários registram relatos e notas sobre organizações, com recomendações personalizadas por IA.',
+    image: '/images/projects/startdoor/startdoor.svg',
+    images: ['/images/projects/startdoor/startdoor.svg'],
+    tags: ['React', 'TypeScript', 'Java', 'Spring Boot', 'MySQL', 'Docker', 'TailwindCSS'],
+    techStack: [
+      { category: 'Frontend', items: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'MobX'] },
+      { category: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'JPA'] },
+      { category: 'AI', items: ['Google Gemini'] },
+      { category: 'Database', items: ['MySQL'] },
+      { category: 'DevOps', items: ['Docker', 'GitHub Actions'] },
+    ],
+    features: [
+      'Pesquisar empresas por nome, setor ou localização utilizando busca fuzzy',
+      'Acessar avaliações detalhadas com notas de 12 competências e relatos de outros estagiários',
+      'Comparar oportunidades lado a lado com gráficos e estatísticas das avaliações',
+      'Compartilhar feedback registrando sua própria experiência de estágio na plataforma',
+      'Recomendações personalizadas de empresas com IA (Google Gemini) baseadas no perfil do estudante',
+    ],
+    about:
+      'O Startdoor é uma plataforma web colaborativa desenvolvida como projeto acadêmico na FATEC Ipiranga por uma equipe de 5 estudantes. O sistema atua como um repositório centralizado onde estudantes e estagiários podem registrar relatos detalhados e notas sobre as organizações onde atuam, transformando experiências individuais em informações acessíveis e estruturadas para outros alunos. A plataforma avalia 12 competências (Ambiente, Aprendizado, Benefícios, Cultura, Efetivação, Entrevista, Feedback, Infraestrutura, Integração, Remuneração, Rotina e Liderança) e utiliza inteligência artificial (Google Gemini) para gerar recomendações personalizadas de empresas, comparando as preferências do estudante com as médias reais das organizações. O projeto conta com autenticação JWT, CRUD completo de estudantes e empresas, e infraestrutura dockerizada com CI/CD via GitHub Actions.',
+    architecture:
+      'O Startdoor segue uma arquitetura de três camadas: o frontend em React com TypeScript e Vite consome uma API REST desenvolvida em Spring Boot 4 com Java 21. O backend utiliza Spring Security com autenticação JWT e Hibernate/JPA para persistência em MySQL. A integração com a API Google Gemini permite gerar recomendações personalizadas de empresas para cada estudante com base em 12 competências avaliadas. O frontend utiliza MobX para gerenciamento de estado, Tailwind CSS para estilização, e React Hook Form com Zod para validação de formulários. Toda a aplicação é containerizada com Docker Compose (MySQL + Backend + Frontend) e possui CI/CD automatizado via GitHub Actions que publica as imagens no Docker Hub.',
+    limitations: [],
+    links: {
+      github: 'https://github.com/Balbinao/Startdoor',
+    },
+    context: 'Projeto Acadêmico — FATEC Ipiranga (2026)',
   },
 ]
