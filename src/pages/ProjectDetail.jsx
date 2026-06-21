@@ -303,12 +303,6 @@ function ProjectDetail() {
               <FontAwesomeIcon icon={faArrowLeft} /> {t('project_detail.back')}
             </Link>
 
-            {project.context && (
-              <span className="project-slide-context-badge">
-                {project.slug === 'morslum' ? '🧪' : '🚀'} {p('context')}
-              </span>
-            )}
-
             <div className="project-slide-header">
               <p className="project-detail-subtitle text-muted">{project.subtitle}</p>
               <h1 className="project-detail-title heading-gradient">{project.title}</h1>
