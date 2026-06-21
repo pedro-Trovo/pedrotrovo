@@ -158,8 +158,8 @@ function ProjectDetail() {
         en: ['Generate Key Pair', 'Encrypt Message', 'Decrypt Message', 'Encrypt File', 'Decrypt File'],
       },
       startdoor: {
-        pt: ['Pesquisar Empresas', 'Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA'],
-        en: ['Search Companies', 'Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations'],
+        pt: ['Pesquisar Empresas', 'Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA', 'Gráfico Radar', 'Match Automático', 'Comentários', 'Recuperar Senha', 'Favoritos'],
+        en: ['Search Companies', 'Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations', 'Radar Chart', 'Auto Match', 'Comments', 'Password Recovery', 'Favorites'],
       },
     }
     return labels[project?.slug]?.[language] || []
