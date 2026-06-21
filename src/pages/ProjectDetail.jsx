@@ -59,6 +59,12 @@ const TECH_BADGES = {
   MySQL: { name: 'MySQL', color: '#4479A1', logo: 'mysql', url: 'https://www.mysql.com' },
   'Google Gemini': { name: 'Google Gemini', color: '#8E75B2', logo: 'googlegemini', url: 'https://ai.google.dev' },
   'GitHub Actions': { name: 'GitHub Actions', color: '#2088FF', logo: 'githubactions', url: 'https://github.com/features/actions' },
+  'React Hook Form': { name: 'React Hook Form', color: '#EC5990', logo: 'reacthookform', url: 'https://react-hook-form.com' },
+  Zod: { name: 'Zod', color: '#3E67B1', logo: 'zod', url: 'https://zod.dev' },
+  Axios: { name: 'Axios', color: '#5A29E4', logo: 'axios', url: 'https://axios-http.com' },
+  'Chart.js': { name: 'Chart.js', color: '#FF6384', logo: 'chartdotjs', url: 'https://www.chartjs.org' },
+  Figma: { name: 'Figma', color: '#F24E1E', logo: 'figma', url: 'https://www.figma.com' },
+  Swagger: { name: 'Swagger', color: '#85EA2D', logo: 'swagger', url: 'https://swagger.io' },
 }
 
 function ProjectDetail() {
@@ -214,11 +220,11 @@ function ProjectDetail() {
     morslum: [[0, 1, 4], [2], [3, 5]],
     translog: [[0, 1, 2, 3], [4, 5, 6]],
     pgpweblab: [[0], [1, 3], [2, 4]],
-    startdoor: [[0, 1], [2, 4], [3]],
+    startdoor: [[0, 1], [2, 4, 5, 6], [3, 7], [8, 9]],
   }
 
   const archCount = {
-    morslum: 5,
+    morslum: 4,
     translog: 5,
     pgpweblab: 3,
     startdoor: 5,

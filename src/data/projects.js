@@ -28,12 +28,12 @@ export const projects = [
       'Quiz educativo com questões geradas automaticamente a partir de um banco de 500 frases do português brasileiro',
       'Aplicativo desktop com Electron que empacota o backend Python + frontend em um único instalador (NSIS)',
       'Estatísticas detalhadas da análise, incluindo contagem de classes gramaticais e métricas do texto',
-      'Infraestrutura completa com Docker Compose (Redis + API Flask + Frontend Nginx) para deploy simplificado',
+      'Infraestrutura completa com Docker Compose (API Flask + Frontend Nginx) para deploy simplificado',
     ],
     about:
       'O MORSLUM é uma plataforma acadêmica desenvolvida como projeto de Iniciação Científica na FATEC Ipiranga, com o objetivo de tornar o aprendizado de análise morfossintática da língua portuguesa mais interativo e acessível. Utilizando processamento de linguagem natural (NLP) com o modelo pt_core_news_sm do spaCy, a plataforma é capaz de classificar gramaticalmente cada palavra de uma frase e gerar visualizações de árvores de dependência sintática, facilitando a compreensão das relações entre os termos da oração.  Além do analisador, o sistema conta com um quiz educativo que gera automaticamente questões a partir de um banco de 500 frases do português brasileiro, desafiando o usuário a identificar classes gramaticais em diferentes contextos. O projeto foi desenvolvido ao longo de 11 meses, abrangendo desde a revisão teórica de gramática e NLP até a implementação, testes e empacotamento desktop.',
     architecture:
-      'A aplicação segue uma arquitetura de três camadas: o frontend em React com PrimeReact consome uma API REST desenvolvida em Flask, que por sua vez utiliza o spaCy para o pipeline de processamento linguístico. Um banco Redis é utilizado para cache de análises frequentes. Toda a infraestrutura pode ser orquestrada com Docker Compose (Redis + Backend + Frontend servido por Nginx). Para distribuição desktop, o Electron empacota o frontend compilado juntamente com um runtime portátil do Python 3.12 que contém o Flask, spaCy e todas as dependências necessárias — eliminando a necessidade de instalação manual de Python ou pacotes pelo usuário final.',
+      'A aplicação segue uma arquitetura de três camadas: o frontend em React com PrimeReact consome uma API REST desenvolvida em Flask, que por sua vez utiliza o spaCy para o pipeline de processamento linguístico. Toda a infraestrutura pode ser orquestrada com Docker Compose (Backend + Frontend servido por Nginx). Para distribuição desktop, o Electron empacota o frontend compilado juntamente com um runtime portátil do Python 3.12 que contém o Flask, spaCy e todas as dependências necessárias — eliminando a necessidade de instalação manual de Python ou pacotes pelo usuário final.',
     limitations: [
       'O modelo pt_core_news_sm do spaCy não reconhece contrações como "da", "do" e "na" como combinações de preposição + artigo — tratando-as apenas como preposições simples',
       'O modelo pode confundir adjetivos com particípios passados em certos contextos (ex: "lindo" vs "encontrado")',
@@ -151,15 +151,20 @@ export const projects = [
       'Comparar oportunidades lado a lado com gráficos e estatísticas das avaliações',
       'Compartilhar feedback registrando sua própria experiência de estágio na plataforma',
       'Recomendações personalizadas de empresas com IA (Google Gemini) baseadas no perfil do estudante',
+      'Gráfico Radar que compara visualmente as expectativas do estudante com as médias reais da empresa',
+      'Match Automático que calcula se a empresa atende 80% ou mais das expectativas do estudante',
+      'Sistema de comentários com moderação e opção de anonimato para o estudante',
+      'Recuperação de senha via email com código numérico de verificação de 6 dígitos',
+      'Favoritar empresas para salvar oportunidades de interesse e consultar depois',
     ],
     about:
-      'O Startdoor é uma plataforma web colaborativa desenvolvida como projeto acadêmico na FATEC Ipiranga por uma equipe de 5 estudantes. O sistema atua como um repositório centralizado onde estudantes e estagiários podem registrar relatos detalhados e notas sobre as organizações onde atuam, transformando experiências individuais em informações acessíveis e estruturadas para outros alunos. A plataforma avalia 12 competências (Ambiente, Aprendizado, Benefícios, Cultura, Efetivação, Entrevista, Feedback, Infraestrutura, Integração, Remuneração, Rotina e Liderança) e utiliza inteligência artificial (Google Gemini) para gerar recomendações personalizadas de empresas, comparando as preferências do estudante com as médias reais das organizações. O projeto conta com autenticação JWT, CRUD completo de estudantes e empresas, e infraestrutura dockerizada com CI/CD via GitHub Actions.',
+      'A busca por estágio é uma etapa decisiva na vida acadêmica, mas os estudantes enfrentam uma grande assimetria de informação — não há transparência sobre a cultura, o aprendizado e os benefícios reais de cada empresa. O Startdoor nasceu para resolver esse problema como um TCC na FATEC Ipiranga, desenvolvido por uma equipe de 5 estudantes. A plataforma centraliza relatos de estagiários, permitindo que avaliem empresas com notas de 1 a 5 em 12 competências (Ambiente, Aprendizado, Benefícios, Cultura, Efetivação, Entrevista, Feedback, Infraestrutura, Integração, Remuneração, Rotina e Liderança) e escrevam relatos textuais detalhados. O sistema utiliza inteligência artificial (Google Gemini) para gerar recomendações personalizadas de empresas, comparando as preferências do estudante com as médias reais das organizações. O projeto conta com autenticação JWT, CRUD completo de estudantes e empresas, e infraestrutura dockerizada com CI/CD via GitHub Actions.',
     architecture:
       'O Startdoor segue uma arquitetura de três camadas: o frontend em React com TypeScript e Vite consome uma API REST desenvolvida em Spring Boot 4 com Java 21. O backend utiliza Spring Security com autenticação JWT e Hibernate/JPA para persistência em MySQL. A integração com a API Google Gemini permite gerar recomendações personalizadas de empresas para cada estudante com base em 12 competências avaliadas. O frontend utiliza MobX para gerenciamento de estado, Tailwind CSS para estilização, e React Hook Form com Zod para validação de formulários. Toda a aplicação é containerizada com Docker Compose (MySQL + Backend + Frontend) e possui CI/CD automatizado via GitHub Actions que publica as imagens no Docker Hub.',
     limitations: [],
     links: {
       github: 'https://github.com/Balbinao/Startdoor',
     },
-    context: 'Projeto Acadêmico — FATEC Ipiranga (2026)',
+    context: 'TCC — FATEC Ipiranga — ADS (2026)',
   },
 ]
