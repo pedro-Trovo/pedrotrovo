@@ -34,6 +34,10 @@ export const projects = [
       pt: ['Analisador Morfossintático', 'Árvore de Dependências', 'Quiz Educativo', 'Desktop App', 'Estatísticas', 'Infraestrutura Docker'],
       en: ['Morphosyntactic Analyzer', 'Dependency Tree', 'Educational Quiz', 'Desktop App', 'Statistics', 'Docker Infrastructure'],
     },
+    aboutLabels: {
+      pt: ['Contexto', 'Funcionalidades', 'Escopo'],
+      en: ['Context', 'Features', 'Scope'],
+    },
     highlights: [
       { icon: '🎓', text: 'Iniciação Científica — FATEC Ipiranga' },
       { icon: '⏱️', text: '11 meses de desenvolvimento' },
@@ -94,6 +98,10 @@ export const projects = [
       pt: ['Cadastro de Entregas', 'Rastreamento', 'Atualização de Status', 'Cancelamento', 'Filtros', 'Dashboard', 'Código de Rastreio'],
       en: ['Delivery Registration', 'Tracking', 'Status Update', 'Cancellation', 'Filters', 'Dashboard', 'Tracking Code'],
     },
+    aboutLabels: {
+      pt: ['Contexto', 'Integração', 'Funcionalidades'],
+      en: ['Context', 'Integration', 'Features'],
+    },
     highlights: [
       { icon: '🔗', text: 'Integração REST ↔ SOAP' },
       { icon: '☕', text: 'Java + Spring Boot' },
@@ -139,6 +147,10 @@ export const projects = [
     featureLabels: {
       pt: ['Gerar Par de Chaves', 'Criptografar Mensagem', 'Descriptografar Mensagem', 'Criptografar Arquivo', 'Descriptografar Arquivo'],
       en: ['Generate Key Pair', 'Encrypt Message', 'Decrypt Message', 'Encrypt File', 'Decrypt File'],
+    },
+    aboutLabels: {
+      pt: ['Contexto', 'Tecnologia', 'Diferencial'],
+      en: ['Context', 'Technology', 'Differentiator'],
     },
     highlights: [
       { icon: '🔒', text: '100% client-side' },
@@ -188,6 +200,10 @@ export const projects = [
     featureLabels: {
       pt: ['Pesquisar Empresas', 'Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA', 'Gráfico Radar', 'Match Automático', 'Comentários', 'Recuperar Senha', 'Favoritos'],
       en: ['Search Companies', 'Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations', 'Radar Chart', 'Auto Match', 'Comments', 'Password Recovery', 'Favorites'],
+    },
+    aboutLabels: {
+      pt: ['Contexto', 'Solução', 'Infraestrutura'],
+      en: ['Context', 'Solution', 'Infrastructure'],
     },
     highlights: [
       { icon: '🎓', text: 'TCC — FATEC Ipiranga (2026)' },

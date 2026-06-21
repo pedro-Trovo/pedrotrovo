@@ -143,6 +143,18 @@ function ProjectDetail() {
     return project?.featureLabels?.[language] || []
   }, [project, language])
 
+  const aboutSections = useMemo(() => {
+    if (!project) return []
+    const text = t(`project.${project.slug}.about`)
+    const labels = project?.aboutLabels?.[language] || project?.aboutLabels?.pt || []
+    const sentences = text.match(/[^.!?:;]+[.!?:;]+/g) || [text]
+    const perGroup = Math.ceil(sentences.length / labels.length)
+    return labels.map((label, i) => ({
+      label,
+      text: sentences.slice(i * perGroup, (i + 1) * perGroup).join(' '),
+    }))
+  }, [project, language, t])
+
   useEffect(() => {
     if (lightboxIndex === null) return
     const handleKey = (e) => {
@@ -282,10 +294,13 @@ function ProjectDetail() {
               ))}
             </div>
 
-            <div className="project-about-text">
-              <div className="project-slide-card">
-                <p className="project-slide-text">{p('about')}</p>
-              </div>
+            <div className="project-about-grid">
+              {aboutSections.map((section, i) => (
+                <div key={i} className="project-about-card">
+                  <span className="project-about-card-label">{section.label}</span>
+                  <p className="project-about-card-text">{section.text}</p>
+                </div>
+              ))}
             </div>
 
             {project.links.doi && (
