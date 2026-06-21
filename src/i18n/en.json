@@ -136,8 +136,6 @@
   "project.pgpweblab.features.2": "Message decryption using the private key",
   "project.pgpweblab.features.3": "File encryption using the recipient's public key (.pgp output)",
   "project.pgpweblab.features.4": "File decryption using the private key with passphrase support",
-  "project.pgpweblab.limitations.0": "RSA 4096-bit key generation may take a few seconds on less powerful devices",
-  "project.pgpweblab.limitations.1": "Very large files may be limited by available browser memory",
   "project.pgpweblab.context": "Full-Stack Project — Personal Development",
 
   "experience.edi-labs.description": "My experience at Edi-Labs focused on support, monitoring, and file integration in a corporate environment, working directly with MFT (Managed File Transfer) solutions through the Axway SecureTransport platform.",

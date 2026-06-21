@@ -132,8 +132,6 @@
   "project.pgpweblab.features.2": "Descifrado de mensajes utilizando la clave privada del destinatario",
   "project.pgpweblab.features.3": "Cifrado de archivos utilizando la clave pública del destinatario (salida .pgp)",
   "project.pgpweblab.features.4": "Descifrado de archivos utilizando la clave privada con soporte de frase secreta",
-  "project.pgpweblab.limitations.0": "La generación de claves RSA de 4096 bits puede llevar algunos segundos en dispositivos menos potentes",
-  "project.pgpweblab.limitations.1": "Archivos muy grandes pueden estar limitados por la memoria disponible en el navegador",
   "project.pgpweblab.context": "Proyecto Full-Stack — Desarrollo propio",
 
   "experience.edi-labs.description": "Mi experiencia en Edi-Labs se centró en soporte, monitoreo e integración de archivos en un entorno corporativo, trabajando directamente con soluciones MFT (Managed File Transfer) a través de la plataforma Axway SecureTransport.",

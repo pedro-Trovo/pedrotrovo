@@ -99,12 +99,11 @@ export const projects = [
     image: '/images/projects/pgpweblab/home.png',
     images: [
       '/images/projects/pgpweblab/home.png',
-      '/images/projects/pgpweblab/key-generation.png',
-      '/images/projects/pgpweblab/message-encrypt.png',
-      '/images/projects/pgpweblab/message-decrypt.png',
-      '/images/projects/pgpweblab/file-encrypt.png',
-      '/images/projects/pgpweblab/file-decrypt.png',
-      '/images/projects/pgpweblab/about.png',
+      '/images/projects/pgpweblab/gerarchaves.png',
+      '/images/projects/pgpweblab/criptografar-mensagem.png',
+      '/images/projects/pgpweblab/decriptografarmensagem.png',
+      '/images/projects/pgpweblab/criptografar-arquivo.png',
+      '/images/projects/pgpweblab/descriptografar-arquivo.png',
     ],
     tags: ['Angular', 'TypeScript', 'Bootstrap', 'OpenPGP.js', 'SPA'],
     techStack: [
@@ -122,10 +121,7 @@ export const projects = [
       'O PGP Web Lab é uma ferramenta de criptografia OpenPGP completa que opera inteiramente no navegador, sem necessidade de envio de dados a servidores externos. Desenvolvido como uma Single Page Application (SPA) em Angular, o projeto utiliza a biblioteca OpenPGP.js para realizar todas as operações criptográficas localmente — geração de chaves, criptografia e descriptografia de mensagens e arquivos. Todo o processamento é 100% client-side, garantindo que chaves privadas nunca saiam do computador do usuário. O projeto foi desenvolvido para oferecer uma interface amigável e acessível para usuários que desejam experimentar criptografia PGP sem instalar software nativo como o GnuPG.',
     architecture:
       'O PGP Web Lab é uma aplicação de página única (SPA) construída com Angular, executando todo o processamento no navegador do cliente. A interface utiliza Bootstrap 5 e Bootstrap Icons para uma experiência responsiva e moderna. A biblioteca OpenPGP.js realiza todas as operações criptográficas — desde a geração de pares de chaves RSA até a criptografia e descriptografia de mensagens e arquivos. O suporte a i18n (inglês/português) é implementado nativamente com Angular i18n. A aplicação é compilada em arquivos estáticos e implantada na Vercel, sem qualquer backend ou servidor intermediário.',
-    limitations: [
-      'Geração de chaves RSA de 4096 bits pode levar alguns segundos em dispositivos menos potentes',
-      'Arquivos muito grandes podem ser limitados pela memória disponível no navegador',
-    ],
+    limitations: [],
     links: {
       github: 'https://github.com/pedro-Trovo/pgpweblab',
       site: 'https://pgpweblab.vercel.app',
