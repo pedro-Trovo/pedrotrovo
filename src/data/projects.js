@@ -30,6 +30,16 @@ export const projects = [
       'Estatísticas detalhadas da análise, incluindo contagem de classes gramaticais e métricas do texto',
       'Infraestrutura completa com Docker Compose (API Flask + Frontend Nginx) para deploy simplificado',
     ],
+    featureLabels: {
+      pt: ['Analisador Morfossintático', 'Árvore de Dependências', 'Quiz Educativo', 'Desktop App', 'Estatísticas', 'Infraestrutura Docker'],
+      en: ['Morphosyntactic Analyzer', 'Dependency Tree', 'Educational Quiz', 'Desktop App', 'Statistics', 'Docker Infrastructure'],
+    },
+    highlights: [
+      { icon: '🎓', text: 'Iniciação Científica — FATEC Ipiranga' },
+      { icon: '⏱️', text: '11 meses de desenvolvimento' },
+      { icon: '📄', text: 'Publicado no Zenodo com DOI' },
+      { icon: '🧠', text: 'NLP com spaCy' },
+    ],
     about:
       'O MORSLUM é uma plataforma acadêmica desenvolvida como projeto de Iniciação Científica na FATEC Ipiranga, com o objetivo de tornar o aprendizado de análise morfossintática da língua portuguesa mais interativo e acessível. Utilizando processamento de linguagem natural (NLP) com o modelo pt_core_news_sm do spaCy, a plataforma é capaz de classificar gramaticalmente cada palavra de uma frase e gerar visualizações de árvores de dependência sintática, facilitando a compreensão das relações entre os termos da oração.  Além do analisador, o sistema conta com um quiz educativo que gera automaticamente questões a partir de um banco de 500 frases do português brasileiro, desafiando o usuário a identificar classes gramaticais em diferentes contextos. O projeto foi desenvolvido ao longo de 11 meses, abrangendo desde a revisão teórica de gramática e NLP até a implementação, testes e empacotamento desktop.',
     architecture:
@@ -80,6 +90,15 @@ export const projects = [
       'Dashboard com gráfico de barras da distribuição de status utilizando ECharts',
       'Geração automática de código de rastreio no formato TL-YYYYMMDD-NNNN',
     ],
+    featureLabels: {
+      pt: ['Cadastro de Entregas', 'Rastreamento', 'Atualização de Status', 'Cancelamento', 'Filtros', 'Dashboard', 'Código de Rastreio'],
+      en: ['Delivery Registration', 'Tracking', 'Status Update', 'Cancellation', 'Filters', 'Dashboard', 'Tracking Code'],
+    },
+    highlights: [
+      { icon: '🔗', text: 'Integração REST ↔ SOAP' },
+      { icon: '☕', text: 'Java + Spring Boot' },
+      { icon: '🐘', text: 'PostgreSQL' },
+    ],
     about:
       'O TransLog é um painel interno (intranet) moderno conectado a um sistema legado via SOAP. Trata-se de um projeto de integração entre REST e SOAP, onde uma API REST intermediária em Express faz a ponte entre o frontend React e o backend SOAP legado de gestão de entregas. O sistema oferece desde o cadastro de entregas até o rastreamento detalhado com timeline de status, seguindo um fluxo de transições pré-definido que garante a integridade do processo logístico.',
     architecture:
@@ -116,6 +135,15 @@ export const projects = [
       'Descriptografia de mensagens utilizando a chave privada do destinatário',
       'Criptografia de arquivos utilizando a chave pública do destinatário (saída .pgp)',
       'Descriptografia de arquivos utilizando a chave privada com suporte a frase secreta',
+    ],
+    featureLabels: {
+      pt: ['Gerar Par de Chaves', 'Criptografar Mensagem', 'Descriptografar Mensagem', 'Criptografar Arquivo', 'Descriptografar Arquivo'],
+      en: ['Generate Key Pair', 'Encrypt Message', 'Decrypt Message', 'Encrypt File', 'Decrypt File'],
+    },
+    highlights: [
+      { icon: '🔒', text: '100% client-side' },
+      { icon: '🅰️', text: 'Angular + TypeScript' },
+      { icon: '🔐', text: 'OpenPGP.js' },
     ],
     about:
       'O PGP Web Lab é uma ferramenta de criptografia OpenPGP completa que opera inteiramente no navegador, sem necessidade de envio de dados a servidores externos. Desenvolvido como uma Single Page Application (SPA) em Angular, o projeto utiliza a biblioteca OpenPGP.js para realizar todas as operações criptográficas localmente — geração de chaves, criptografia e descriptografia de mensagens e arquivos. Todo o processamento é 100% client-side, garantindo que chaves privadas nunca saiam do computador do usuário. O projeto foi desenvolvido para oferecer uma interface amigável e acessível para usuários que desejam experimentar criptografia PGP sem instalar software nativo como o GnuPG.',
@@ -156,6 +184,16 @@ export const projects = [
       'Sistema de comentários com moderação e opção de anonimato para o estudante',
       'Recuperação de senha via email com código numérico de verificação de 6 dígitos',
       'Favoritar empresas para salvar oportunidades de interesse e consultar depois',
+    ],
+    featureLabels: {
+      pt: ['Pesquisar Empresas', 'Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA', 'Gráfico Radar', 'Match Automático', 'Comentários', 'Recuperar Senha', 'Favoritos'],
+      en: ['Search Companies', 'Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations', 'Radar Chart', 'Auto Match', 'Comments', 'Password Recovery', 'Favorites'],
+    },
+    highlights: [
+      { icon: '🎓', text: 'TCC — FATEC Ipiranga (2026)' },
+      { icon: '👥', text: 'Equipe de 5 estudantes' },
+      { icon: '🤖', text: 'Recomendações com IA Gemini' },
+      { icon: '🐳', text: 'Docker + CI/CD' },
     ],
     about:
       'A busca por estágio é uma etapa decisiva na vida acadêmica, mas os estudantes enfrentam uma grande assimetria de informação — não há transparência sobre a cultura, o aprendizado e os benefícios reais de cada empresa. O Startdoor nasceu para resolver esse problema como um TCC na FATEC Ipiranga, desenvolvido por uma equipe de 5 estudantes. A plataforma centraliza relatos de estagiários, permitindo que avaliem empresas com notas de 1 a 5 em 12 competências (Ambiente, Aprendizado, Benefícios, Cultura, Efetivação, Entrevista, Feedback, Infraestrutura, Integração, Remuneração, Rotina e Liderança) e escrevam relatos textuais detalhados. O sistema utiliza inteligência artificial (Google Gemini) para gerar recomendações personalizadas de empresas, comparando as preferências do estudante com as médias reais das organizações. O projeto conta com autenticação JWT, CRUD completo de estudantes e empresas, e infraestrutura dockerizada com CI/CD via GitHub Actions.',

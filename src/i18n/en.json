@@ -65,6 +65,7 @@
   "project_detail.months_development": "11 months of development",
   "project_detail.has_doi": "Published on Zenodo with DOI",
   "project_detail.how_it_works": "How it works",
+  "project_detail.read_more": "Read more about the architecture →",
 
   "contact.title": "Contact",
   "contact.subtitle": "Have a project in mind or want to chat? Send me a message.",

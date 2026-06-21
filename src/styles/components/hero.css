@@ -129,6 +129,40 @@
   justify-content: center;
 }
 
+.home-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.home-fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-bg-section);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition: border-color 0.2s;
+}
+
+.home-fact:hover {
+  border-color: var(--color-accent-dim);
+}
+
+.home-fact-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.home-fact-label {
+  line-height: 1;
+}
+
 @media (max-width: 480px) {
   .home-photo {
     width: 130px;

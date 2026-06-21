@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef, useMemo } from 'react'
+import { useState, useCallback, useEffect, useRef, useMemo, Fragment } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -10,6 +10,7 @@ import {
   faTimes,
   faChevronLeft,
   faChevronRight,
+  faArrowRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { projects } from '../data/projects'
@@ -138,31 +139,8 @@ function ProjectDetail() {
     document.getElementById(`slide-${id}`)?.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
-  const featureIcon = useMemo(() => {
-    if (!project) return []
-    return project.features.map(() => '')
-  }, [project])
-
   const featureLabels = useMemo(() => {
-    const labels = {
-      morslum: {
-        pt: ['Analisador Morfossintático', 'Árvore de Dependências', 'Quiz Educativo', 'Desktop App', 'Estatísticas', 'Infraestrutura Docker'],
-        en: ['Morphosyntactic Analyzer', 'Dependency Tree', 'Educational Quiz', 'Desktop App', 'Statistics', 'Docker Infrastructure'],
-      },
-      translog: {
-        pt: ['Cadastro de Entregas', 'Rastreamento', 'Atualização de Status', 'Cancelamento', 'Filtros', 'Dashboard', 'Código de Rastreio'],
-        en: ['Delivery Registration', 'Tracking', 'Status Update', 'Cancellation', 'Filters', 'Dashboard', 'Tracking Code'],
-      },
-      pgpweblab: {
-        pt: ['Gerar Par de Chaves', 'Criptografar Mensagem', 'Descriptografar Mensagem', 'Criptografar Arquivo', 'Descriptografar Arquivo'],
-        en: ['Generate Key Pair', 'Encrypt Message', 'Decrypt Message', 'Encrypt File', 'Decrypt File'],
-      },
-      startdoor: {
-        pt: ['Pesquisar Empresas', 'Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA', 'Gráfico Radar', 'Match Automático', 'Comentários', 'Recuperar Senha', 'Favoritos'],
-        en: ['Search Companies', 'Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations', 'Radar Chart', 'Auto Match', 'Comments', 'Password Recovery', 'Favorites'],
-      },
-    }
-    return labels[project?.slug]?.[language] || []
+    return project?.featureLabels?.[language] || []
   }, [project, language])
 
   useEffect(() => {
@@ -247,6 +225,7 @@ function ProjectDetail() {
 
       <section className="page project-slides">
         <nav className="project-slide-nav" aria-label="Slide navigation">
+          <div className="project-slide-counter">{activeSlide + 1}{' / '}{slides.length}</div>
           {slides.map((s, i) => (
             <button
               key={s.id}
@@ -292,14 +271,26 @@ function ProjectDetail() {
               </div>
             </div>
 
-            <h2 className="project-slide-heading">{t('project_detail.about')}</h2>
-            <div className="project-slide-card">
-              <p className="project-slide-text">{p('about')}</p>
+            <h2 className="project-slide-heading">📋 {t('project_detail.about')}</h2>
+
+            <div className="project-highlights-bar">
+              {project.highlights.map((h, i) => (
+                <span key={i} className="project-highlight-chip">
+                  <span className="project-highlight-icon">{h.icon}</span>
+                  {h.text}
+                </span>
+              ))}
+            </div>
+
+            <div className="project-about-text">
+              <div className="project-slide-card">
+                <p className="project-slide-text">{p('about')}</p>
+              </div>
             </div>
 
             {project.links.doi && (
               <div className="project-slide-callout">
-                <span className="project-slide-callout-icon"></span>
+                <span className="project-slide-callout-icon">📌</span>
                 <div>
                   <p className="project-slide-callout-title">{t('project_detail.highlights')}</p>
                   <ul className="project-slide-callout-bullets">
@@ -316,7 +307,7 @@ function ProjectDetail() {
 
         <section className="project-slide" id="slide-galeria">
           <div className="project-slide-inner">
-            <h2 className="project-slide-heading">{t('project_detail.gallery')}</h2>
+            <h2 className="project-slide-heading">🖼️ {t('project_detail.gallery')}</h2>
             <div className="carousel">
               <div
                 className="carousel-viewport"
@@ -371,18 +362,17 @@ function ProjectDetail() {
 
         <section className="project-slide" id="slide-funcionalidades">
           <div className="project-slide-inner">
-            <h2 className="project-slide-heading">{t('project_detail.features')}</h2>
+            <h2 className="project-slide-heading">⚡ {t('project_detail.features')}</h2>
             <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
               {(featureGroupIndices[project.slug] || []).map((indices, gi) => (
                 <div key={gi} className="project-slide-group">
                   <div className="project-slide-group-header">
-                    <span></span>
+                    <span className="project-slide-group-header-emoji">{['🎯', '📊', '🔧', '👤'][gi] || ''}</span>
                     <span>{p(`features.group.${gi}`)}</span>
                   </div>
                   <div className="project-slide-group-grid" style={{ gridTemplateColumns: indices.length < 3 ? `repeat(${indices.length}, 1fr)` : undefined }}>
                     {indices.map((i) => (
                       <div key={i} className="project-slide-inner-card">
-                        <span className="project-slide-inner-card-icon">{featureIcon[i]}</span>
                         {featureLabels[i] && <strong className="project-slide-inner-card-label">{featureLabels[i]}</strong>}
                         <p className="project-slide-inner-card-text">{p(`features.${i}`)}</p>
                       </div>
@@ -396,23 +386,36 @@ function ProjectDetail() {
 
         <section className="project-slide" id="slide-arquitetura">
           <div className="project-slide-inner">
-            <h2 className="project-slide-heading">{t('project_detail.architecture')}</h2>
+            <h2 className="project-slide-heading">🏗️ {t('project_detail.architecture')}</h2>
             <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
-              <div className="project-slide-card">
-                <p className="project-slide-text">{p('architecture')}</p>
-              </div>
+              <details className="project-arch-details">
+                <summary className="project-arch-summary">
+                  <span className="project-slide-text">{p('architecture')}</span>
+                  <span className="project-arch-toggle">{t('project_detail.read_more')}</span>
+                </summary>
+                <div className="project-arch-full">
+                  <p className="project-slide-text">{p('architecture')}</p>
+                </div>
+              </details>
               <div className="project-slide-group">
                 <div className="project-slide-group-header">
-                  <span></span>
+                  <span className="project-slide-group-header-emoji">⚙️</span>
                   <span>{t('project_detail.how_it_works')}</span>
                 </div>
-                <div className="project-slide-group-grid" style={{ gridTemplateColumns: `repeat(${Math.min((archCount[project.slug] || 0), 3)}, 1fr)` }}>
+                <div className="project-slide-flow">
                   {Array.from({ length: archCount[project.slug] || 0 }, (_, i) => (
-                    <div key={i} className="project-slide-inner-card">
-                      <span className="project-slide-inner-card-icon"></span>
-                      <strong className="project-slide-inner-card-label">{p(`arch.${i}.title`)}</strong>
-                      <p className="project-slide-inner-card-text">{p(`arch.${i}.desc`)}</p>
-                    </div>
+                    <Fragment key={i}>
+                      <div className="project-slide-flow-card project-slide-inner-card">
+                        <span className="project-slide-flow-step-num">{i + 1}</span>
+                        <strong className="project-slide-inner-card-label">{p(`arch.${i}.title`)}</strong>
+                        <p className="project-slide-inner-card-text">{p(`arch.${i}.desc`)}</p>
+                      </div>
+                      {i < (archCount[project.slug] || 0) - 1 && (
+                        <div className="project-slide-flow-arrow">
+                          <FontAwesomeIcon icon={faArrowRight} />
+                        </div>
+                      )}
+                    </Fragment>
                   ))}
                 </div>
               </div>
@@ -422,7 +425,7 @@ function ProjectDetail() {
 
         <section className="project-slide" id="slide-tecnologias">
           <div className="project-slide-inner">
-            <h2 className="project-slide-heading">{t('project_detail.tech')}</h2>
+            <h2 className="project-slide-heading">🛠️ {t('project_detail.tech')}</h2>
             <div className="project-slide-tech-grid">
               {project.techStack.map((group) => (
                 <div key={group.category} className="project-slide-card">
@@ -449,7 +452,7 @@ function ProjectDetail() {
         {project.limitations.length > 0 && (
           <section className="project-slide" id="slide-limitacoes">
             <div className="project-slide-inner">
-              <h2 className="project-slide-heading">{t('project_detail.limitations')}</h2>
+              <h2 className="project-slide-heading">⚠️ {t('project_detail.limitations')}</h2>
               <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
                 {(limitationGroupIndices[project.slug] || []).map((indices, gi) => (
                   <div key={gi} className="project-slide-group">

@@ -126,6 +126,28 @@ function Home() {
               <motion.div className="home-bio-text" variants={fadeUp}>
                 <p>{t('about.text')}</p>
               </motion.div>
+              <motion.div className="home-facts" variants={fadeUp}>
+                <div className="home-fact">
+                  <span className="home-fact-icon">🎓</span>
+                  <span className="home-fact-label">{t('about.fact_education')}</span>
+                </div>
+                <div className="home-fact">
+                  <span className="home-fact-icon">💼</span>
+                  <span className="home-fact-label">{t('about.fact_job')}</span>
+                </div>
+                <div className="home-fact">
+                  <span className="home-fact-icon">📍</span>
+                  <span className="home-fact-label">{t('about.fact_location')}</span>
+                </div>
+                <div className="home-fact">
+                  <span className="home-fact-icon">🏅</span>
+                  <span className="home-fact-label">{t('about.fact_cert')}</span>
+                </div>
+                <div className="home-fact">
+                  <span className="home-fact-icon">🌐</span>
+                  <span className="home-fact-label">{t('about.fact_langs')}</span>
+                </div>
+              </motion.div>
               <div className="home-ctas">
                 <Link ref={contactRef} to="/contato" className="btn btn-primary btn-glow btn-glow-white">{t('home.contact_cta')} &rarr;</Link>
               </div>
