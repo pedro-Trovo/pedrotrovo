@@ -186,7 +186,6 @@ export const projects = [
       { category: 'DevOps', items: ['Docker', 'GitHub Actions'] },
     ],
     features: [
-      'Pesquisar empresas por nome, setor ou localização utilizando busca fuzzy',
       'Acessar avaliações detalhadas com notas de 12 competências e relatos de outros estagiários',
       'Comparar oportunidades lado a lado com gráficos e estatísticas das avaliações',
       'Compartilhar feedback registrando sua própria experiência de estágio na plataforma',
@@ -198,8 +197,8 @@ export const projects = [
       'Favoritar empresas para salvar oportunidades de interesse e consultar depois',
     ],
     featureLabels: {
-      pt: ['Pesquisar Empresas', 'Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA', 'Gráfico Radar', 'Match Automático', 'Comentários', 'Recuperar Senha', 'Favoritos'],
-      en: ['Search Companies', 'Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations', 'Radar Chart', 'Auto Match', 'Comments', 'Password Recovery', 'Favorites'],
+      pt: ['Acessar Avaliações', 'Comparar Oportunidades', 'Compartilhar Feedback', 'Recomendações com IA', 'Gráfico Radar', 'Match Automático', 'Comentários', 'Recuperar Senha', 'Favoritos'],
+      en: ['Access Reviews', 'Compare Opportunities', 'Share Feedback', 'AI Recommendations', 'Radar Chart', 'Auto Match', 'Comments', 'Password Recovery', 'Favorites'],
     },
     aboutLabels: {
       pt: ['Contexto', 'Solução', 'Infraestrutura'],
