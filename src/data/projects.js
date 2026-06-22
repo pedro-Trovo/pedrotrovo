@@ -217,6 +217,7 @@ export const projects = [
     limitations: [],
     links: {
       github: 'https://github.com/Balbinao/Startdoor',
+      site: 'https://startdoor-landing-page.vercel.app/',
     },
     context: 'TCC — FATEC Ipiranga — ADS (2026)',
   },
