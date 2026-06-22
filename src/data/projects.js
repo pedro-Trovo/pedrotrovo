@@ -81,7 +81,7 @@ export const projects = [
     techStack: [
       { category: 'Frontend', items: ['React', 'Vite', 'TailwindCSS', 'shadcn/ui', 'ECharts'] },
       { category: 'API REST', items: ['Express', 'Node.js'] },
-      { category: 'Backend', items: ['Java', 'Spring Boot', 'SOAP Web Services', 'JPA'] },
+      { category: 'Backend', items: ['Java', 'Spring Boot', 'SOAP Web Services', 'JPA', 'Swagger'] },
       { category: 'Banco', items: ['PostgreSQL'] },
       { category: 'DevOps', items: ['Docker', 'Maven'] },
     ],
@@ -180,7 +180,7 @@ export const projects = [
     tags: ['React', 'TypeScript', 'Java', 'Spring Boot', 'MySQL', 'Docker', 'TailwindCSS'],
     techStack: [
       { category: 'Frontend', items: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'MobX', 'React Hook Form', 'Zod', 'Axios', 'Chart.js'] },
-      { category: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'JPA'] },
+      { category: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'JPA', 'Swagger'] },
       { category: 'AI', items: ['Google Gemini'] },
       { category: 'Database', items: ['MySQL'] },
       { category: 'DevOps', items: ['Docker', 'GitHub Actions'] },
