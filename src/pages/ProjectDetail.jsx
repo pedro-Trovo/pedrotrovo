@@ -274,7 +274,11 @@ function ProjectDetail() {
             <h2 className="project-slide-heading">📋 {t('project_detail.about')}</h2>
 
             <div className="project-slide-card">
-              <p className="project-slide-text">{p('about')}</p>
+              <ul className="project-slide-about-bullets">
+                {p('about').split('\n').filter(Boolean).map((line, i) => (
+                  <li key={i} className="project-slide-about-bullet">{line}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
