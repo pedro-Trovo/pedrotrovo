@@ -123,6 +123,11 @@ function Home() {
                   <Typewriter words={['Backend Developer', 'Fullstack Developer']} />
                 </motion.p>
               </motion.div>
+              <motion.div className="home-bio-text home-welcome" variants={fadeUp}>
+                {t('about.welcome').split('\n\n').map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </motion.div>
               <motion.div className="home-bio-text" variants={fadeUp}>
                 <p>{t('about.text')}</p>
               </motion.div>
