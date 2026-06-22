@@ -143,18 +143,6 @@ function ProjectDetail() {
     return project?.featureLabels?.[language] || []
   }, [project, language])
 
-  const aboutSections = useMemo(() => {
-    if (!project) return []
-    const text = t(`project.${project.slug}.about`)
-    const labels = project?.aboutLabels?.[language] || project?.aboutLabels?.pt || []
-    const sentences = text.match(/[^.!?:;]+[.!?:;]+/g) || [text]
-    const perGroup = Math.ceil(sentences.length / labels.length)
-    return labels.map((label, i) => ({
-      label,
-      text: sentences.slice(i * perGroup, (i + 1) * perGroup).join(' '),
-    }))
-  }, [project, language, t])
-
   useEffect(() => {
     if (lightboxIndex === null) return
     const handleKey = (e) => {
@@ -221,7 +209,7 @@ function ProjectDetail() {
   }
 
   const limitationGroupIndices = {
-    morslum: [[0, 1, 2], [3]],
+    morslum: [[0, 1]],
   }
 
   return (
@@ -285,38 +273,9 @@ function ProjectDetail() {
 
             <h2 className="project-slide-heading">📋 {t('project_detail.about')}</h2>
 
-            <div className="project-highlights-bar">
-              {project.highlights.map((h, i) => (
-                <span key={i} className="project-highlight-chip">
-                  <span className="project-highlight-icon">{h.icon}</span>
-                  {h.text}
-                </span>
-              ))}
+            <div className="project-slide-card">
+              <p className="project-slide-text">{p('about')}</p>
             </div>
-
-            <div className="project-about-grid">
-              {aboutSections.map((section, i) => (
-                <div key={i} className="project-about-card">
-                  <span className="project-about-card-label">{section.label}</span>
-                  <p className="project-about-card-text">{section.text}</p>
-                </div>
-              ))}
-            </div>
-
-            {project.links.doi && (
-              <div className="project-slide-callout">
-                <span className="project-slide-callout-icon">📌</span>
-                <div>
-                  <p className="project-slide-callout-title">{t('project_detail.highlights')}</p>
-                  <ul className="project-slide-callout-bullets">
-                    {project.slug === 'morslum' && (
-                      <li>{t('project_detail.months_development')}</li>
-                    )}
-                    <li>{t('project_detail.has_doi')}</li>
-                  </ul>
-                </div>
-              </div>
-            )}
           </div>
         </section>
 
@@ -403,15 +362,9 @@ function ProjectDetail() {
           <div className="project-slide-inner">
             <h2 className="project-slide-heading">🏗️ {t('project_detail.architecture')}</h2>
             <div className="project-slide-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, border: 'none', background: 'none' }}>
-              <details className="project-arch-details">
-                <summary className="project-arch-summary">
-                  <span className="project-slide-text">{p('architecture')}</span>
-                  <span className="project-arch-toggle">{t('project_detail.read_more')}</span>
-                </summary>
-                <div className="project-arch-full">
-                  <p className="project-slide-text">{p('architecture')}</p>
-                </div>
-              </details>
+              <div className="project-slide-card">
+                <p className="project-slide-text">{p('architecture')}</p>
+              </div>
               <div className="project-slide-group">
                 <div className="project-slide-group-header">
                   <span className="project-slide-group-header-emoji">⚙️</span>
